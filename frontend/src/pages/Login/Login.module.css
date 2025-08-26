@@ -1,0 +1,156 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.loginCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.errorMessage {
+  background-color: #fee;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #fcc;
+  font-size: 0.9rem;
+}
+
+.form {
+  width: 100%;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.inputError {
+  border-color: #e74c3c;
+}
+
+.inputError:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.fieldError {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.toggleForm {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e1e5e9;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.toggleBtn:hover {
+  color: #764ba2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 1rem;
+  }
+
+  .loginCard {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
