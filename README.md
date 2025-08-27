@@ -1,6 +1,5 @@
-# NCKH 2025 Project
+# Project ky 9
 
-Dự án nghiên cứu khoa học 2025 với backend Node.js và frontend React.
 
 ## 🚀 Tính năng
 
