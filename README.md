@@ -22,7 +22,7 @@
 
 ```bash
 git clone <repository-url>
-cd nckh-2025
+cd project-ky-9
 ```
 
 ### 2. Cài đặt dependencies
