@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Header from './components/Header/Header';
+import Header1 from './components/Header/Header1';
 import LanguageProvider from './components/LanguageProvider';
 import LocalizedRoutes from './components/LocalizedRoutes';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -47,7 +48,8 @@ function AppContent() {
   return (
     <LanguageProvider>
       <div className="App">
-        <Header />
+        {/* <Header /> */}
+        <Header1 />
         <LocalizedRoutes 
           routes={appRoutes}
           languages={APP_CONFIG.languages.supported}
