@@ -9,7 +9,6 @@ export interface LoginRequest {
 // Interface cho register request
 export interface RegisterRequest {
   username: string;
-  email: string;
   password: string;
 }
 

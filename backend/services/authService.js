@@ -2,16 +2,13 @@ const { User } = require("../models/User.js");
 const { generateToken } = require("../config/jwt.js");
 
 const register = async (userData) => {
-  const { username, email, password } = userData;
+  const { username, password } = userData;
 
   // Check if user already exists
   const existingUser = await User.findOne({
-    $or: [{ email }, { username }],
+    $or: [{ username }],
   });
   if (existingUser) {
-    if (existingUser.email === email) {
-      throw new Error("Email already registered");
-    }
     if (existingUser.username === username) {
       throw new Error("Username already registered");
     }
@@ -20,19 +17,17 @@ const register = async (userData) => {
   // Create new user with name from username
   const user = await User.create({
     username,
-    email,
     password,
     name: username, // Use username as name for now
   });
 
   // Generate token
-  const token = generateToken({ userId: user._id, email: user.email });
+  const token = generateToken({ userId: user._id });
 
   return {
     user: {
       id: user._id,
       username: user.username,
-      email: user.email,
       role: user.role,
     },
     token,
@@ -55,13 +50,12 @@ const login = async (credentials) => {
   }
 
   // Generate token
-  const token = generateToken({ userId: user._id, email: user.email });
+  const token = generateToken({ userId: user._id });
 
   return {
     user: {
       id: user._id,
       username: user.username,
-      email: user.email,
       role: user.role,
     },
     token,

@@ -42,8 +42,8 @@ function Login() {
 
     if (isRegister) {
       try {
-        const { username, email, password } = registerData;
-        await dispatch(registerUser({ username, email, password })).unwrap();
+        const { username, password } = registerData;
+        await dispatch(registerUser({ username, password })).unwrap();
         navigate(getLocalizedPath('/'));
       } catch (error) {
         // Error đã được xử lý trong Redux
