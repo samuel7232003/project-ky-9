@@ -22,7 +22,7 @@ function Home() {
               trồng.
             </p>
           </div>
-          <Link to={"/login"} style={{ position: "relative" }}>
+          <Link to={"/main"} style={{ position: "relative" }}>
             <button className={css.containerButton}>Bắt đầu ngay!</button>
             <img className={css.containerLeaf} src={leaf} alt="leaf" />
           </Link>

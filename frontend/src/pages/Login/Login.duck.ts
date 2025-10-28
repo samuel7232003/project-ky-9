@@ -95,7 +95,7 @@ const loginSlice = createSlice({
         delete state.fieldErrors[field];
       }
     },
-    toggleRegisterMode: (state) => {
+    toggleMode: (state) => {
       state.isRegister = !state.isRegister;
       state.error = null;
       state.fieldErrors = {};
@@ -112,6 +112,12 @@ const loginSlice = createSlice({
       state.error = null;
       state.fieldErrors = {};
     },
+    toggleLoginMode: (state) => {
+      state.isRegister = false;
+    },
+    toggleRegisterMode: (state) => {
+      state.isRegister = true;
+    }
   },
   extraReducers: (builder) => {
     // Login
@@ -153,10 +159,12 @@ const loginSlice = createSlice({
 export const {
   setFormData,
   setRegisterData,
-  toggleRegisterMode,
+  toggleMode,
   clearError,
   clearFieldErrors,
   resetForm,
+  toggleLoginMode,
+  toggleRegisterMode,
 } = loginSlice.actions;
 
 export default loginSlice.reducer;
