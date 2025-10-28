@@ -1,9 +1,22 @@
 import React from "react";
 import css from "./Header1.module.css";
-import { useTranslation } from "../../hooks/useTranslation";
 import { Link } from "react-router-dom";
+import {
+  toggleLoginMode,
+  toggleRegisterMode
+} from '../../pages/Login/Login.duck';
+import { useAppDispatch } from "../../store/hooks";
 
 const Header1: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const routeLogin = () => {
+    dispatch(toggleLoginMode());
+  }
+
+  const routeRegister = () => {
+    dispatch(toggleRegisterMode());
+  }
 
   return (
     <header>
@@ -13,12 +26,12 @@ const Header1: React.FC = () => {
           <Link className={css.infor} to={('/')}>Thông tin</Link>
         </div>
         <div className={css.containerRight}>
-          <Link  to={('/login')}>
+          <Link  to={('/login')} onClick={routeLogin}>
             <button className={css.login}>
               Đăng nhập
             </button>
           </Link>
-          <Link className={css.register} to={('/register')}>Tạo tài khoản</Link>
+          <Link className={css.register} to={('/login')} onClick={routeRegister}>Tạo tài khoản</Link>
         </div>
       </div>
     </header>

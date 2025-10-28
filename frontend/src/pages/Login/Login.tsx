@@ -6,9 +6,11 @@ import {
   registerUser,
   setFormData,
   setRegisterData,
-  toggleRegisterMode,
+  toggleMode,
   clearError,
   clearFieldErrors,
+  toggleLoginMode,
+  toggleRegisterMode
 } from './Login.duck';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Icon } from '../../components/Icon';
@@ -57,19 +59,14 @@ function Login() {
   };
 
   const handleToggleMode = () => {
-    dispatch(toggleRegisterMode());
+    dispatch(toggleMode());
   };
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
         <h2 className={styles.title}>
-          <Icon 
-            name={isRegister ? "register" : "login"} 
-            size={24} 
-            style={{ marginRight: '8px', verticalAlign: 'middle' }} 
-          />
-          {isRegister ? t('auth.register.title') : t('auth.login.title')}
+          {isRegister ? 'ĐĂNG KÝ' : 'ĐĂNG NHẬP'}
         </h2>
         
         {error && (
@@ -82,9 +79,9 @@ function Login() {
           {isRegister ? (
             <>
               <div className={styles.formGroup}>
-                <label htmlFor="username" className={styles.label}>
+                {/* <label htmlFor="username" className={styles.label}>
                   {t('auth.register.username')}:
-                </label>
+                </label> */}
                 <div style={{ position: 'relative' }}>
                   <input
                     type="text"
@@ -92,10 +89,11 @@ function Login() {
                     name="username"
                     value={registerData.username}
                     onChange={handleInputChange}
+                    placeholder='Tên người dùng'
                     className={`${styles.input} ${fieldErrors.username ? styles.inputError : ''}`}
                     required
                   />
-                  <Icon 
+                  {/* <Icon 
                     name="user" 
                     size={16} 
                     style={{ 
@@ -105,14 +103,14 @@ function Login() {
                       transform: 'translateY(-50%)',
                       color: '#999'
                     }} 
-                  />
+                  /> */}
                 </div>
                 {fieldErrors.username && (
                   <div className={styles.fieldError}>{t(fieldErrors.username)}</div>
                 )}
               </div>
               
-              <div className={styles.formGroup}>
+              {/* <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.label}>
                   {t('auth.register.email')}:
                 </label>
@@ -141,12 +139,12 @@ function Login() {
                 {fieldErrors.email && (
                   <div className={styles.fieldError}>{t(fieldErrors.email)}</div>
                 )}
-              </div>
+              </div> */}
               
               <div className={styles.formGroup}>
-                <label htmlFor="password" className={styles.label}>
+                {/* <label htmlFor="password" className={styles.label}>
                   {t('auth.register.password')}:
-                </label>
+                </label> */}
                 <div style={{ position: 'relative' }}>
                   <input
                     type="password"
@@ -154,10 +152,11 @@ function Login() {
                     name="password"
                     value={registerData.password}
                     onChange={handleInputChange}
+                    placeholder='Mật khẩu'
                     className={`${styles.input} ${fieldErrors.password ? styles.inputError : ''}`}
                     required
                   />
-                  <Icon 
+                  {/* <Icon 
                     name="lock" 
                     size={16} 
                     style={{ 
@@ -167,7 +166,7 @@ function Login() {
                       transform: 'translateY(-50%)',
                       color: '#999'
                     }} 
-                  />
+                  /> */}
                 </div>
                 {fieldErrors.password && (
                   <div className={styles.fieldError}>{t(fieldErrors.password)}</div>
@@ -175,15 +174,16 @@ function Login() {
               </div>
               
               <div className={styles.formGroup}>
-                <label htmlFor="confirmPassword" className={styles.label}>
+                {/* <label htmlFor="confirmPassword" className={styles.label}>
                   {t('auth.register.confirmPassword')}:
-                </label>
+                </label> */}
                 <input
                   type="password"
                   id="confirmPassword"
                   name="confirmPassword"
                   value={registerData.confirmPassword}
                   onChange={handleInputChange}
+                  placeholder='Xác nhận mật khẩu'
                   className={`${styles.input} ${fieldErrors.confirmPassword ? styles.inputError : ''}`}
                   required
                 />
@@ -195,9 +195,9 @@ function Login() {
           ) : (
             <>
               <div className={styles.formGroup}>
-                <label htmlFor="username" className={styles.label}>
+                {/* <label htmlFor="username" className={styles.label}>
                   {t('auth.login.username')}:
-                </label>
+                </label> */}
                 <input
                   type="text"
                   id="username"
@@ -206,13 +206,14 @@ function Login() {
                   onChange={handleInputChange}
                   className={styles.input}
                   required
+                  placeholder='Tên người dùng'
                 />
               </div>
               
               <div className={styles.formGroup}>
-                <label htmlFor="password" className={styles.label}>
+                {/* <label htmlFor="password" className={styles.label}>
                   {t('auth.login.password')}:
-                </label>
+                </label> */}
                 <input
                   type="password"
                   id="password"
@@ -221,6 +222,7 @@ function Login() {
                   onChange={handleInputChange}
                   className={styles.input}
                   required
+                  placeholder='Mật khẩu'
                 />
               </div>
             </>
@@ -235,7 +237,7 @@ function Login() {
           </button>
         </form>
 
-        <div className={styles.toggleForm}>
+        {/* <div className={styles.toggleForm}>
           <button
             type="button"
             onClick={handleToggleMode}
@@ -243,7 +245,7 @@ function Login() {
           >
             {isRegister ? t('auth.login.noAccount') : t('auth.register.hasAccount')}
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

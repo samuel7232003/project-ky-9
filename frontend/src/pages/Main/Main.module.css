@@ -1,0 +1,80 @@
+.container{
+  height: calc(100vh - 70px);
+  width: 100%;
+  display: flex;
+}
+
+.tools{
+  width: 308px;
+  height: 100%;
+  background-color: rgba(255, 253, 253, 0.8);
+  display: flex;
+}
+
+.toolsList{
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 24px);
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.toolsTitle{
+  font-size: 16px;
+  font-weight: bold;
+  align-self: start;
+  margin: 0 20px;
+}
+
+.buttonTool {
+  display: flex;
+  align-items: center; 
+  text-decoration: none;
+  width: 265px;
+  height: 62px;
+  background-color: white;
+  justify-content: flex-start;
+  padding: 0 12px;
+  box-sizing: border-box;
+  gap: 10px;
+  border-radius: 12px;
+}
+
+.buttonTool:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.buttonTool p {
+  font-size: 16px;
+  margin: 0;
+  text-decoration: none;
+  color: #000;
+}
+
+.imgContainer {
+  width: 48px;
+  height: 44px;
+  margin: 0;
+}
+
+.imgContainer img{
+  height: auto;
+  max-width: 100%;
+}
+
+.chevron{
+  width: 24px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.chevron:hover {
+  cursor: pointer;
+  background-color: rgba(255, 253, 253, 0.3);
+}
+

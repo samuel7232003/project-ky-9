@@ -9,6 +9,7 @@ import LocalizedRoutes from './components/LocalizedRoutes';
 import LoadingSpinner from './components/LoadingSpinner';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
 import AuthRoute from './components/AuthRoute';
 import { RouteConfig } from './utils/routeUtils';
 import { APP_CONFIG } from './configs';
@@ -30,19 +31,14 @@ function AppContent() {
         </AuthRoute>
       ),
     },
-    // Thêm routes mới ở đây
-    // {
-    //   path: '/about',
-    //   element: <About />,
-    // },
-    // {
-    //   path: '/profile',
-    //   element: (
-    //     <ProtectedRoute>
-    //       <Profile />
-    //     </ProtectedRoute>
-    //   ),
-    // },
+    {
+      path: '/main/*',
+      element: (
+        <AuthRoute>
+          <Main />
+        </AuthRoute>
+      ),
+    }
   ];
 
   return (

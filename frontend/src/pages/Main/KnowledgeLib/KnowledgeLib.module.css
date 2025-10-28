@@ -1,0 +1,122 @@
+.container{
+  display: flex;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: end;
+}
+
+.chatbox{
+  width: 68%;
+  height: 95%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chatbotTitle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.title figure{
+  height: 18px;
+  width: 18px;
+  margin: 0;
+  padding-top: 10px;
+  align-self: flex-start;
+}
+
+.title figure img{
+  height: 100%;
+  width: 100%;
+}
+
+.newChat{
+  font-size: 16px;
+  color: #7D7D7D;
+}
+
+.inputArea{
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.inputArea figure{
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.inputArea figure img{
+  height: 100%;
+  width: 100%;
+}
+
+.inputText{
+  width: 95%;
+  position: relative;
+  display: flex;
+}
+
+.inputText input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.inputText figure{
+  height: 24px;
+  width: 24px;
+  margin: 0;
+  position: absolute;
+  right: 2%;
+  top: 10px;
+}
+
+.inputText figure:hover{
+  cursor: pointer;
+}
+
+.history{
+  width: 27%;
+  height: 88%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.historyTitle{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: start;
+}
