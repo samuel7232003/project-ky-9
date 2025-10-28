@@ -2,18 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-  loginUser,
-  registerUser,
   setFormData,
   setRegisterData,
-  toggleMode,
   clearError,
   clearFieldErrors,
-  toggleLoginMode,
-  toggleRegisterMode
 } from './Login.duck';
+import { loginUser, registerUser } from '../../store/slices/authSlice';
 import { useTranslation } from '../../hooks/useTranslation';
-import { Icon } from '../../components/Icon';
 import styles from './Login.module.css';
 import { RootState } from '../../store/store';
 
@@ -58,9 +53,7 @@ function Login() {
     }
   };
 
-  const handleToggleMode = () => {
-    dispatch(toggleMode());
-  };
+  
 
   return (
     <div className={styles.loginContainer}>
