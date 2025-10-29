@@ -2,15 +2,15 @@ const authService = require("../services/authService.js");
 
 const register = async (req, res, next) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, password } = req.body;
 
-    if (!username || !email || !password) {
+    if (!username || !password) {
       return res
         .status(400)
-        .json({ message: "Username, email and password are required" });
+        .json({ message: "Username and password are required" });
     }
 
-    const result = await authService.register({ username, email, password });
+    const result = await authService.register({ username, password });
 
     // Set HTTP-only cookie
     res.cookie("token", result.token, {
@@ -26,8 +26,7 @@ const register = async (req, res, next) => {
     res.status(201).json(responseData);
   } catch (error) {
     if (
-      error.message === "Username already registered" ||
-      error.message === "Email already registered"
+      error.message === "Username already registered"
     ) {
       return res.status(409).json({ message: error.message });
     }
@@ -88,7 +87,6 @@ const verify = async (req, res) => {
       user: {
         id: req.user._id,
         username: req.user.username,
-        email: req.user.email,
         role: req.user.role,
       },
     });
@@ -102,7 +100,6 @@ const getProfile = async (req, res) => {
     user: {
       id: req.user._id,
       username: req.user.username,
-      email: req.user.email,
       role: req.user.role,
     },
   });

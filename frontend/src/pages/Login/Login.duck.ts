@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { authService, LoginRequest, RegisterRequest } from '../../services';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loginUser, registerUser } from '../../store/slices/authSlice';
 
 // Interface cho form data
 interface FormData {
@@ -48,31 +48,7 @@ const initialState: LoginState = {
   fieldErrors: {},
 };
 
-// Async thunk cho login
-export const loginUser = createAsyncThunk(
-  'login/loginUser',
-  async (credentials: LoginRequest, { rejectWithValue }) => {
-    try {
-      const response = await authService.login(credentials);
-      return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message || 'Đăng nhập thất bại');
-    }
-  }
-);
 
-// Async thunk cho register
-export const registerUser = createAsyncThunk(
-  'login/registerUser',
-  async (userData: RegisterRequest, { rejectWithValue }) => {
-    try {
-      const response = await authService.register(userData);
-      return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message || 'Đăng ký thất bại');
-    }
-  }
-);
 
 // Login slice
 const loginSlice = createSlice({
@@ -166,5 +142,7 @@ export const {
   toggleLoginMode,
   toggleRegisterMode,
 } = loginSlice.actions;
+
+export { loginUser, registerUser } from '../../store/slices/authSlice';
 
 export default loginSlice.reducer;

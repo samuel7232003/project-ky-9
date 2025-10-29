@@ -5,33 +5,69 @@ import {
   toggleLoginMode,
   toggleRegisterMode
 } from '../../pages/Login/Login.duck';
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { logoutUser } from "../../store/slices/authSlice";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const Header1: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
+  const { t } = useTranslation();
 
-  const routeLogin = () => {
+  const handleRouteLogin = () => {
     dispatch(toggleLoginMode());
   }
 
-  const routeRegister = () => {
+  const handleRouteRegister = () => {
     dispatch(toggleRegisterMode());
+  }
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   }
 
   return (
     <header>
       <div className={css.container}>
         <div className={css.containerLeft}>
-          <Link className={css.main} to={('/')}>Trang chủ</Link>
-          <Link className={css.infor} to={('/')}>Thông tin</Link>
+          <Link className={css.main} to={('/')} aria-label={t('navigation.home')}>
+            {t('navigation.home')}
+          </Link>
+          <Link className={css.infor} to={('/')} aria-label={t('navigation.about')}>
+            {t('navigation.about')}
+          </Link>
         </div>
         <div className={css.containerRight}>
-          <Link  to={('/login')} onClick={routeLogin}>
-            <button className={css.login}>
-              Đăng nhập
+          {isAuthenticated ? (
+            <button
+              type="button"
+              className={css.login}
+              onClick={handleLogout}
+              aria-label={t('navigation.logout')}
+            >
+              {t('navigation.logout')}
             </button>
-          </Link>
-          <Link className={css.register} to={('/login')} onClick={routeRegister}>Tạo tài khoản</Link>
+          ) : (
+            <>
+              <Link to={('/login')} onClick={handleRouteLogin} aria-label={t('navigation.login')}>
+                <button
+                  type="button"
+                  className={css.login}
+                  aria-label={t('navigation.login')}
+                >
+                  {t('navigation.login')}
+                </button>
+              </Link>
+              <Link
+                className={css.register}
+                to={('/login')}
+                onClick={handleRouteRegister}
+                aria-label={t('navigation.register')}
+              >
+                {t('navigation.register')}
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>

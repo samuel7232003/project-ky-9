@@ -9,7 +9,6 @@ const listUsers = async (filters = {}, pagination = {}) => {
   if (search) {
     query.$or = [
       { username: { $regex: search, $options: "i" } },
-      { email: { $regex: search, $options: "i" } },
       { name: { $regex: search, $options: "i" } },
     ];
   }
