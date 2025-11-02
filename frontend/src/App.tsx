@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import AuthRoute from './components/AuthRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import { RouteConfig } from './utils/routeUtils';
 import { APP_CONFIG } from './configs';
 
@@ -34,9 +35,9 @@ function AppContent() {
     {
       path: '/main/*',
       element: (
-        <AuthRoute>
+        <ProtectedRoute>
           <Main />
-        </AuthRoute>
+        </ProtectedRoute>
       ),
     }
   ];

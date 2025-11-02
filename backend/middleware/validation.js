@@ -72,10 +72,47 @@ const validateChangePassword = [
   handleValidationErrors,
 ];
 
+// Validation rules cho message
+const validateMessage = [
+  body("content")
+    .optional()
+    .trim()
+    .isLength({ max: 10000 })
+    .withMessage("Content must not exceed 10000 characters"),
+
+  body("image")
+    .optional()
+    .trim()
+    .isURL()
+    .withMessage("Image must be a valid URL")
+    .custom((value) => {
+      // Đảm bảo image không phải là array - chỉ cho phép 1 ảnh
+      if (Array.isArray(value)) {
+        throw new Error("Message can only have one image");
+      }
+      return true;
+    }),
+
+  // Custom validation: must have content or image
+  body().custom((value) => {
+    if (!value.content && !value.image) {
+      throw new Error("Message must have either content or image");
+    }
+    // Đảm bảo image không phải là array
+    if (value.image && Array.isArray(value.image)) {
+      throw new Error("Message can only have one image");
+    }
+    return true;
+  }),
+
+  handleValidationErrors,
+];
+
 module.exports = {
   validateUser,
   validateLogin,
   validateUpdateProfile,
   validateChangePassword,
+  validateMessage,
   handleValidationErrors,
 };
