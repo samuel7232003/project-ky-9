@@ -34,9 +34,6 @@ export const APP_CONFIG = {
       minLength: 6,
       maxLength: 50,
     },
-    email: {
-      maxLength: 100,
-    },
   },
   
   // Cấu hình theme

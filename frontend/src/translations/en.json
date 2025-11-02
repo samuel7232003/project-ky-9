@@ -55,7 +55,6 @@
     "register": {
       "title": "Register",
       "username": "Username",
-      "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm password",
       "submit": "Register",
@@ -75,8 +74,6 @@
       "usernameMinLength": "Username must be at least 3 characters",
       "usernameMaxLength": "Username cannot exceed 20 characters",
       "usernameFormat": "Username can only contain letters, numbers and underscores",
-      "emailRequired": "Email is required",
-      "emailInvalid": "Invalid email format",
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 6 characters",
       "passwordMaxLength": "Password cannot exceed 50 characters",
@@ -134,7 +131,6 @@
     "fields": {
       "id": "ID",
       "username": "Username",
-      "email": "Email",
       "fullName": "Full Name",
       "phone": "Phone",
       "address": "Address",
@@ -174,7 +170,6 @@
       "required": "This field is required",
       "minLength": "Minimum {min} characters",
       "maxLength": "Maximum {max} characters",
-      "email": "Invalid email format",
       "password": "Invalid password",
       "confirmPassword": "Password confirmation does not match",
       "phone": "Invalid phone number",
@@ -193,7 +188,6 @@
       "tokenInvalid": "Invalid token",
       "userNotFound": "User not found",
       "userExists": "User already exists",
-      "emailExists": "Email already in use",
       "passwordIncorrect": "Incorrect password",
       "updateFailed": "Update failed",
       "deleteFailed": "Delete failed",
@@ -236,7 +230,6 @@
   "forms": {
     "labels": {
       "username": "Username",
-      "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm Password",
       "fullName": "Full Name",
@@ -259,7 +252,6 @@
     },
     "placeholders": {
       "username": "Enter username",
-      "email": "Enter email",
       "password": "Enter password",
       "confirmPassword": "Re-enter password",
       "fullName": "Enter full name",
@@ -269,8 +261,7 @@
       "select": "Select...",
       "enterText": "Enter text...",
       "enterNumber": "Enter number...",
-      "enterUrl": "Enter URL...",
-      "enterEmail": "Enter email..."
+      "enterUrl": "Enter URL..."
     },
     "buttons": {
       "submit": "Submit",

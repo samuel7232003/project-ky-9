@@ -5,13 +5,9 @@ const register = async (userData) => {
   const { username, password } = userData;
 
   // Check if user already exists
-  const existingUser = await User.findOne({
-    $or: [{ username }],
-  });
+  const existingUser = await User.findOne({ username });
   if (existingUser) {
-    if (existingUser.username === username) {
-      throw new Error("Username already registered");
-    }
+    throw new Error("Username already registered");
   }
 
   // Create new user with name from username

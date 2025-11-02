@@ -22,7 +22,6 @@ export interface UserListResponse {
 // Interface cho create user request
 export interface CreateUserRequest {
   username: string;
-  email: string;
   password: string;
   role?: string;
 }
@@ -30,7 +29,6 @@ export interface CreateUserRequest {
 // Interface cho update user request
 export interface UpdateUserRequest {
   username?: string;
-  email?: string;
   role?: string;
   status?: string;
 }
