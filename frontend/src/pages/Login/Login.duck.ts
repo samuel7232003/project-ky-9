@@ -10,7 +10,6 @@ interface FormData {
 // Interface cho register data
 interface RegisterData {
   username: string;
-  email: string;
   password: string;
   confirmPassword: string;
 }
@@ -24,7 +23,6 @@ interface LoginState {
   error: string | null;
   fieldErrors: {
     username?: string;
-    email?: string;
     password?: string;
     confirmPassword?: string;
   };
@@ -38,7 +36,6 @@ const initialState: LoginState = {
   },
   registerData: {
     username: '',
-    email: '',
     password: '',
     confirmPassword: '',
   },

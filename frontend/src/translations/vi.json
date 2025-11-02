@@ -55,7 +55,6 @@
     "register": {
       "title": "Đăng ký",
       "username": "Tên đăng nhập",
-      "email": "Email",
       "password": "Mật khẩu",
       "confirmPassword": "Xác nhận mật khẩu",
       "submit": "Đăng ký",
@@ -75,8 +74,6 @@
       "usernameMinLength": "Tên đăng nhập phải có ít nhất 3 ký tự",
       "usernameMaxLength": "Tên đăng nhập không được quá 20 ký tự",
       "usernameFormat": "Tên đăng nhập chỉ được chứa chữ cái, số và dấu gạch dưới",
-      "emailRequired": "Email không được để trống",
-      "emailInvalid": "Email không hợp lệ",
       "passwordRequired": "Mật khẩu không được để trống",
       "passwordMinLength": "Mật khẩu phải có ít nhất 6 ký tự",
       "passwordMaxLength": "Mật khẩu không được quá 50 ký tự",
@@ -132,7 +129,6 @@
     "fields": {
       "id": "ID",
       "username": "Tên đăng nhập",
-      "email": "Email",
       "fullName": "Họ và tên",
       "phone": "Số điện thoại",
       "address": "Địa chỉ",
@@ -172,7 +168,6 @@
       "required": "Trường này là bắt buộc",
       "minLength": "Tối thiểu {min} ký tự",
       "maxLength": "Tối đa {max} ký tự",
-      "email": "Email không hợp lệ",
       "password": "Mật khẩu không hợp lệ",
       "confirmPassword": "Mật khẩu xác nhận không khớp",
       "phone": "Số điện thoại không hợp lệ",
@@ -191,7 +186,6 @@
       "tokenInvalid": "Token không hợp lệ",
       "userNotFound": "Không tìm thấy người dùng",
       "userExists": "Người dùng đã tồn tại",
-      "emailExists": "Email đã được sử dụng",
       "passwordIncorrect": "Mật khẩu không đúng",
       "updateFailed": "Cập nhật thất bại",
       "deleteFailed": "Xóa thất bại",
@@ -234,7 +228,6 @@
   "forms": {
     "labels": {
       "username": "Tên đăng nhập",
-      "email": "Email",
       "password": "Mật khẩu",
       "confirmPassword": "Xác nhận mật khẩu",
       "fullName": "Họ và tên",
@@ -257,7 +250,6 @@
     },
     "placeholders": {
       "username": "Nhập tên đăng nhập",
-      "email": "Nhập email",
       "password": "Nhập mật khẩu",
       "confirmPassword": "Nhập lại mật khẩu",
       "fullName": "Nhập họ và tên",
@@ -267,8 +259,7 @@
       "select": "Chọn...",
       "enterText": "Nhập văn bản...",
       "enterNumber": "Nhập số...",
-      "enterUrl": "Nhập URL...",
-      "enterEmail": "Nhập email..."
+      "enterUrl": "Nhập URL..."
     },
     "buttons": {
       "submit": "Gửi",
@@ -298,7 +289,6 @@
     "first": "Đầu",
     "last": "Cuối",
     "page": "Trang",
-    "of": "của",
     "showing": "Hiển thị",
     "to": "đến",
     "of": "trong tổng số",

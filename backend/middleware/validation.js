@@ -17,7 +17,6 @@ const handleValidationErrors = (req, res, next) => {
 
 // Validation rules cho user
 const validateUser = [
-
   body("username")
     .trim()
     .isLength({ min: 3, max: 20 })
@@ -51,12 +50,6 @@ const validateUpdateProfile = [
     .trim()
     .isLength({ min: 2, max: 50 })
     .withMessage("Name must be between 2-50 characters"),
-
-  body("email")
-    .optional()
-    .isEmail()
-    .normalizeEmail()
-    .withMessage("Invalid email format"),
 
   body("phone")
     .optional()

@@ -16,7 +16,6 @@ export interface RegisterRequest {
 export interface UserResponse {
   id: string;
   username: string;
-  email: string;
   role: string;
   status: string;
   createdAt: string;

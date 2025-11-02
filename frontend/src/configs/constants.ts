@@ -52,7 +52,6 @@ export const CONSTANTS = {
   // Validation messages
   VALIDATION_MESSAGES: {
     REQUIRED: 'Trường này là bắt buộc',
-    EMAIL: 'Email không hợp lệ',
     MIN_LENGTH: 'Tối thiểu {min} ký tự',
     MAX_LENGTH: 'Tối đa {max} ký tự',
     PASSWORD_MISMATCH: 'Mật khẩu xác nhận không khớp',
