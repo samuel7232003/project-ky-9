@@ -1,11 +1,11 @@
-.container{
+.container {
   display: flex;
   height: 100%;
   justify-content: space-evenly;
   align-items: end;
 }
 
-.chatbox{
+.chatbox {
   width: 68%;
   height: 95%;
   border: 1px solid #ccc;
@@ -17,7 +17,7 @@
   justify-content: space-between;
 }
 
-.chatbotTitle{
+.chatbotTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,18 +25,18 @@
   border-bottom: 1px solid #ccc;
 }
 
-.title{
+.title {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.title p{
+.title p {
   font-size: 20px;
   font-weight: bold;
 }
 
-.title figure{
+.title figure {
   height: 18px;
   width: 18px;
   margin: 0;
@@ -44,25 +44,32 @@
   align-self: flex-start;
 }
 
-.title figure img{
+.title figure img {
   height: 100%;
   width: 100%;
 }
 
-.newChat{
+.newChat {
   font-size: 16px;
-  color: #7D7D7D;
+  color: #7d7d7d;
 }
 
-.inputArea{
-  height: 5%;
+.inputArea {
+  min-height: 5%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.inputAreaWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  gap: 12px;
 }
 
-.inputArea figure{
+.inputArea figure {
   height: 30px;
   width: 30px;
   margin: 0;
@@ -71,18 +78,18 @@
   gap: 15px;
 }
 
-.inputArea figure img{
+.inputArea figure img {
   height: 100%;
   width: 100%;
 }
 
-.inputText{
-  width: 95%;
+.inputText {
+  flex: 1;
   position: relative;
   display: flex;
 }
 
-.inputText input{
+.inputText input {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -91,7 +98,7 @@
   font-size: 16px;
 }
 
-.inputText figure{
+.inputText figure {
   height: 24px;
   width: 24px;
   margin: 0;
@@ -100,11 +107,11 @@
   top: 10px;
 }
 
-.inputText figure:hover{
+.inputText figure:hover {
   cursor: pointer;
 }
 
-.history{
+.history {
   width: 27%;
   height: 88%;
   border: 1px solid #ccc;
@@ -115,8 +122,307 @@
   padding: 0 15px;
 }
 
-.historyTitle{
+.historyTitle {
   font-size: 20px;
   font-weight: bold;
   text-align: start;
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.historyList {
+  max-height: calc(100% - 60px);
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.historyItem {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #f8f9fa;
+  border: 1px solid transparent;
+}
+
+.historyItem:hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.historyItem.active {
+  background-color: #e7f3ff;
+  border-color: #667eea;
+}
+
+.historyItemTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.historyItemTime {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+.loadingState p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+}
+
+.loadingSpinnerSmall {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+.emptyHistory {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.emptyHistory p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Scrollbar styling cho historyList */
+.historyList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.historyList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.historyList::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.historyList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chatArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.emptyState p {
+  margin: 8px 0;
+}
+
+.emptyHint {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.messageItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.messageUser {
+  font-weight: 600;
+  color: #333;
+}
+
+.messageTime {
+  font-size: 11px;
+  color: #999;
+}
+
+.messageContent {
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.messageImage {
+  margin-top: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.messageImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.messageStatus {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.errorMessage {
+  background-color: #fee;
+  color: #c33;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  border-left: 3px solid #c33;
+  width: 100%;
+}
+
+.previewContainer {
+  position: relative;
+  margin-bottom: 12px;
+  display: inline-block;
+  width: 100%;
+}
+
+.previewContainer img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  display: block;
+}
+
+.removeButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.removeButton:hover {
+  background-color: #dc2626;
+  transform: scale(1.1);
+}
+
+.fileInputLabel {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+}
+
+.fileInputLabel:hover {
+  opacity: 0.7;
+}
+
+.fileInput {
+  display: none;
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loadingSpinnerLarge {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbar styling */
+.chatArea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chatArea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.chatArea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.chatArea::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

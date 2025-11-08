@@ -8,10 +8,12 @@ import chevron_left from "../../assets/images/chevron-left.png";
 import chevron_right from "../../assets/images/chevron-right.png";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { toggleMenu } from "./Main.duck";
+import { useTranslation } from "../../hooks/useTranslation";
 
 function Main() {
   const dispatch = useAppDispatch();
   const { isOpenMenu } = useAppSelector((state) => state.main);
+  const { getLocalizedPath } = useTranslation();
   const contentWidth = isOpenMenu ? "calc(100vw - 308px)" : "calc(100vw - 24px)";
 
   const handleMenuClick = () => {
@@ -24,19 +26,19 @@ function Main() {
           <div className={css.tools}>
             <div className={css.toolsList}>
               <p className={css.toolsTitle}>Công cụ:</p>
-              <Link to={"/"} className={css.buttonTool}>
+              <Link to={getLocalizedPath("/")} className={css.buttonTool}>
                 <figure className={css.imgContainer}>
                   <img src={image3} alt="" />
                 </figure>
                 <p className={css.buttonToolText}>Drone giám sát</p>
               </Link>
-              <Link to={"/"} className={css.buttonTool}>
+              <Link to={getLocalizedPath("/")} className={css.buttonTool}>
                 <figure className={css.imgContainer}>
                   <img src={image4} alt="" />
                 </figure>
                 <p className={css.buttonToolText}>Tình trạng cây trồng</p>
               </Link>
-              <Link to={"/main/lib"} className={css.buttonTool}>
+              <Link to={getLocalizedPath("/main/lib")} className={css.buttonTool}>
                 <figure className={css.imgContainer}>
                   <img src={image5} alt="" />
                 </figure>
@@ -63,7 +65,6 @@ function MainRoute() {
   return (
     <Routes>
       <Route index element={<KnowledgeLib />} />
-
       <Route path="lib" element={<KnowledgeLib />} />
     </Routes>
   );

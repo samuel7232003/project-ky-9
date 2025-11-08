@@ -6,7 +6,7 @@ import leaf from "../assets/images/leaf.png";
 import pictureIllustrate from "../assets/images/picture-illustrate.png";
 
 function Home() {
-  const { t } = useTranslation();
+  const { getLocalizedPath } = useTranslation();
 
   return (
     <div className={css.App}>
@@ -22,7 +22,7 @@ function Home() {
               trồng.
             </p>
           </div>
-          <Link to={"/main"} style={{ position: "relative" }}>
+          <Link to={getLocalizedPath("/main")} style={{ position: "relative" }}>
             <button className={css.containerButton}>Bắt đầu ngay!</button>
             <img className={css.containerLeaf} src={leaf} alt="leaf" />
           </Link>

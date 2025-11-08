@@ -12,7 +12,7 @@ import { useTranslation } from "../../hooks/useTranslation";
 const Header1: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
-  const { t } = useTranslation();
+  const { t, getLocalizedPath } = useTranslation();
 
   const handleRouteLogin = () => {
     dispatch(toggleLoginMode());
@@ -30,10 +30,10 @@ const Header1: React.FC = () => {
     <header>
       <div className={css.container}>
         <div className={css.containerLeft}>
-          <Link className={css.main} to={('/')} aria-label={t('navigation.home')}>
+          <Link className={css.main} to={getLocalizedPath('/')} aria-label={t('navigation.home')}>
             {t('navigation.home')}
           </Link>
-          <Link className={css.infor} to={('/')} aria-label={t('navigation.about')}>
+          <Link className={css.infor} to={getLocalizedPath('/')} aria-label={t('navigation.about')}>
             {t('navigation.about')}
           </Link>
         </div>
@@ -49,7 +49,7 @@ const Header1: React.FC = () => {
             </button>
           ) : (
             <>
-              <Link to={('/login')} onClick={handleRouteLogin} aria-label={t('navigation.login')}>
+              <Link to={getLocalizedPath('/login')} onClick={handleRouteLogin} aria-label={t('navigation.login')}>
                 <button
                   type="button"
                   className={css.login}
@@ -60,7 +60,7 @@ const Header1: React.FC = () => {
               </Link>
               <Link
                 className={css.register}
-                to={('/login')}
+                to={getLocalizedPath('/login')}
                 onClick={handleRouteRegister}
                 aria-label={t('navigation.register')}
               >

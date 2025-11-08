@@ -20,6 +20,13 @@ const config = {
 
   // Logging
   logLevel: process.env.LOG_LEVEL || "dev",
+
+  // Cloudinary config
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.CLOUDINARY_API_KEY,
+    apiSecret: process.env.CLOUDINARY_API_SECRET,
+  },
 };
 
 // Validate required config
