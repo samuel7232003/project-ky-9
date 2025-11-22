@@ -9,6 +9,7 @@ import chevron_right from "../../assets/images/chevron-right.png";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { toggleMenu } from "./Main.duck";
 import { useTranslation } from "../../hooks/useTranslation";
+import Drone from "./Drone/Drone";
 
 function Main() {
   const dispatch = useAppDispatch();
@@ -26,7 +27,7 @@ function Main() {
           <div className={css.tools}>
             <div className={css.toolsList}>
               <p className={css.toolsTitle}>Công cụ:</p>
-              <Link to={getLocalizedPath("/")} className={css.buttonTool}>
+              <Link to={getLocalizedPath("/main/drone")} className={css.buttonTool}>
                 <figure className={css.imgContainer}>
                   <img src={image3} alt="" />
                 </figure>
@@ -64,8 +65,9 @@ function Main() {
 function MainRoute() {
   return (
     <Routes>
-      <Route index element={<KnowledgeLib />} />
+      <Route index element={<Drone />} />
       <Route path="lib" element={<KnowledgeLib />} />
+      <Route path="drone" element={<Drone />} />
     </Routes>
   );
 }
