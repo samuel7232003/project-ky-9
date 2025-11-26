@@ -1,0 +1,11 @@
+langchain_community
+langchain_text_splitters
+langchain_chroma
+langchain_huggingface
+langchain
+bs4
+google
+scikit-learn
+matplotlib
+numpy
+seaborn

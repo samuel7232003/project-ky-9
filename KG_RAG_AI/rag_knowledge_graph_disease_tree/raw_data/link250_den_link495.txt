@@ -428,7 +428,8 @@
     }
   }
 ]
-``````json
+
+```json
 [
   {
     "Tên cây": "Mai chiếu thủy",
@@ -469,7 +470,7 @@
 ]
 ```Dưới đây là tổng hợp các loại bệnh của cây được viết trong bài:
 
-```python
+```json
 [
     {
         "Tên cây": "Cây mai (mai vàng)",
@@ -660,7 +661,8 @@
     }
   }
 ]
-``````json
+
+```json
 [
   {
     "Tên cây": "Cây tiêu",
@@ -838,102 +840,6 @@
 ]
 ```Dưới đây là tổng hợp các loại bệnh của cây dưa leo được đề cập trong bài viết:
 
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Nứt thân xì mủ (còn gọi là cháy bìa lá dưa leo, nứt thân)
-        *   **Nguyên nhân:**
-            *   Nấm Mycosphaerella melonis (Didymella bryoniae).
-            *   Các bào tử nấm hại phát triển mạnh mẽ và lây lan nhanh chóng dưới điều kiện ẩm ướt, mưa nhiều.
-            *   Mầm bệnh còn tồn tại trong tàn dư của mùa vụ trước.
-        *   **Triệu chứng:**
-            *   **Trên lá cây:** Xuất hiện các vết đốm bệnh có hình dạng, kích thước không đồng đều, thường tập trung ở phần rìa lá sau đó lan rộng vào trung tâm theo hình vòng cung. Các vết bệnh có màu nâu, bề mặt xuất hiện những chấm đen nhỏ.
-            *   **Trên thân:** Xuất hiện các vết bệnh hình bầu dục, có màu xám trắng và hơi lõm vào phần lõi. Khi nấm hại tấn công và phát triển mạnh mẽ thì chỗ vết bệnh sẽ bắt đầu bị nứt, đồng thời chảy nhựa thành từng giọt. Thời gian dài vết chảy sẽ khô lại và có màu nâu đen.
-            *   **Tác hại (triệu chứng nặng):** Toàn thân cây dưa leo bị nứt thành vệt dài màu nâu đen, chảy ra nhiều nhựa. Sau thời gian, cây sẽ bị héo và chết nhánh. Bào tử nấm bệnh khiến mạch dẫn dinh dưỡng bị gián đoạn, cây sinh trưởng kém và chậm phát triển, sức khỏe tổng thể yếu. Ảnh hưởng trực tiếp đến năng suất và chất lượng nông sản.
-        *   **Cách điều trị:**
-            *   **Phòng ngừa (biện pháp canh tác):**
-                *   Chọn những giống dưa leo sạch bệnh, có khả năng phát triển tốt.
-                *   Lắp đặt hệ thống thoát nước cho vườn để tránh tình trạng ẩm ướt.
-                *   Đảm bảo mật độ cây trồng vừa phải để tạo độ thông thoáng và giúp cây tiếp xúc với ánh sáng mặt trời.
-                *   Thường xuyên kiểm tra vườn và tỉa bớt những cành, lá già không cần thiết.
-                *   Không nên tưới nước quá nhiều vào buổi chiều tối, chú ý không làm ướt quá thân và lá.
-                *   Cày xới đất nhằm tiêu diệt nấm hại còn tồn tại trong tàn dư của các mùa vụ trước.
-                *   Bổ sung các chất dinh dinh dưỡng cần thiết.
-            *   **Điều trị bằng thuốc (Phy FusaCo):**
-                *   **Thành phần thuốc:** 1,5×10^8 CFU/ml Chaetomium spp, Bacillus subtilis, Trichoderma spp (chế phẩm sinh học, bào tử hoạt chất kháng sinh học và chủng nấm đối kháng).
-                *   **Công dụng thuốc:** Phòng trừ nấm hại gây nứt thân, xì mủ; tăng sức miễn dịch; nâng cao chất lượng dưa leo.
-                *   **Hướng dẫn sử dụng:**
-                    *   **Phun trị nấm hại:** Hòa 250ml chế phẩm sinh học Phy FusaCo với 400 – 600 lít nước sạch, phun đều toàn vườn với tần suất 5 – 7 ngày/ lần.
-                    *   **Phun phòng nấm hại:** Dùng 250ml Phy FusaCo hòa cùng 800 – 1000 lít nước sạch, phun tần suất 15 – 30 ngày/ lần.
-                    *   **Xử lý vết thương trực tiếp:** Làm sạch miệng vết thương bằng nước sạch, cắt bỏ lớp vỏ hỏng. Hòa 250ml Nano Cu AQ43 (làm lành vết thương) cùng 250ml Phy FusaCo với 50ml nước sạch. Quét trực tiếp hỗn hợp lên miệng vết thương từ 2 – 3 lần và cách mỗi lần 3 – 4 ngày.
-                    *   **Phòng bệnh lây lan:** Hòa 50ml Phy FusaCo cùng với 40 – 45 lít nước sạch và phun đều gốc cây.
-
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Thối gốc
-        *   **Nguyên nhân:** Không đề cập cụ thể trong bài viết, nhưng có thể do nấm hại.
-        *   **Triệu chứng:** Không đề cập cụ thể trong bài viết.
-        *   **Cách điều trị:** Thuốc Phy FusaCo có công dụng phòng trừ. (Hướng dẫn sử dụng tương tự như trên cho việc phòng và trị nấm hại tổng quát).
-
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Ghẻ loét
-        *   **Nguyên nhân:** Không đề cập cụ thể trong bài viết, nhưng có thể do nấm hại.
-        *   **Triệu chứng:** Không đề cập cụ thể trong bài viết.
-        *   **Cách điều trị:** Thuốc Phy FusaCo có công dụng phòng trừ.
-
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Thối nhũn
-        *   **Nguyên nhân:** Không đề cập cụ thể trong bài viết, nhưng có thể do nấm hại.
-        *   **Triệu chứng:** Không đề cập cụ thể trong bài viết.
-        *   **Cách điều trị:** Thuốc Phy FusaCo có công dụng phòng trừ.
-
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Sương mai
-        *   **Nguyên nhân:** Không đề cập cụ thể trong bài viết, nhưng có thể do nấm hại.
-        *   **Triệu chứng:** Không đề cập cụ thể trong bài viết.
-        *   **Cách điều trị:** Thuốc Phy FusaCo có công dụng phòng trừ.
-
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Chết dây
-        *   **Nguyên nhân:** Không đề cập cụ thể trong bài viết, nhưng có thể do nấm hại hoặc hậu quả của các bệnh khác.
-        *   **Triệu chứng:** Không đề cập cụ thể trong bài viết.
-        *   **Cách điều trị:** Thuốc Phy FusaCo có công dụng phòng trừ.Dưới đây là tổng hợp các loại bệnh được đề cập trong bài viết:
-
-*   **Tên cây:** Hoa cúc
-    *   **Loại bệnh:** Tuột lá chân
-    *   **Nguyên nhân:**
-        *   Nấm xâm nhập (Phytopthora, Fusarium) tấn công trực tiếp vào bộ rễ và gốc cây.
-        *   Thiếu dinh dưỡng (Nitơ, Kali, Canxi).
-        *   Điều kiện môi trường không ổn định (độ ẩm cao, nhiệt độ thay đổi thất thường, thời tiết nóng ẩm, đất trồng thoát nước không tốt).
-        *   Chăm sóc sai cách (tưới nước không đồng đều, cắt tỉa và vệ sinh vườn không thường xuyên).
-    *   **Triệu chứng:**
-        *   Lá cúc bắt đầu vàng, héo úa và rụng dần từ đoạn gốc lan dần lên trên, khiến cho một đoạn của phần bị trụi lá.
-        *   Cây kém sắc, xuất hiện nhiều vết đốm lạ trên lá.
-        *   Bệnh thường tập trung vào những cây trưởng thành, đang trong giai đoạn ra hoa.
-        *   Hoa nở bé, khó bung hết, màu sắc nhạt nhòa.
-    *   **Cách điều trị:**
-        *   **Phòng ngừa:**
-            *   Lựa chọn giống hoa cúc có khả năng kháng bệnh tốt.
-            *   Xử lý đất trồng, cày xới, phơi ải, cung cấp dinh dưỡng, cải tạo đất, thiết kế hệ thống thoát nước tốt.
-            *   Dọn sạch cỏ, tàn dư thực vật, vệ sinh vườn thường xuyên.
-            *   Cung cấp đủ, cân bằng các loại phân bón (Nitơ, Kali, Canxi).
-            *   Cắt tỉa, loại bỏ những lá, cành bị nhiễm bệnh.
-            *   Tưới tiêu hợp lý, đồng đều, không quá nhiều cũng không quá ít, nên lắp đặt hệ thống tưới nước nhỏ giọt.
-        *   **Điều trị bằng thuốc:** Sử dụng sản phẩm sinh học Phy Fusaco.
-            *   **Thành phần:** Trichoderma spp, Chaetomium spp, Bacillus subtilis đạt 1,5x1068CFU/ml, kết hợp bào tử gốc nấm đối kháng, hoạt chất kháng sinh sinh học, enzym ngoại bào và Nano chitosan.
-            *   **Hướng dẫn sử dụng:**
-                *   Phun trị: Pha Chai 250ml/400-600 lít nước, phun kỹ lá – cành -thân và vùng dưới gốc, cách nhau 5-7 ngày/lần.
-                *   Phun phòng: Pha Chai 250ml/800-1000 lít nước, phun định kỳ 15-30 ngày/lần.
-*   **Tên cây:** Hoa cúc và các loại cây trồng khác (được điều trị bằng Phy Fusaco)
-    *   **Loại bệnh:**
-        *   Đốm đen
-        *   Thối thân
-        *   Thối gốc
-        *   Thán thư
-        *   Xì mủ
-        *   Chết dây
-        *   Sương mai
-    *   **Nguyên nhân:** Các loại nấm gây hại như Phytopthora, Fusacrium, Collectotricum.
-    *   **Triệu chứng:** Không nêu cụ thể trong bài viết cho từng loại bệnh này.
-    *   **Cách điều trị:** Sử dụng sản phẩm sinh học Phy Fusaco (với thành phần và hướng dẫn sử dụng tương tự như điều trị bệnh tuột lá chân hoa cúc).Dưới đây là tổng hợp các loại bệnh của cây được viết trong bài:
-
 ```json
 [
   {
@@ -1071,55 +977,6 @@
     ]
   }
 ]
-```Dưới đây là tổng hợp các loại bệnh của cây mai dựa trên nội dung bài viết:
-
-*   **Tên cây:** Cây mai
-    *   **Loại bệnh:** Bệnh do nấm và vi khuẩn
-        *   **Nguyên nhân:**
-            *   Không chăm sóc thường xuyên, cây còi cọc, thiếu dinh dưỡng, dẫn đến suy yếu và không đủ sức đề kháng.
-            *   Nấm hại (như Colletotrichum, Fusarium, Phyopthora, nấm hồng, loét vi khuẩn, sương mai) tấn công vào rễ, thân, cành, làm tổn thương rễ và cản trở quá trình luân chuyển chất dinh dưỡng.
-            *   Thời tiết khắc nghiệt làm cành mai suy yếu, dễ gãy, tạo điều kiện cho vi khuẩn gây hại phát triển.
-            *   Nấm hại tồn tại từ tàn dư mùa vụ trước trong đất.
-        *   **Triệu chứng:**
-            *   Lá vàng nâu và rụng nhiều.
-            *   Các nhánh, cành trở nên chết khô.
-            *   Chồi hoa không đâm.
-            *   Rễ bị hư hại nặng.
-            *   Cây kém sức sống và suy yếu tổng thể.
-        *   **Cách điều trị:**
-            *   **Biện pháp tổng quát:**
-                *   Chọn giống mai sạch bệnh, có khả năng phát triển tốt và phù hợp với điều kiện thời tiết.
-                *   Cắt tỉa những bộ phận bị nấm hại, côn trùng, vi khuẩn tấn công để tránh lây lan.
-                *   Bổ sung nguồn dinh dưỡng cần thiết cho cây và đất.
-                *   Cày xới đất trước khi trồng để loại bỏ nấm hại tồn dư và cải thiện thoát nước.
-                *   Thường xuyên kiểm tra vườn để phát hiện sớm các dấu hiệu bất thường.
-            *   **Sử dụng thuốc Phy FusaCo:**
-                *   **Thành phần:** 1.5×10^8 CFU/ml tổng số vi sinh (Trichoderma spp, Chaetomium spp) kết hợp Nano Chitosan.
-                *   **Công dụng:** Phòng ngừa các bệnh do Colletotrichum, Fusarium, Phyopthora, nấm hồng, loét vi khuẩn, sương mai; tăng khả năng kháng bệnh cho mai; cải thiện tốc độ phát triển.
-                *   **Hướng dẫn sử dụng:**
-                    *   **Phun trị:** Hòa 250ml Phy FusaCo với 400-600 lít nước, phun kỹ cành – thân – lá, cách 5 – 7 ngày/lần.
-                    *   **Phun phòng:** Hòa 250ml Phy FusaCo với 800-1000 lít nước, dùng định kỳ 15 – 30 ngày/lần.
-    *   **Loại bệnh:** Bệnh do sâu hại và côn trùng
-        *   **Nguyên nhân:**
-            *   Không chăm sóc thường xuyên, cây còi cọc, thiếu dinh dưỡng, dẫn đến suy yếu và không đủ sức đề kháng.
-            *   Côn trùng hút chích và sâu hại (như sâu xanh, sâu vẽ bùa, nhện đỏ, bọ trĩ) tàn phá cây.
-        *   **Triệu chứng:**
-            *   Lá vàng nâu và rụng nhiều.
-            *   Các nhánh, cành chết khô.
-            *   Cây kém sức sống và suy yếu tổng thể.
-        *   **Cách điều trị:**
-            *   **Biện pháp tổng quát:** (Tương tự như bệnh do nấm khuẩn)
-                *   Chọn giống mai sạch bệnh, có khả năng phát triển tốt và phù hợp với điều kiện thời tiết.
-                *   Cắt tỉa những bộ phận bị nấm hại, côn trùng, vi khuẩn tấn công để tránh lây lan.
-                *   Bổ sung nguồn dinh dưỡng cần thiết cho cây và đất.
-                *   Cày xới đất trước khi trồng để loại bỏ nấm hại tồn dư và cải thiện thoát nước.
-                *   Thường xuyên kiểm tra vườn để phát hiện sớm các dấu hiệu bất thường.
-            *   **Sử dụng thuốc Ola insect in99:**
-                *   **Thành phần:** 10^8 CFU/ml Bacillus thuringenis (Bt) kết hợp giấm gỗ (acid Pyroligneous), tinh dầu thực vật.
-                *   **Công dụng:** Nấm ký sinh ức chế sâu hại và côn trùng (từ giai đoạn trứng tới trưởng thành) như sâu xanh, sâu vẽ bùa, nhện đỏ, bọ trĩ; xua đuổi côn trùng gây hại, ngăn ngừa chúng hút chích và sinh sản.
-                *   **Hướng dẫn sử dụng:**
-                    *   **Phun phòng:** Hòa 100ml Ola insect in99 với 200 lít nước sạch, phun ướt đẫm thân – cành – lá, định kỳ 15 – 30 ngày/lần.
-                    *   **Phun trị:** Hòa 100ml Ola insect in99 với 100 lít nước, phun tùy vào mật độ sâu hại và diện tích vườn.Dưới đây là tổng hợp các loại bệnh của cây được viết trong bài:
 
 ```json
 [
@@ -1182,7 +1039,8 @@
     ]
   }
 ]
-``````json
+
+```json
 [
   {
     "Tên cây": "Dưa lê",
@@ -1580,36 +1438,7 @@
   }
 ]
 ```Dưới đây là tổng hợp các loại bệnh của cây hoa trà dựa trên nội dung bài viết:
-
-*   **Tên cây**: Cây hoa trà (Cây hoa trà my)
-*   **Các loại bệnh**:
-    *   **Loại bệnh**: Rụng lá do điều kiện môi trường và chăm sóc không phù hợp
-        *   **Nguyên nhân**:
-            *   Thiếu nước.
-            *   Đặt cây ở nơi có nắng gắt (nhiệt độ quá cao).
-            *   Thiếu chất dinh dưỡng (đạm, photpho, kali).
-            *   Cây bị stress khi thay đổi môi trường đột ngột.
-        *   **Triệu chứng**: Lá cây khô và rụng đi, cây bị đuối sức, rụng lá.
-        *   **Cách điều trị**:
-            *   Tưới nước đều đặn và duy trì độ ẩm thường xuyên cho đất.
-            *   Đặt cây ở những nơi bóng râm, tránh ánh nắng mặt trời gay gắt.
-            *   Bổ sung các chất dinh dưỡng như đạm, photpho và kali. Thực hiện bón phân hữu cơ.
-            *   Đảm bảo các điều kiện môi trường thích hợp cho cây phát triển.
-            *   Thay chậu mới sau 1 năm (nếu trồng trong chậu) để không làm cản trở sự phát triển của bộ rễ.
-            *   Cắt tỉa bớt những cành, lá bị hỏng, đã chuyển sang màu nâu khi cây trưởng thành.
-    *   **Loại bệnh**: Rụng lá do nấm và sâu bệnh tấn công
-        *   **Nguyên nhân**: Nấm và sâu bệnh tấn công trong suốt quá trình sinh trưởng và phát triển của cây.
-        *   **Triệu chứng**: Rụng lá (và các dấu hiệu đáng ngờ khác trên cây).
-        *   **Cách điều trị**:
-            *   Thường xuyên theo dõi, kiểm tra để kịp thời xử lý khi phát hiện các dấu hiệu đáng ngờ.
-            *   Sử dụng các chế phẩm sinh học để phòng trừ các loại nấm bệnh, sâu hại.
-            *   Sử dụng thuốc phòng trị Tribe Vacci Gold:
-                *   **Thành phần**: Chitosan (1.000 ppm), pHH20: 5.2, Tỷ trọng: 1.12, các bào tử nấm đối kháng Chaetomium spp, các hoạt chất sinh học (Chaetoglobosin C, Chaetomanone), các chủng vi khuẩn mạnh trên nền chitosan ở dạng Nano bền vững.
-                *   **Công dụng**: Giải quyết hiệu quả tình trạng rụng lá, nâng cao sức đề kháng của cây, giúp cây chống chịu tốt trước thời tiết khắc nghiệt, bổ sung dưỡng chất thiết yếu.
-                *   **Hướng dẫn sử dụng**:
-                    *   **Để trị**: Hòa tan 250ml Tribe Vacci Gold với 400 – 600 lít nước, dùng định kỳ 5 – 7 ngày/lần.
-                    *   **Để phòng**: Hòa tan 250ml Tribe Vacci Gold với 800 – 1000 lít nước, dùng định kỳ 1 – 2 lần/tháng.
-                    *   **Khi cây yếu, phát triển kém**: Tưới bổ sung sản phẩm VI AMEN.```json
+```json
 [
   {
     "Tên cây": "Cây mai",
@@ -1660,7 +1489,7 @@
     ]
   }
 ]
-``````json
+```json
 [
   {
     "Tên cây": "Cây phú quý",
@@ -2652,7 +2481,7 @@
         }
     }
 ]
-``````json
+```json
 [
   {
     "Tên cây": "Bí đỏ",
@@ -4560,44 +4389,8 @@
         }
     }
 ]
-```Dựa trên nội dung bài viết, dưới đây là tổng hợp các vấn đề và bệnh của cây mộc hương:
 
-*   **Tên cây:** Cây mộc hương
-    *   **Loại bệnh:** Rụng lá (tình trạng chung)
-        *   **Nguyên nhân:**
-            *   Thay lá tự nhiên (trừ trường hợp này)
-            *   Chăm sóc sai cách:
-                *   **Tưới nước không phù hợp:** Quá ít (đặc biệt mùa hè) hoặc quá nhiều (gây úng rễ, thối rễ).
-                *   **Điều kiện ánh sáng:** Cung cấp không đủ ánh sáng.
-                *   **Thiếu phân bón, dinh dưỡng:** Không bón phân định kỳ.
-                *   **Côn trùng tấn công:** Rầy rệp, nhện đỏ, bọ xít làm hại lá và làm tổ.
-        *   **Triệu chứng:**
-            *   Lá rụng, rủ xuống, khô dần.
-            *   Cây kém phát triển, không ra hoa.
-            *   Lá màu nhạt hơn (khi thiếu dinh dưỡng).
-            *   Úng rễ, thối rễ (khi tưới thừa nước).
-        *   **Cách điều trị/phòng ngừa:**
-            *   **Tưới nước:** Cung cấp đủ nước, 2 lần/ngày (sáng, chiều tối), theo dõi tránh dư thừa gây ngập úng. Tránh tưới buổi trưa nắng gắt.
-            *   **Ánh sáng:** Trồng ở vị trí có ánh sáng tự nhiên nhưng tránh nắng trực tiếp gay gắt, trang bị biện pháp che chắn.
-            *   **Nhiệt độ/độ ẩm:** Duy trì 18 – 25 độ C, trồng ở vùng có thời tiết thoáng đãng.
-            *   **Dinh dưỡng:** Cung cấp phân định kỳ (phân hữu cơ, NPK), bón lót định kỳ khi cây đã nở hoa.
-            *   **Côn trùng:** Cắt bỏ cành lá bị hại, phun thuốc trừ sâu bệnh hiệu quả.
-            *   **Bổ sung dinh dưỡng:** Sử dụng phân bón lá siêu dinh dưỡng VI AMEN (Đạm, Lân, Kali, Axit humic, Mangan, Kẽm, Đồng, Bo, kết hợp Nano chitosan, axit amin, fluvic, Ca, Mg, dạng chealte và EDTA) giúp cây phát triển khỏe mạnh, xanh lá, cứng cây. Hướng dẫn: Pha 250ml VI AMEN với 400-800l nước, phun tưới định kỳ 7-15 ngày/lần.
-
-*   **Tên cây:** Cây mộc hương
-    *   **Loại bệnh:** Vàng lá, thối rễ, lở cổ rễ (do nấm bệnh, khuẩn, tuyến trùng)
-        *   **Nguyên nhân:**
-            *   Tưới nước dư thừa gây úng rễ, thối rễ.
-            *   Nấm bệnh tấn công như lở cổ rễ, thối rễ.
-            *   Khuẩn và tuyến trùng tấn công bộ rễ.
-        *   **Triệu chứng:** Vàng lá, thối rễ, cây suy yếu, rụng lá, chết cây.
-        *   **Cách điều trị:**
-            *   Sử dụng thuốc phòng trị Be Green:
-                *   **Thành phần:** Chaetomium cupreum 1.5×10^6 CFU/g bột, tổ hợp từ hơn 25 chủng Chaetomium spp, Trichoderma spp, Paecilomyces sp, vi sinh phân giải lân, kali, dinh dưỡng hữu cơ lên men cô đặc, amino axit, axit fluvic.
-                *   **Công dụng:** Phòng trừ các loại nấm bệnh (lở cổ rễ, thối rễ), phục hồi cây sau nhiễm nấm, kích thích ra rễ nhanh chóng, bảo vệ bộ rễ, bổ sung vi sinh có lợi, cải tạo đất, tăng sức đề kháng.
-                *   **Hướng dẫn sử dụng:**
-                    *   **Phun trị bệnh:** Pha 50g Be Green với 40 – 80 lít nước, phun tưới trực tiếp vùng đất dưới tán cây, thực hiện 5-10 ngày/lần.
-                    *   **Phun phòng bệnh:** Pha 25g Be Green với 20 – 40 lít nước, tưới định kỳ 3-4 lần/vụ.```json
+```json
 [
   {
     "Tên cây": "Cây trồng nói chung",
@@ -4864,49 +4657,8 @@
     ]
   }
 ]
-```Dựa trên nội dung bài viết, dưới đây là tổng hợp các loại bệnh của cây dưa leo:
 
-*   **Tên cây:** Dưa leo
-    *   **Loại bệnh:** Thối gốc
-        *   **Nguyên nhân:**
-            *   Do nấm Rhizoctonia solani và Fusarium solani gây ra.
-            *   Phát triển mạnh khi thời tiết có ẩm độ cao, tồn tại trên thân cỏ dại, rơm rạ.
-            *   Điều kiện phát sinh: thời tiết nóng, ẩm độ cao, hạch nấm còn tồn đọng trên đất sau mỗi mùa thu hoạch.
-        *   **Triệu chứng:**
-            *   Lá dưa leo thường bị vàng úa, giảm kích thước, viền lá bị khô.
-            *   Ở phần gốc cây có nhiều vết thâm đen, ứ nước bên trong.
-            *   Bên ngoài thân cây xuất hiện nhiều lớp trắng hồng hoặc trắng xám.
-            *   Cây bị héo dần, không hấp thụ được dưỡng chất, dẫn đến chết cây.
-            *   Thân cây bị ứ đọng nước, thối mục hoàn toàn.
-            *   Không ra hoa đậu quả được hoặc quả ra nhỏ, không đạt tiêu chuẩn chất lượng.
-            *   Có thể làm thối đít trái dưa.
-        *   **Cách điều trị (và phòng ngừa):**
-            *   **Phòng ngừa:**
-                *   Lựa chọn giống dưa leo khỏe mạnh, không bị sâu bệnh.
-                *   Làm cỏ, cắt tỉa bớt lá hư, lá bị sâu bệnh ở xung quanh gốc cây.
-                *   Cày, cuốc, phơi ải đất trồng kết hợp bón vôi trước 7-10 ngày vào vụ.
-                *   Tạo độ thông thoáng cho ruộng dưa bằng cách trồng cây mật độ hợp lý, không quá dày.
-                *   Không dùng rơm rạ từ ruộng lúa bị bệnh để tủ liếp dưa leo.
-                *   Tránh tưới nước quá nhiều gây ngập úng, tạo rãnh thoát nước tốt trong mùa mưa.
-                *   Sử dụng phân chuồng, phân bón hữu cơ có hàm lượng kali cao.
-                *   Thường xuyên kiểm tra, thăm ruộng dưa để phát hiện kịp thời.
-                *   Sử dụng các sản phẩm thuốc sinh học phù hợp.
-            *   **Điều trị bằng thuốc Antafungal:**
-                *   **Thành phần:** Vi sinh tổng số 10^7 CFU/g (Chaetomium spp, Trichoderma spp, Paecilomyces sp), các chủng vi khuẩn lên men cải tạo đất, Humic, Fluvic, vi lượng ở dạng EDTA.
-                *   **Công dụng:** Xử lý nhanh thối gốc, úng rễ; phòng trị phấn trắng, sương mai (tác dụng chung); khoanh vùng và dập dịch; hỗ trợ kích thích sinh trưởng.
-                *   **Hướng dẫn sử dụng:**
-                    *   **Trị bệnh:** Hòa tan 250g bột Antafungal với 200 lít nước, phun và tưới kỹ toàn vườn (tập trung gốc). Phun cách nhau 5-10 ngày.
-                    *   **Phòng bệnh:** Sử dụng 250g bột Antafungal với 400 lít nước, dùng 2-3 lần/vụ.
-                    *   Có thể kết hợp phân bón hữu cơ, chế phẩm sinh học khác.
-                    *   Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp và ẩm ướt, xa tầm tay trẻ em và thú cưng.
-
-*   **Các loại bệnh khác được nhắc đến (nhưng không có đủ thông tin chi tiết về nguyên nhân, triệu chứng cụ thể trong bài viết):**
-    *   **Tên cây:** Dưa leo
-        *   **Loại bệnh:** Phấn trắng
-        *   **Cách điều trị:** Thuốc Antafungal có tác dụng phòng trị.
-    *   **Tên cây:** Dưa leo
-        *   **Loại bệnh:** Sương mai
-        *   **Cách điều trị:** Thuốc Antafungal có tác dụng phòng trị.```json
+```json
 [
   {
     "Tên cây": "Khoai tây",
@@ -6103,7 +5855,7 @@
     ]
   }
 ]
-``````json
+```json
 [
   {
     "Tên cây": "Ớt",
@@ -6248,7 +6000,7 @@
     ]
   }
 ]
-``````json
+```json
 [
   {
     "Tên cây": "Cây chanh",
@@ -6718,35 +6470,6 @@
     ]
   }
 ]
-```Dưới đây là tổng hợp các loại bệnh của cây sầu riêng được đề cập trong bài viết:
-
-*   **Tên cây:** Sầu riêng
-    *   **Loại bệnh:** Nứt gai sầu riêng
-    *   **Nguyên nhân:**
-        *   Thiếu canxi, dư nước và dinh dưỡng trong quá trình phát triển của quả.
-        *   Bón phân không cân đối, chỉ bổ sung N-P-K mà thiếu các thành phần trung lượng, vi lượng như Ca, Bo, Fe, Mg, Zn, Cu, Si, B, Mo (đặc biệt là Ca, Si, Bo giúp tăng tính liên kết cho các tế bào).
-        *   Cung cấp nhiều N-P-K khiến múi phát triển đột ngột, quá lớn, không tương thích với phần vỏ.
-        *   Hai cành mọc song song nhau, khi ra quả sẽ cọ vào nhau gây gãy và nứt gai.
-        *   Sự tấn công của rệp sáp làm hư hại, biến dạng trái và gây nứt gai.
-    *   **Triệu chứng:**
-        *   Phần đầu gai trên vỏ sầu riêng bị nứt.
-        *   Các đầu gai chuyển màu sang nâu đậm, bị nứt làm đôi hoặc nhiều hướng, trông như bị mục dần.
-        *   Các đầu gai bị nứt toác, có thể làm lộ phần thịt múi bên trong.
-        *   Xuất hiện ở cả trái biến dạng và trái bình thường.
-    *   **Cách điều trị:**
-        *   **Phòng ngừa và chăm sóc:**
-            *   Cắt tỉa cành, tạo tán phù hợp, phân bổ đều, tránh cành chồng chéo, mọc song song hoặc sát vào nhau.
-            *   Phun phòng các loài rầy rệp xâm nhập vào quả sầu riêng (có thể dùng sản phẩm Mebe Pa).
-            *   Bón phân với liều lượng cân đối, bổ sung đầy đủ trung, vi lượng để các tế bào liên kết chặt chẽ, tránh nứt vỏ.
-            *   Dọn vườn sạch sẽ để tránh rầy rệp và nấm bệnh.
-        *   **Thuốc phòng trị:**
-            *   Sử dụng sản phẩm sinh học AQ55 Mfruit.
-            *   **Thành phần:** Đạm tổng số (N): 8%, Lân hữu hiệu (P2O5hh): 5%, Kali hữu hiệu (K2Ohh): 5%, Axit humic (C): 1.5%, Magan (Mn): 500 ppm, Kẽm (Zn): 500 ppm, Đồng (Cu): 500 ppm, Bo (B): 200 ppm, pHH2O: 5.5, Tỷ trọng: 1.15. Các hợp chất hữu cơ lên men từ vi sinh vật hữu ích; Amino Axit (Aspartic, Glicine, Glutamic, Proline, Arginine, Leucine, Alanine, Cystine, Histadine, Glutamine, Omithine, Serine, Tyrosine, Lysine).
-            *   **Công dụng:** Phòng trừ và ngăn ngừa nấm trái, rụng trái non, bảo vệ trái khỏe mạnh. Giúp trái phát triển đạt tiêu chuẩn, tăng trọng lượng, kích thước, bóng đẹp, tăng khối lượng. Giúp trái ngon, ngọt, to đều, tăng độ chín và độ ngọt đồng đều.
-            *   **Hướng dẫn sử dụng:**
-                *   Pha 500ml sản phẩm với 300-500l nước, phun đều lên tán lá.
-                *   Giúp già hóa đọt: Phun 2-3 lần, mỗi lần cách nhau 5-7 ngày.
-                *   Tăng trọng lượng, kích thước trái: Phun định kỳ 7-10 ngày/lần, tập trung vào giai đoạn trái non, tạo đường, chuẩn bị tích dưỡng. Ngừng phun thuốc 7-10 ngày trước thu hoạch.Dưới đây là tổng hợp thông tin về bệnh của cây tiêu từ bài viết:
 
 ```json
 [
@@ -7412,45 +7135,6 @@ Do đó, danh sách các loại bệnh của cây có trong bài viết được
     }
   }
 ]
-```Dựa trên nội dung bài viết, dưới đây là tổng hợp các loại bệnh của cây lưỡi hổ:
-
-*   **Tên cây:** Cây lưỡi hổ
-    *   **Loại bệnh:** Đốm lá
-        *   **Nguyên nhân:**
-            *   Do nấm Colletotrichum sp gây ra.
-            *   Phát triển mạnh khi trời có nhiều mưa, ẩm ướt.
-            *   Lây lan nhanh chóng nhờ chiều gió thông qua bào tử nấm.
-            *   Nấm ký sinh mạnh mẽ, gây hại cả cây non và cây sinh trưởng tốt.
-        *   **Triệu chứng:**
-            *   Lá bị ố màu, mất đi độ bóng tự nhiên, trở nên xỉn màu.
-            *   Trên lá xuất hiện các chấm lớn nhỏ không đồng đều, có màu nâu.
-            *   Vết bệnh có gờ, lõm lên xuống, có viền nâu vàng ngoài cùng.
-            *   Những lá bị bệnh yếu ớt, dễ gãy.
-        *   **Cách điều trị:**
-            *   **Phòng ngừa:**
-                *   Tưới cây từ 1 đến 2 lần mỗi tuần.
-                *   Tạo không gian giữa các cây, tỉa lá để có luồng khí lưu thông tốt.
-                *   Vệ sinh sạch sẽ vết cắt và dụng cụ để tránh lây lan nấm bệnh.
-                *   Khi tưới cây không nên phun trực tiếp vào cây để tránh đất bắn lên lá.
-                *   Bón một ít phân bón để cung cấp dinh dưỡng, tránh bón quá nhiều.
-                *   Sử dụng chế phẩm sinh học để phun phòng nấm bệnh định kỳ.
-            *   **Điều trị bằng thuốc đặc trị:**
-                *   Sử dụng thuốc Phy Fusaco.
-                *   **Thành phần:** Vi sinh tổng số từ Chaetomium spp, Trichoderma spp, Bacillus subtilis 1.5×10^8 CFU/ml kết hợp các Enzym ngoại bào, hoạt chất kháng sinh sinh học, Nano Chitosan.
-                *   **Hướng dẫn sử dụng trị bệnh:** Pha chai 250ml Phy Fusaco cùng 400-600 lít nước, phun kỹ trên lá, cành, thân, khu vực dưới gốc với tần suất từ 5-7 ngày/lần.
-                *   **Hướng dẫn sử dụng phòng bệnh:** Pha chai 250ml Phy Fusaco cùng 800-1000 lít nước, dùng phun định kỳ 15-30 ngày/lần.
-    *   **Loại bệnh:** Xì mủ
-        *   **Nguyên nhân:** Do nấm Phytopthora, Furasium (và các loại nấm khác).
-        *   **Triệu chứng:** Không được đề cập chi tiết trong bài viết.
-        *   **Cách điều trị:** Sử dụng thuốc Phy Fusaco (như mô tả ở bệnh đốm lá) theo liều lượng điều trị hoặc phòng ngừa.
-    *   **Loại bệnh:** Nứt thân
-        *   **Nguyên nhân:** Do nấm Phytopthora, Furasium (và các loại nấm khác).
-        *   **Triệu chứng:** Không được đề cập chi tiết trong bài viết.
-        *   **Cách điều trị:** Sử dụng thuốc Phy Fusaco (như mô tả ở bệnh đốm lá) theo liều lượng điều trị hoặc phòng ngừa.
-    *   **Loại bệnh:** Thối nhũn
-        *   **Nguyên nhân:** Do nấm Phytopthora, Furasium (và các loại nấm khác).
-        *   **Triệu chứng:** Không được đề cập chi tiết trong bài viết.
-        *   **Cách điều trị:** Sử dụng thuốc Phy Fusaco (như mô tả ở bệnh đốm lá) theo liều lượng điều trị hoặc phòng ngừa.Dựa trên nội dung bài viết, có một loại bệnh chính được mô tả chi tiết:
 
 ```json
 [
@@ -9102,42 +8786,6 @@ Do đó, danh sách các loại bệnh của cây có trong bài viết được
     }
   }
 ]
-```Dưới đây là tổng hợp các loại bệnh của cây được viết trong bài viết:
-
-*   **Tên cây:** Cây keo
-    *   **Loại bệnh:** Bệnh rỉ sắt
-    *   **Nguyên nhân:**
-        *   Do nấm Puccinia maydis gây ra.
-        *   Phát triển mạnh vào mùa xuân và mùa thu, khi thời tiết ẩm, nhiệt độ khoảng từ 15 – 35 độ C.
-    *   **Triệu chứng:**
-        *   Lá chuyển từ màu xanh sang màu vàng và xám.
-        *   Xuất hiện các đốm đen, đốm vàng trên lá.
-        *   Xuất hiện các vết rỉ sắt có màu nâu đen hoặc vàng trên thân, lá, cành (giống màu sắt bị rỉ).
-        *   Các đốm mọc ở lá sẽ phát triển thành mụn mủ, thường mọc ở dưới mặt lá và tạo ra nhiều tế bào cực nhỏ.
-        *   Khi nhiễm nặng, các dấu hiệu xuất hiện thêm trên cành và thân cây.
-        *   Lá xoăn lại, chuyển thành màu nâu vàng, khô héo dần và rụng lá.
-        *   Các cành non bị lõm xuống, xuất hiện các vết đen và chấm nhỏ trên cành.
-        *   Cây không phát triển bình thường, còi cọc, sinh trưởng chậm.
-        *   Sức đề kháng của cây giảm sút nghiêm trọng và dễ mắc các bệnh khác.
-        *   Giảm chất lượng gỗ và năng suất không đạt.
-        *   Có thể khiến cây chết sớm khi chưa thu hoạch.
-    *   **Cách điều trị / phòng trị:**
-        *   **Biện pháp phòng ngừa:**
-            *   Chọn cây giống có sức đề kháng tốt.
-            *   Vệ sinh vườn keo sạch sẽ, dọn cỏ thường xuyên để tránh lây lan.
-            *   Cắt tỉa cành, lá cho cây thông thoáng.
-            *   Làm sạch đất và xử lý các loại bệnh cũ tàn dư trước khi trồng.
-            *   Trồng cây đúng khoảng cách để không khí lưu thông và có không gian phát triển.
-            *   Trồng cây ở những nơi thoáng mát và có ánh nắng mặt trời.
-            *   Kiểm tra vườn liên tục để phát hiện bệnh sớm.
-            *   Cung cấp chất dinh dưỡng và vitamin cho cây bằng cách bón phân và phun thuốc trừ bệnh.
-        *   **Điều trị bằng thuốc:**
-            *   Sử dụng thuốc đặc trị bệnh rỉ sắt trên cây keo Phy Fusaco của Công Ty TNHH Trung Tâm Sinh học AQ.
-            *   **Thành phần thuốc:** Tổng số vi sinh bao gồm: Trichoderma spp, Chaetomium spp, Bacillus subtilis: 1,5×10^8CFU/ml.
-            *   **Công dụng thuốc:** Phòng trừ bệnh rỉ sắt (và nhiều bệnh khác như nứt thân, xì mủ, thối nhũn, thối gốc, thối thân, sương mai, chết dây, đốm lá, ghẻ sẹo, nấm hồng, héo rũ); nâng cao tính kháng bệnh; có hiệu quả nhanh, tác dụng lâu, tăng miễn dịch, phổ rộng; không độc hại, an toàn cho cây và môi trường.
-            *   **Hướng dẫn sử dụng thuốc Phy Fusaco:**
-                *   **Phun trị:** Pha 250ml thuốc vào 400 – 600 lít nước, phun kỹ toàn bộ phận của cây (bao gồm cả gốc), phun 5-7 ngày một lần.
-                *   **Phun phòng:** Hòa 250ml thuốc vào 800 – 1000 lít nước, phun từ 15-30 ngày/lần.Dưới đây là tổng hợp các loại bệnh trên cây vải dựa trên nội dung bài viết, bao gồm tên cây, loại bệnh, nguyên nhân, triệu chứng và cách điều trị:
 
 ```python
 [
@@ -9339,91 +8987,9 @@ Do đó, danh sách các loại bệnh của cây có trong bài viết được
     ]
   }
 ]
-```Dưới đây là tổng hợp các loại bệnh của cây lộc vừng dựa trên nội dung bài viết:
+```Dưới đây là tổng hợp thông tin về bệnh của cây cẩm tú cầu từ bài viết:
 
-*   **Tên cây:** Cây lộc vừng
-    *   **Loại bệnh:** Bệnh đốm lá
-    *   **Nguyên nhân:** Do nấm bệnh hại.
-    *   **Triệu chứng:**
-        *   Ban đầu là các chấm nhỏ li ti, sau đó lan rộng thành các vết bệnh màu nâu đậm hoặc đen.
-        *   Viền vết bệnh có màu vàng nhạt.
-        *   Giai đoạn nặng gây vàng lá, cháy lá, tấn công từ lá già đến lá non.
-        *   Cây kém phát triển, rụng lá, ảnh hưởng khả năng quang hợp và lây bệnh ra cả cây.
-    *   **Cách điều trị:**
-        *   **Phương pháp chăm sóc:** Kiểm tra cây thường xuyên để sớm phát hiện và loại bỏ các vị trí bị tổn thương. Bổ sung phân bón hữu cơ để tăng sức đề kháng. Đảm bảo đất trồng thông thoáng, đủ nước và ánh sáng.
-        *   **Thuốc hóa học/sinh học:** Sử dụng thuốc đặc trị nấm Phy FusaCo.
-            *   **Phun trị:** Hòa tan 250ml Phy FusaCo vào 400 – 600 lít nước, phun kỹ lá, cành, thân và vùng dưới gốc cây, cách nhau 5-7 ngày/lần.
-            *   **Phun phòng:** Hòa tan 250ml Phy FusaCo vào 800 – 1000 lít nước, phun định kỳ 15-30 ngày/lần.
-
-*   **Tên cây:** Cây lộc vừng
-    *   **Loại bệnh:** Bệnh héo lá
-    *   **Nguyên nhân:**
-        *   Thời tiết khắc nghiệt.
-        *   Thiếu dinh dưỡng.
-        *   Ngập úng dẫn đến sự xâm nhập của các loại nấm gây thối rễ.
-    *   **Triệu chứng:**
-        *   Lá cây héo úa, co lại, dần biến dạng hoặc phát triển nhỏ hơn, có các lỗ nhỏ trên bề mặt.
-        *   Quang hợp kém, giảm khả năng hấp thụ ánh sáng mặt trời và chất dinh dưỡng, cây suy yếu dần rồi chết.
-    *   **Cách điều trị:**
-        *   **Phương pháp chăm sóc:** Kiểm tra cây thường xuyên để sớm phát hiện và loại bỏ các vị trí bị tổn thương. Bổ sung phân bón hữu cơ để tăng sức đề kháng. Đảm bảo đất trồng thông thoáng, đủ nước và ánh sáng.
-        *   **Thuốc hóa học/sinh học:** Nếu nguyên nhân do nấm, có thể sử dụng thuốc đặc trị nấm Phy FusaCo (cách dùng tương tự như Bệnh đốm lá).
-
-*   **Tên cây:** Cây lộc vừng
-    *   **Loại bệnh:** Bệnh sương mai
-    *   **Nguyên nhân:** Do nấm gây ra, phát triển mạnh trong môi trường ẩm ướt.
-    *   **Triệu chứng:**
-        *   Xuất hiện lớp vảy mờ trắng ở các bộ phận của cây, bao phủ lá.
-        *   Giảm quang hợp của cây, giảm hấp thu chất dinh dưỡng và năng lượng mặt trời.
-        *   Gây hiện tượng suy nhược cây trồng, nếu không phòng trị kịp thời có thể dẫn đến hậu quả nghiêm trọng.
-    *   **Cách điều trị:**
-        *   **Phương pháp chăm sóc:** Kiểm tra cây thường xuyên để sớm phát hiện và loại bỏ các vị trí bị tổn thương. Bổ sung phân bón hữu cơ để tăng sức đề kháng. Đảm bảo đất trồng thông thoáng, đủ nước và ánh sáng.
-        *   **Thuốc hóa học/sinh học:** Sử dụng thuốc đặc trị nấm Phy FusaCo (cách dùng tương tự như Bệnh đốm lá).
-
-*   **Tên cây:** Cây lộc vừng
-    *   **Loại bệnh:** Bệnh thối rễ
-    *   **Nguyên nhân:** Do các loại nấm như Phytophthora spp., Rhizoctonia spp., Pythium spp. tấn công bộ rễ. Nấm tồn tại trong đất và dễ dàng xâm nhập vào rễ qua các vết thương, đặc biệt khi hệ rễ phát triển kém.
-    *   **Triệu chứng:**
-        *   Ảnh hưởng đến khả năng hấp thụ nước và dinh dưỡng của cây.
-        *   Cây kém phát triển, cho ra lá và quả nhỏ.
-        *   Nghiêm trọng nhất là chết cây nếu không phòng trị kịp thời.
-    *   **Cách điều trị:**
-        *   **Phương pháp chăm sóc:** Kiểm tra cây thường xuyên để sớm phát hiện và loại bỏ các vị trí bị tổn thương. Bổ sung phân bón hữu cơ để tăng sức đề kháng. Đảm bảo đất trồng thông thoáng, đủ nước và ánh sáng.
-        *   **Thuốc hóa học/sinh học:** Sử dụng thuốc đặc trị nấm Phy FusaCo, vì sản phẩm này có công dụng phòng trừ bệnh do các loại nấm như Phytopthora, Fusarium (cách dùng tương tự như Bệnh đốm lá).Dưới đây là tổng hợp các vấn đề về cây sầu riêng được đề cập trong bài viết, phân loại theo các thuộc tính yêu cầu:
-
-*   **Tên cây**: Sầu riêng
-*   **Loại bệnh**: Rụng cuống sầu riêng (Đây là tình trạng chung, các nguyên nhân cụ thể sẽ được liệt kê bên dưới như các loại vấn đề riêng biệt)
-    *   **Nguyên nhân chung**: Thời tiết oi bức, thiếu nước, sâu bệnh gây hại, thiếu chất dinh dưỡng.
-    *   **Cách điều trị chung**: Theo dõi, kiểm tra vườn thường xuyên để phát hiện và xử lý kịp thời. Sử dụng các kỹ thuật canh tác đúng cách và kết hợp với sản phẩm sinh học như Phân bón sinh học AQ54 Kfruit.
-    *   **Các vấn đề cụ thể dẫn đến rụng cuống**:
-        *   **Vấn đề 1**: Rụng cuống do chín tự nhiên
-            *   **Nguyên nhân**: Quả sầu riêng đã đạt đến độ chín nhất định.
-            *   **Triệu chứng**: Cuống tự động rụng khỏi quả; trái có chất lượng tốt, múi dày, có vị ngọt thanh và hương thơm nồng nàn; gai nở to và cứng, cuống xanh tươi, còn chảy nhựa.
-            *   **Cách điều trị**: Thu hoạch sầu riêng ngay để đảm bảo chất lượng của trái.
-        *   **Vấn đề 2**: Rụng cuống do khí hậu, thời tiết thay đổi đột ngột
-            *   **Nguyên nhân**:
-                *   Nhiệt độ tăng cao hoặc giảm đi đột ngột gây stress cho cây.
-                *   Gió bão lớn làm sầu riêng rụng khỏi cây (bao gồm cả quả chưa chín).
-                *   Điều kiện thời tiết ẩm ướt, mưa nhiều kéo dài liên tục làm thối cuống và héo ngọn.
-            *   **Triệu chứng**: (Đối với rụng do gió bão) Vỏ trái bị sần sùi, dập nát, có thể bị nứt.
-            *   **Cách điều trị**: Cẩn thận che chắn khi có gió lớn, tránh làm rơi rụng trái khi còn non.
-        *   **Vấn đề 3**: Rụng cuống do nấm bệnh hại tấn công
-            *   **Nguyên nhân**: Một số loại vi nấm như: Phytophthora sp., Colletotrichum sp., Gloeosporium sp., Pseudomonas sp.,… tấn công mạnh vào bộ rễ cây, khiến cây bị suy yếu.
-            *   **Triệu chứng**: Quả sầu bị thối rữa và rụng cuống; vỏ sầu sẽ bị nhăn nheo, đổi màu, có thể bị chảy mủ.
-            *   **Cách điều trị**: Theo dõi, kiểm tra vườn thường xuyên để phát hiện sâu bệnh và có biện pháp xử lý kịp thời. Có thể kết hợp sử dụng phân bón sinh học AQ54 Kfruit để tăng cường sức đề kháng.
-        *   **Vấn đề 4**: Rụng cuống do cây bị thiếu chất dinh dưỡng
-            *   **Nguyên nhân**:
-                *   Thiếu Kali: Quá trình hình thành và vận chuyển đường trong thân cây bị cản trở, khiến cây sầu riêng non có thể bị rụng cuống.
-                *   Thiếu Bo: Cây sầu riêng suy giảm sức sống, tỷ lệ đậu quả thấp, cuống hoa và cuống trái dễ bị gãy rụng.
-            *   **Triệu chứng**: Cuống non dễ rụng, tỷ lệ đậu quả thấp, cuống hoa và cuống trái dễ gãy rụng.
-            *   **Cách điều trị**: Bón phân, tưới nước, cung cấp lượng ánh sáng phù hợp để cây phát triển tốt. Sử dụng các loại phân bón sinh học cung cấp đầy đủ dưỡng chất (ví dụ AQ54 Kfruit chứa Kẽm, Bo, dung dịch lên men vi sinh và axit amin).
-
-*   **Cách phòng ngừa hiệu quả chung cho tình trạng rụng cuống**:
-    *   Lựa chọn những giống sầu riêng chất lượng, có khả năng kháng bệnh, chống chịu tốt.
-    *   Trồng cây với mật độ hợp lý.
-    *   Tiến hành cắt bỏ bớt những chồi non, trái yếu.
-    *   Bón phân, tưới nước, cung cấp lượng ánh sáng phù hợp.
-    *   Thường xuyên quét dọn, vệ sinh vườn cây định kỳ.
-    *   Sử dụng các loại phân bón sinh học (ví dụ: Phân bón hữu cơ AQ54 Kfruit).```json
+```json
 [
   {
     "Tên cây": "Cây chanh",
@@ -10008,31 +9574,6 @@ Do đó, danh sách các loại bệnh của cây có trong bài viết được
 ]
 ```Dưới đây là tổng hợp các loại bệnh trên cây chuối được đề cập trong bài viết:
 
-*   **Tên cây:** Cây chuối
-    *   **Loại bệnh:** Bệnh thối thân (Đốm thối thân xanh)
-        *   **Nguyên nhân:** Do nấm *Colletotrichum* và *Botryodiplodia*. Nấm phát triển mạnh trong môi trường ẩm ướt và xâm nhập vào thân cây qua những vết thương hở.
-        *   **Triệu chứng:** Xuất hiện những vết thối màu nâu đen và lan rộng ra xung quanh.
-        *   **Cách điều trị:**
-            *   Sử dụng thuốc sinh học Phy FusaCo để phòng trị dứt điểm nấm hại.
-            *   Các biện pháp phòng ngừa chung: chọn giống khỏe, kiểm tra vườn thường xuyên, trồng mật độ hợp lý, tưới nước/bón phân đúng liều lượng, xây dựng hệ thống thoát nước, vệ sinh vườn sạch sẽ, thu gom tàn dư.
-    *   **Loại bệnh:** Bệnh chùn đọt
-        *   **Nguyên nhân:** Do virus Bunchy Top, lan truyền từ cây mẹ sang cây con qua loài rệp sáp. Bệnh thường phát triển và lây lan ở những vườn trồng có độ ẩm cao.
-        *   **Triệu chứng:** Cây bị còi cọc, sinh trưởng và phát triển kém, không thể ra trái hoặc ra trái chậm. Buồng ra trái kém chất lượng, trái nhỏ, biến dạng, làm mất đi giá trị dinh dưỡng.
-        *   **Cách điều trị:**
-            *   Sử dụng thuốc sinh học Tribe Vacci Gold (new) để đặc trị virus, cô lập và tiêu diệt virus, giúp phục hồi sức khỏe và nâng cao sức đề kháng cho cây.
-            *   Các biện pháp phòng ngừa chung: chọn giống khỏe, kiểm tra vườn thường xuyên, trồng mật độ hợp lý, tưới nước/bón phân đúng liều lượng, xây dựng hệ thống thoát nước, vệ sinh vườn sạch sẽ, thu gom tàn dư.
-    *   **Loại bệnh:** Bệnh panama
-        *   **Nguyên nhân:** Do nấm *Fusarium oxysporum f.sp. cubense*. Nấm lây lan chính trên cây chuối con hay qua môi trường đất đã mang mầm bệnh.
-        *   **Triệu chứng:** Lá chuyển sang màu vàng rồi bị héo khô và chết dần đi. Rễ và cuống lá có màu đen và có mùi hôi.
-        *   **Cách điều trị:**
-            *   Sử dụng thuốc sinh học Phy FusaCo để phòng trị dứt điểm nấm gây bệnh.
-            *   Các biện pháp phòng ngừa chung: chọn giống khỏe, kiểm tra vườn thường xuyên, trồng mật độ hợp lý, tưới nước/bón phân đúng liều lượng, xây dựng hệ thống thoát nước, vệ sinh vườn sạch sẽ, thu gom tàn dư.
-    *   **Loại bệnh:** Bệnh thán thư
-        *   **Nguyên nhân:** Do nấm *Colletotrichum musae*. Nấm xâm nhập, ký sinh và gây hại trên tất cả bộ phận của cây chuối thông qua những vết thương hở.
-        *   **Triệu chứng:** Ở phần mép lá, xuất hiện các đốm nâu đen trên mặt lá, có viền nâu đỏ. Quả bị thối rữa, hư hại, không thể mang ra thị trường tiêu thụ.
-        *   **Cách điều trị:**
-            *   Sử dụng thuốc sinh học Antafungal để cân bằng vi sinh và bảo vệ cây chuối khỏi nấm bệnh thán thư.
-            *   Các biện pháp phòng ngừa chung: chọn giống khỏe, kiểm tra vườn thường xuyên, trồng mật độ hợp lý, tưới nước/bón phân đúng liều lượng, xây dựng hệ thống thoát nước, vệ sinh vườn sạch sẽ, thu gom tàn dư.```json
 [
   {
     "Tên cây": "Đào",
@@ -11268,40 +10809,7 @@ Dưới đây là tổng hợp chi tiết về bệnh "Nấm trắng":
     "cách điều trị": "Sử dụng thuốc sinh học Antafungal (trong công dụng của thuốc)."
   }
 ]
-```Tôi hiểu yêu cầu của bạn là tổng hợp các loại bệnh của cây từ bài viết được cung cấp, với các thuộc tính cụ thể: Tên cây, loại bệnh, nguyên nhân, triệu chứng, và cách điều trị.
 
-Tuy nhiên, nội dung của `Document` bạn cung cấp lại trống rỗng (`page_content=''`).
-
-Do đó, tôi không thể trích xuất bất kỳ thông tin nào về tên cây, loại bệnh, nguyên nhân, triệu chứng hay cách điều trị từ một nguồn không có nội dung.
-
-Để tôi có thể thực hiện yêu cầu này, xin vui lòng cung cấp nội dung đầy đủ của bài viết hoặc URL mà tôi có thể truy cập để đọc nội dung.Dưới đây là tổng hợp các loại bệnh của cây mãng cầu được đề cập trong bài viết:
-
-*   **Tên cây:** Mãng cầu (Na)
-*   **Loại bệnh:** Đen ruột (còn gọi là khô đọt, thối quả na)
-    *   **Nguyên nhân:**
-        *   Tác nhân chính: Nấm Lasiodiplodia theobromae (Botryodiplodia theobromae).
-        *   Điều kiện phát sinh: Nhiệt độ 26 – 32°C, độ ẩm môi trường 80%, thời tiết nắng mưa thất thường.
-    *   **Triệu chứng:**
-        *   **Trên lá:** Xuất hiện các đốm màu tía viền vàng, sau chuyển đen, lá vàng và rụng sớm.
-        *   **Nụ hoa:** Bị thâm đen dần, số lượng bông ra ít và rụng nhiều.
-        *   **Trên cành:** Những cành khuất bên trong tán, ít tiếp xúc ánh nắng dễ nhiễm bệnh, theo thời gian cành chết khô.
-        *   **Trên quả:** Hình thành các vết bệnh trên vỏ mãng cầu theo cụm, từ màu tía chuyển sang đen, vỏ khô dần. Nấm bệnh lây lan đến phần thịt bên trong gây hiện tượng đen ruột, thối hư cơm thịt.
-    *   **Cách điều trị (Phòng trừ):**
-        *   **Phương pháp chăm sóc phòng ngừa:**
-            *   Trồng mãng cầu mật độ phù hợp, tránh trồng dày đặc tạo môi trường ẩm thấp.
-            *   Thường xuyên thăm vườn, cắt tỉa cành tăm, cành chồng chéo, cành không trái hay cành bệnh để tạo sự thông thoáng.
-            *   Tránh cắt tỉa cây vào mùa mưa, có thể dùng thuốc kéo dao bôi vào để bảo vệ vết cắt.
-            *   Cân đối hàm lượng dinh dưỡng trong phân bón.
-            *   Kiểm tra vườn giai đoạn trái non để kịp thời xử lý các dấu hiệu.
-        *   **Dùng thuốc hoá học:** Hiện tại chưa có dòng thuốc BVTV hoá học chuyên xử lý bệnh đen ruột trên cây mãng cầu.
-        *   **Dùng thuốc sinh học:** Thuốc Phy FusaCo (sản phẩm sinh học của Công ty TNHH Trung Tâm Sản Phẩm Sinh Học AQ).
-            *   **Thành phần:** Chaetomium spp, Trichoderma spp, Bacillus subtilis: 1,5 x 10^8 CFU/ml; các hoạt chất enzyme ngoại bào và nano chitosan.
-            *   **Công dụng:** Phòng trừ hiệu quả tình trạng đen ruột, tăng cường sức chống chịu, ngăn ngừa một số bệnh hại khác (thán thư, thối rễ, chết cành), nâng cao chất lượng trái.
-            *   **Hướng dẫn sử dụng:**
-                *   **Điều trị:** 250ml Phy FusaCo + 400 – 600 lít nước. Xử lý cách 5 – 7 ngày/lần. Phun ở lá – cành – thân – dưới gốc.
-                *   **Phòng ngừa:** 250ml Phy FusaCo + 800 – 1000 lít nước. Phun cách 15 – 30 ngày/lần. Phun ở lá – cành – thân – dưới gốc.
-
-**Lưu ý:** Bài viết cũng nhắc đến các bệnh **thán thư, thối rễ, chết cành** là những bệnh hại liên quan đến mãng cầu mà thuốc Phy FusaCo có thể ngăn ngừa. Tuy nhiên, bài viết không cung cấp chi tiết về nguyên nhân, triệu chứng hay cách điều trị cụ thể cho từng bệnh này ngoài việc chúng được ngăn ngừa bởi cùng một loại thuốc sinh học.```json
 [
   {
     "Tên cây": "Khổ qua",
@@ -11336,7 +10844,7 @@ Do đó, tôi không thể trích xuất bất kỳ thông tin nào về tên c�
 ]
 ```Dưới đây là danh sách các loại bệnh của cây măng cụt được đề cập trong bài viết:
 
-```python
+```json
 [
   {
     "Tên cây": "Măng cụt",
@@ -11457,41 +10965,6 @@ Do đó, tôi không thể trích xuất bất kỳ thông tin nào về tên c�
 ]
 ```Dựa vào nội dung bài viết, dưới đây là tổng hợp về tình trạng bơ bị chảy nước:
 
-*   **Tên cây:** Cây bơ (và Quả bơ)
-*   **Loại bệnh:** Tình trạng quả bơ bị chảy nước (còn gọi là bơ bị tách nước)
-*   **Nguyên nhân:**
-    *   **Do quả bơ chín quá:** Các tế bào bên trong quả bị phân hủy, dẫn đến mềm nhũn và chảy nước.
-    *   **Do bảo quản bơ không đúng cách:**
-        *   Để bơ ở nơi nhiệt độ cao hoặc tiếp xúc trực tiếp với ánh nắng mặt trời.
-        *   Bảo quản nơi độ ẩm quá cao hoặc quá thấp.
-        *   Bảo quản chung với các loại trái cây khác như táo, chuối (khiến bơ chín nhanh hơn).
-    *   **Do giống bơ:** Một số giống bơ có chứa nhiều nước hơn, dễ bị tách nước nhanh hơn.
-    *   **Do bị va đập mạnh:** Trong quá trình vận chuyển, các tế bào trong quả bị tổn thương, gây dập nát và chảy nước.
-    *   **Do sâu hại, côn trùng chích hút tấn công:**
-        *   Các loại côn trùng như: rệp sáp, bọ xít muỗi, ruồi vàng, sâu đục quả.
-        *   Chúng tấn công, gây tổn thương quả, dẫn đến chảy nước.
-*   **Triệu chứng:**
-    *   Quả bơ bị mềm nhũn, nát.
-    *   Có nước từ bên trong chảy ra.
-    *   Hương vị, chất lượng của quả bơ bị ảnh hưởng.
-    *   Trong trường hợp nặng: phần thịt bơ bị mềm nhũn, nát và có màu nâu sẫm.
-*   **Cách điều trị/Xử lý:**
-    *   **Khi quả bơ đã bị chảy nước:**
-        *   Nếu bơ chỉ hơi chảy nước một chút, phần thịt vẫn còn độ săn chắc và màu vàng đẹp mắt: có thể sử dụng làm sinh tố, kem hoặc các món ăn khác (hương vị có thể bị ảnh hưởng một chút).
-        *   Nếu bơ bị chảy nước nhiều, phần thịt mềm nhũn, nát và có màu nâu sẫm: cần bỏ đi để tránh gây hại sức khỏe.
-        *   Có thể bảo quản bơ trong tủ đông lạnh để sử dụng sau (lên đến 6 tháng).
-    *   **Để hạn chế/phòng ngừa tình trạng chảy nước:**
-        *   **Chọn bơ:** Chọn quả có vỏ màu xanh đậm, khi sờ có cảm giác mềm nhưng không bị nhũn. Tránh chọn quả có vỏ nứt, sần sùi hoặc có đốm nâu.
-        *   **Bảo quản bơ chưa chín:** Bảo quản ở nhiệt độ phòng cho đến khi chín mềm.
-        *   **Bảo quản bơ đã chín:** Bảo quản trong tủ lạnh và sử dụng trong vòng 3-4 ngày.
-        *   **Tránh:** Để bơ ở nơi nhiệt độ cao hoặc tiếp xúc trực tiếp với ánh nắng mặt trời; để bơ chung với táo, chuối.
-        *   **Chăm sóc cây bơ để có trái chuẩn:**
-            *   Lựa chọn giống bơ phù hợp (bơ Hass, bơ Booth, bơ 034...).
-            *   Đất trồng tơi xốp, thoát nước tốt, giàu dinh dưỡng.
-            *   Tưới nước đều đặn, điều chỉnh theo mùa.
-            *   Cắt tỉa cành thường xuyên để tạo tán cân đối, thông thoáng và kích thích ra hoa, đậu quả.
-            *   Thường xuyên kiểm tra vườn để phát hiện và kịp thời xử lý các loại sâu bệnh, côn trùng gây hại cây.
-            *   Tìm hiểu và sử dụng các sản phẩm sinh học (ví dụ: Ola insect in99) để phòng trị hiệu quả sâu bệnh, côn trùng chích hút.Dưới đây là tổng hợp các loại bệnh được đề cập trong bài viết, tập trung vào bệnh xoăn lá ở cây chanh dây vì đây là bệnh được mô tả chi tiết nhất về nguyên nhân, triệu chứng và cách điều trị:
 
 ```json
 [

@@ -1,0 +1,351 @@
+Dưới đây là tổng hợp các loại bệnh của cây được đề cập trong bài viết:
+
+```json
+[
+  {
+    "Tên cây": "Cây mai vàng",
+    "Loại bệnh": "Bệnh cháy lá (hay còn gọi là cháy bìa lá)",
+    "Nguyên nhân": [
+      "Do các loại nấm bệnh tấn công, đặc biệt là nấm Pestalotia funerea. Các loại nấm khác cũng góp phần làm yếu cây và cháy lá non như nấm thán thư, đốm lá, nấm hồng, mốc xám, phấn trắng.",
+      "Do côn trùng tấn công: Bọ trĩ, Rệp sáp, Nhện đỏ (hút chích nhựa cây, làm yếu cây).",
+      "Do điều kiện thời tiết: Nắng gắt kéo dài nhiều ngày (cây mai không ưa ánh nắng trực tiếp).",
+      "Do phương pháp canh tác không tốt: Cây bị thiếu chất dinh dưỡng, cây bị úng nước (tưới quá nhiều).",
+      "Do môi trường đất trồng: Đất phèn (độ pH thấp, cây không hấp thụ được dưỡng chất).",
+      "Do bị ngộ độc phân bón: Bón quá nhiều phân bón cùng lúc khiến rễ cây không hấp thụ được nước."
+    ],
+    "Triệu chứng": [
+      "Nấm bệnh thường phát sinh vào cuối mùa thu, trên những lá mai già.",
+      "Các lá mai nhỏ bị xoăn lại, hình dạng không bình thường.",
+      "Ở vị trí ngọn lá và các mép lá mai bắt đầu xuất hiện những đốm màu nâu hoặc nâu xám, bạc theo từng mảng nhỏ.",
+      "Những đốm bệnh lan dần từ ngọn, mép lá và đi vào phần chính giữa của lá (đường gân lá).",
+      "Phần lá bị cháy có màu nâu bạc có ranh giới rõ ràng với phần màu xanh của lá.",
+      "Gây cản trở quá trình quang hợp của cây, làm lá khô cháy và rụng hàng loạt."
+    ],
+    "Cách điều trị": {
+      "Phương pháp canh tác phòng trừ": [
+        "Lựa chọn giống mai tốt, ít bị nấm và sâu bệnh, có sức chống chịu tốt.",
+        "Thường xuyên theo dõi và chăm sóc vườn cây, xây dựng mái che khi trời nắng nóng gắt.",
+        "Duy trì chế độ tưới đều đặn (sáng sớm hoặc chiều mát), tránh để đất quá khô hoặc ngập úng. Che lưới giảm nhiệt hoặc đặt cây nơi có bóng râm nhẹ.",
+        "Đảm bảo nước tưới sạch, không nhiễm phèn hay mặn. Xử lý nước có độ pH thấp dưới 6.",
+        "Đặt chậu trồng cách nhau với khoảng cách vừa phải, tránh mật độ quá dày.",
+        "Vệ sinh vườn cây, cắt bỏ lá già, lá bệnh và cành khô định kỳ. Giữ gốc cây thông thoáng.",
+        "Bón phân khi đất đủ ẩm và đúng hướng dẫn. Ưu tiên phân hữu cơ hoai mục kết hợp NPK cân đối. Bổ sung phân trung – vi lượng (AQ Bice, Vi Amen). Tránh sử dụng thuốc hóa học nếu có thể.",
+        "Quan sát mặt dưới lá để phát hiện sớm côn trùng (nhện đỏ, bọ trĩ, rệp sáp). Dùng thuốc trừ sâu sinh học Mebe Pa để xử lý.",
+        "Phun thuốc vào thời điểm sáng sớm hoặc chiều mát, không phun khi trời nắng gắt. Đọc kỹ hướng dẫn sử dụng trên bao bì."
+      ],
+      "Biện pháp sinh học": "Sử dụng các sản phẩm thuốc sinh học có thành phần là các vi sinh vật hữu ích (ví dụ: Phy FusaCo) để phòng trị dứt điểm, hiệu quả lâu dài và an toàn cho môi trường.",
+      "Sử dụng thuốc hóa học": "Là lựa chọn cuối cùng khi bệnh cháy lá ở diện rộng và mật độ dày đặc. Cảnh báo: có thể ảnh hưởng nghiêm trọng đến môi trường đất trồng, sức đề kháng của cây, sức khỏe con người.",
+      "Thuốc đặc trị đề xuất (Phy FusaCo)": {
+        "Thành phần": "Chaetomium spp 1×10^6 CFU/ml, dung môi (nước cất) vừa đủ, pH H2O: 5, tỷ trọng: 1,14.",
+        "Công dụng": "Xử lý triệt để các loại nấm Collectotricum, Fusarium, Phytopthora (gây nứt thân, xì mủ, ghẻ loét, thối thân, thán thư, thối gốc, sương mai). Tăng cường sức đề kháng cho cây chống lại nấm hồng, loét vi khuẩn, đốm lá, sương mai. Tăng cường hệ miễn dịch, không độc hại cho môi trường, con người hay cây trồng.",
+        "Hướng dẫn sử dụng": {
+          "Phun trị bệnh": "Pha 250ml Phy FusaCo với 400 lít nước, phun kỹ lá, cành, thân và vùng dưới gốc cây mai vàng, cách nhau 5-7 ngày/lần.",
+          "Phun phòng bệnh": "Pha 250ml Phy FusaCo với 600 lít nước, phun định kỳ khoảng 15-30 ngày/lần."
+        }
+      }
+    }
+  }
+]
+```Dưới đây là tổng hợp các loại bệnh của cây được viết trong bài viết:
+
+```json
+[
+  {
+    "Tên cây": "Sầu riêng",
+    "Loại bệnh": "Bệnh phấn trắng",
+    "Nguyên nhân": [
+      "Do nấm Oidium sp. gây ra.",
+      "Nấm phát triển thuận lợi trong điều kiện thời tiết nóng và có độ ẩm cao (trên 80%), nhiều sương.",
+      "Thường phát triển mạnh trong điều kiện thời tiết nóng ẩm, có mưa xen kẽ nắng, với độ ẩm cao và không khí ít lưu thông.",
+      "Vườn sầu riêng rậm rạp, thiếu ánh sáng và không có chế độ chăm sóc, cắt tỉa tán hợp lý.",
+      "Bón thừa phân đạm làm cây phát triển quá nhanh, lá non mềm, dễ bị nấm tấn công."
+    ],
+    "Triệu chứng": [
+      "**Qua lá:** Xuất hiện lớp bụi màu trắng mịn và dày che toàn bộ bề mặt lá.",
+      "**Qua quả:** Xuất hiện lớp bột màu trắng ở bề mặt. Trên trái non, nấm tấn công trực tiếp làm trái bị nứt gai, vỏ hóa màu nâu. Nấm hút chất dinh dưỡng của trái và gây rụng trái.",
+      "Các mảng trắng hoặc màu xám bám ở trên lá, thân, cả hoa và trái sầu riêng.",
+      "Cây phát triển còi cọc, tán lá biến dạng, sức khỏe của cây giảm, rụng lá sớm, rụng trái non.",
+      "Trái bị vàng gai, da chuyển sang màu nâu da bò, gây rụng trái non và giảm năng suất đến 20%."
+    ],
+    "Cách điều trị": [
+      "**Biện pháp phòng ngừa:**",
+      "- Chọn giống sầu riêng khỏe mạnh, có khả năng kháng nấm bệnh tốt, nguồn gốc rõ ràng.",
+      "- Trồng cây với mật độ canh tác hợp lý, tránh trồng quá dày gây ẩm độ cao.",
+      "- Xây dựng hệ thống thoát nước tốt, thường xuyên kiểm tra và nạo vét rãnh.",
+      "- Cắt tỉa cành vô hiệu, cành sâu bệnh sau mỗi vụ thu hoạch để giảm độ ẩm và tập trung dinh dưỡng.",
+      "- Bón phân định kỳ và cân đối (đạm – lân – kali), kết hợp phân hữu cơ và vi sinh vật có lợi để tăng sức đề kháng.",
+      "- Vệ sinh vườn sầu định kỳ: thu gom và tiêu hủy lá rụng, cành khô, trái bị bệnh hoặc rụng sớm.",
+      "**Biện pháp xử lý khi nhiễm bệnh:**",
+      "- Cắt bỏ toàn bộ cành, lá hoặc trái bị nhiễm nặng và tiêu hủy để hạn chế lây lan.",
+      "- Phun thuốc đặc trị nấm phấn trắng theo đúng hướng dẫn và liều lượng khuyến cáo.",
+      "- Có thể kết hợp chế phẩm sinh học hoặc thuốc gốc đồng.",
+      "- Sau khi đã xử lý bệnh, cần phun phòng định kỳ để ngăn mầm bệnh tái phát.",
+      "**Sử dụng thuốc:**",
+      "- **Thuốc hóa học:** Sử dụng nhanh chóng và hiệu quả, nhưng chỉ nên dùng trong trường hợp cây bị nặng để hạ thấp mức độ nguy hiểm, sau đó chuyển sang sử dụng thuốc sinh học do có nhiều tác dụng phụ nguy hại.",
+      "- **Thuốc sinh học đặc trị Phy FusaCo:**",
+      "  - Thành phần: Chaetomium spp 1×10^6 CFU/ml, dung môi (nước cất).",
+      "  - Công dụng: Xử lý triệt để, an toàn với tình trạng nấm, tăng cường sức đề kháng và hệ miễn dịch cho cây, không độc hại cho môi trường, con người hay cây trồng, hỗ trợ nâng cao chất lượng nông sản.",
+      "  - Hướng dẫn sử dụng:",
+      "    + Phun trị: Pha 250ml Phy FusaCo vào 400 lít nước, phun kỹ lá, cành, thân và vùng dưới gốc, cách nhau 5-7 ngày/lần.",
+      "    + Phun phòng: Pha 250ml Phy FusaCo vào 600 lít nước, phun định kỳ khoảng 15-30 ngày/lần."
+    ]
+  }
+]
+```Dưới đây là tổng hợp thông tin về bệnh khô cành trên cây sầu riêng từ bài viết:
+
+```json
+[
+  {
+    "Tên cây": "Sầu riêng",
+    "Loại bệnh": "Khô cành (còn gọi là khô đọt)",
+    "Nguyên nhân": [
+      "Tác nhân chính: Nấm khuẩn Rhizoctonia solani.",
+      "Điều kiện thuận lợi: Môi trường ẩm ướt, thiếu ánh sáng, vườn ít được chăm sóc thường xuyên.",
+      "Phát tán: Bào tử nấm dễ dàng phát tán qua gió, mưa và nước tưới.",
+      "Hệ thống thoát nước kém: Nước ngập lâu ngày làm suy yếu rễ cây, giảm sức đề kháng.",
+      "Chăm sóc sai cách: Bón phân không hợp lý (thừa đạm, thiếu dinh dưỡng cần thiết) làm suy giảm sức khỏe của cây."
+    ],
+    "Triệu chứng": [
+      "Bệnh xuất hiện từ cành nhỏ, cành phía dưới tán, sau đó lan rộng lên các cành lớn hơn và tiến sâu vào thân chính.",
+      "Trên cành: Vỏ cành chuyển màu hơi xám, xuất hiện vết nứt nhỏ. Cành bắt đầu héo dần từ đầu cành vào trong. Khi bóc vỏ cành bị bệnh, phần gỗ bên trong chuyển sang màu nâu hoặc đen.",
+      "Trên lá: Lá trên cành bệnh chuyển sang màu vàng, sau đó khô héo và rụng hàng loạt.",
+      "Tác hại: Cành bị bệnh không thể ra hoa, đậu trái; lá rụng trơ trụi làm cây mất khả năng quang hợp, còi cọc; đọt non và đọt tháp bị thối đen; nấm bệnh có thể lây lan xuống thân gây xì mủ thân và làm chết cả cây."
+    ],
+    "Cách điều trị": [
+      {
+        "Loại biện pháp": "Kỹ thuật canh tác phòng bệnh",
+        "Chi tiết": [
+          "Lựa chọn giống cây có khả năng chống kháng bệnh.",
+          "Xử lý đất canh tác: Sử dụng sản phẩm bảo vệ bộ rễ (ví dụ: Padave Cha từ AQ Bice), nâng pH, hỗ trợ phát triển hệ vi sinh vật có lợi và hạn chế tuyến trùng.",
+          "Điều chỉnh chế độ tưới nước: Tưới nước liều lượng phù hợp, hạn chế ngập úng, tưới vào gốc cây thay vì trực tiếp lên lá và cành.",
+          "Tỉa cành thông thoáng: Cắt tỉa cành khô, cành bị nhiễm bệnh để vườn cây thoáng mát, giảm độ ẩm.",
+          "Bổ sung dinh dưỡng cho cây: Bón phân hữu cơ định kỳ, vừa đủ để tăng cường sức đề kháng.",
+          "Dọn dẹp cỏ dại: Giữ đất luôn thông thoáng.",
+          "Kiểm soát hệ thống thoát nước tốt."
+        ]
+      },
+      {
+        "Loại biện pháp": "Sinh học",
+        "Chi tiết": [
+          "Sử dụng các sản phẩm sinh học chứa vi sinh vật và bào tử nấm có lợi cho cây trồng.",
+          "Sản phẩm đề xuất: Thuốc đặc trị Phy FusaCo (của Trung Tâm Sản Phẩm Sinh Học AQ).",
+          "Thành phần Phy FusaCo: Chaetomium spp 1×10^6 CFU/ml, dung môi (nước cất) vừa đủ.",
+          "Công dụng Phy FusaCo: Xử lý nhóm nấm Rhizoctonia solani, bảo vệ cây khỏi lây lan nấm phổ rộng, tối ưu chi phí, cải thiện năng suất.",
+          "Hướng dẫn sử dụng Phy FusaCo:",
+          "- Phun trị: Pha 250ml Phy FusaCo vào 400 lít nước, phun kỹ lá, cành, thân và vùng dưới gốc cây, cách nhau 5-7 ngày/lần.",
+          "- Phun phòng: Pha 250ml Phy FusaCo vào 600 lít nước, phun định kỳ khoảng 15-30 ngày/lần."
+        ]
+      },
+      {
+        "Loại biện pháp": "Hóa học",
+        "Chi tiết": [
+          "Sử dụng thuốc hóa học giúp loại bỏ nấm bệnh nhanh chóng và hiệu quả rõ rệt.",
+          "Cảnh báo: Lạm dụng thuốc hóa học có thể gây xói mòn đất, ức chế giun đất và vi sinh vật, giảm độ pH và nguồn dinh dưỡng trong đất."
+        ]
+      }
+    ]
+  }
+]
+```Dựa vào nội dung bài viết, đây là tổng hợp các thông tin về bệnh của cây:
+
+```python
+[
+  {
+    "Tên cây": "Khoai mì (sắn)",
+    "Loại bệnh": "Thối củ (còn gọi là lở cổ rễ)",
+    "Nguyên nhân": {
+      "Trực tiếp": "Do nấm Phytopythium helicoides gây ra. Đây là loại nấm dạng sợi trong suốt, không vách ngăn, sinh sản bằng bào tử nang, ưa ẩm và phát triển mạnh trong điều kiện đất độ ẩm cao, ẩm ướt hoặc cây bị úng. Bệnh lây lan nhanh nhờ côn trùng, gió hoặc bị nhiễm từ cây của vụ mùa trước.",
+      "Gián tiếp (canh tác sai quy trình)": [
+        "Thói quen canh tác không phù hợp như thâm canh liên tục (chỉ trồng khoai mì liên tiếp nhiều vụ) mà không luân canh.",
+        "Lạm dụng quá nhiều phân bón, thuốc BVTV hóa học khiến đất bạc màu, chai lỳ, mất cân bằng pH.",
+        "Cung cấp dư thừa nước tưới làm độ ẩm đất tăng cao, tạo điều kiện cho nấm khuẩn sinh sôi.",
+        "Lựa chọn giống không kỹ: trồng giống cây bị bệnh, giống có sức đề kháng kém, không phù hợp điều kiện khí hậu địa phương."
+      ]
+    },
+    "Triệu chứng": [
+      "Xuất hiện trên vị trí cổ rễ (phần thân sát gốc, tiếp giáp với mặt đất). Ban đầu một góc nhỏ, sau đó lan rộng toàn bộ, khiến phần gốc teo thắt, nứt, chảy nhựa màu nâu đen, ướt và dần bị thối mục.",
+      "Lá sắn đột ngột bị héo, mất màu đặc trưng, chuyển từ xanh sang vàng lá.",
+      "Khi tình trạng nặng, bệnh lan xuống phần củ dưới lòng đất, khiến củ tiết ra chất lỏng có mùi hôi thối, xuất hiện sọc nâu đen và củ dần bị mục.",
+      "Bệnh có thể xâm hại và gây hư hỏng toàn bộ vụ mùa ở bất kỳ giai đoạn sinh trưởng của cây, đặc biệt với những ruộng ngập úng và đất kém thoát nước, ít dinh dưỡng."
+    ],
+    "Cách điều trị": {
+      "Khi phát hiện bệnh (xử lý ngay)": [
+        "Nhổ bỏ toàn bộ cây bị bệnh (đặc biệt cây có phần củ, rễ đã nhũn, mùi hôi hoặc chuyển màu nâu đen). Gom và tiêu hủy bằng cách chôn sâu hoặc ủ nóng.",
+        "Khử trùng, vệ sinh dụng cụ canh tác sau khi xử lý cây bệnh.",
+        "Với cây mới chớm nhiễm bệnh, phun phòng bệnh định kỳ.",
+        "Ngưng tưới nước, tạo độ ẩm trong vườn.",
+        "Tạo vườn thông thoáng: dọn vệ sinh, loại bỏ cỏ dại, thu gom tàn dư, cắt tỉa bớt lá, cành."
+      ],
+      "Biện pháp phòng trừ": [
+        "Lựa chọn giống sắn sạch bệnh, có khả năng phòng bệnh tốt (ví dụ giống HL-RS15). Đảm bảo nguồn gốc rõ ràng, hom giống khỏe mạnh.",
+        "Trước khi trồng, xử lý đất: cày xới tơi đất, gom tàn dư vụ cũ, rắc vôi khử khuẩn, dùng dung dịch Bio Soil + Padave Cha để cải tạo đất, tiêu diệt nấm khuẩn, tuyến trùng.",
+        "Bón lót phân hữu cơ vi sinh, phân chuồng ủ hoai mục khi mới trồng. Bón thúc định kỳ vào giai đoạn trước và sau khi hình thành củ.",
+        "Sau mỗi đợt thu hoạch, luân canh một loại cây trồng khác (lúa, đậu) hoặc để đất nghỉ ngơi một thời gian. Vệ sinh vườn thường xuyên.",
+        "Tưới nước hợp lý, điều chỉnh theo thời tiết. Đào rãnh, đắp mô cao để vườn dễ thoát nước."
+      ],
+      "Biện pháp điều trị bằng thuốc": {
+        "Thuốc hóa học": "Sử dụng khi tình trạng nặng và không thể kiểm soát bằng biện pháp thông thường. Lợi ích: điều trị nhanh, tiêu diệt nấm bệnh mau. Cảnh báo: có thể gây lờn thuốc, tồn đọng chất độc hại trong đất, củ, gây ô nhiễm môi trường, thoái hóa đất, ảnh hưởng sức khỏe con người.",
+        "Thuốc sinh học Be Green": {
+          "Thành phần": "Tổ hợp từ hơn 25 chủng Chaetomium spp (1.5×10^5 CFU/g), Trichoderma spp (1.5×10^4 CFU/g), Paecilomyces (1.5×10^4 CFU/g), vi sinh phân giải lân, kali, dinh dưỡng hữu cơ lên men, axit fulvic, amino axit.",
+          "Công dụng": "Tiêu diệt nhanh chóng các nấm gây bệnh vàng lá, lở cổ rễ như Fusarium solani, Phytophthora, Rhizoctonia solani. Phục hồi cây tổn thương, kích thích rễ mới, bảo vệ rễ khỏi nấm, khuẩn, tuyến trùng. Tăng cường sinh trưởng rễ, giúp cây bén nhanh, hấp thu dinh dưỡng tốt. Bổ sung vi sinh vật có lợi, cải tạo đất, cân bằng pH, tăng năng suất. An toàn tuyệt đối, không tồn dư hóa chất, thân thiện với người, vật nuôi và môi trường, phù hợp nông nghiệp hữu cơ.",
+          "Hướng dẫn cách dùng": {
+            "Trị bệnh": "Pha 50g Be Green + 40 – 80 lít nước sạch, phun trực tiếp vào vùng dưới tán cây, định kỳ 5 – 10 ngày/lần.",
+            "Phòng bệnh": "Pha 25g Be Green + 20 – 40 lít nước sạch, định kỳ 3 – 4 lần/vụ."
+          }
+        }
+      }
+    }
+  }
+]
+```Dưới đây là tổng hợp các loại bệnh của cây dừa dựa trên nội dung bài viết:
+
+```json
+[
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Cháy lá",
+    "nguyên nhân": [
+      "Do nấm bệnh Pestalozzia palmarum và Helminthosporium sp.",
+      "Thiếu dinh dưỡng như kali, canxi và silic làm cây giảm sức đề kháng.",
+      "Môi trường nóng ẩm (25-32 độ C) và độ ẩm trên 80% vào mùa mưa (tháng 5-9 âm lịch), tạo điều kiện lý tưởng cho nấm bệnh phát triển.",
+      "Vườn dừa ẩm ướt, thiếu thông thoáng, đất thoát nước kém, bộ rễ cây bị úng và yếu đi vào mùa mưa.",
+      "Thiếu hụt nước và dinh dưỡng (đặc biệt là Kali và Magie) từ đất khô cằn vào mùa khô (tháng 1-4 âm lịch).",
+      "Một số loại sâu bệnh như sâu đầu đen hay bọ cánh cứng phát triển mạnh vào mùa khô, tấn công lá non.",
+      "Cây con và cây dừa mới trồng yếu, khả năng chống chịu kém, nếu trồng quá dày hoặc thiếu dinh dưỡng (Kali)."
+    ],
+    "triệu chứng": [
+      "Khi nhiễm nấm Pestalozzia palmarum: Trên lá xuất hiện những đốm nhỏ màu vàng, lan rộng thành vết cháy hình bầu dục, phần giữa có màu xám nhạt, viền nâu đậm, xung quanh có màu xanh. Các vết bệnh liên kết lại khiến lá dừa khô cháy, giòn gãy.",
+      "Khi nhiễm nấm Helminthosporium sp: Trên lá có những đốm nâu sần sùi nhỏ, lá dừa bị khô cháy từ mép vào giữa. Giai đoạn nặng, toàn bộ lá có thể bị cháy khô, cây dừa suy yếu nhanh chóng.",
+      "Tổng quan: Lá dừa xuất hiện đốm vàng, chuyển dần sang nâu hoặc đen, mép lá khô, xoăn lại, lan dần gây cháy hết cả phiến lá.",
+      "Các lá già bị rụng sớm, cây còi cọc, phát triển chậm, thân cây yếu, sức sống kém, một số trường hợp rễ bị thối.",
+      "Ở cây dừa con, tình trạng lan rất nhanh do sức đề kháng yếu."
+    ],
+    "cách điều trị": [
+      "**Canh tác phòng ngừa:**",
+      "- Bổ sung dinh dưỡng: Bón thêm phân kali, canxi và silic để tăng sức đề kháng. Kết hợp phân hữu cơ hoai mục để cải tạo đất.",
+      "- Cắt tỉa lá bệnh: Loại bỏ các lá bị cháy, khô hoặc có dấu hiệu nhiễm nấm, sau đó thu gom và tiêu hủy.",
+      "- Tưới nước: Giữ độ ẩm vừa phải cho đất, tránh khô hạn hoặc ngập úng.",
+      "- Vệ sinh vườn dừa: Thường xuyên kiểm tra lá, dọn bỏ lá già, lá bệnh và cỏ dại, không để nước đọng quanh gốc cây.",
+      "- Tăng cường chăm sóc cây: Trồng cây với mật độ hợp lý để vườn dừa thông thoáng, bón phân hữu cơ định kỳ, tưới nước đều đặn và xử lý cỏ quanh gốc.",
+      "**Sử dụng thuốc sinh học đặc trị Phy FusaCo từ AQ Bice:**",
+      "- Thành phần: Chaetomium spp 1×10^6 CFU/ml, dung môi (nước cất).",
+      "- Cách dùng để trị bệnh: Pha 250ml Phy FusaCo với 400 lít nước, phun kỹ lá, cành, thân và vùng dưới gốc vườn dừa cách nhau 5-7 ngày/lần.",
+      "- Cách dùng để phòng bệnh: Pha chai 250ml Phy FusaCo hòa tan vào 600 lít nước, phun định kỳ cho vườn dừa khoảng 15-30 ngày/lần."
+    ]
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Nứt thân xì mủ",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Thán thư",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Ghẻ loét",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Thối thân",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa (ngoại trừ trường hợp rễ bị thối có thể là một triệu chứng chung của suy yếu).",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Thối gốc",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Sương mai",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là do nấm Collectotricum, Fusarium, Phytopthora gây ra và thuốc Phy FusaCo có tác dụng xử lý.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Nấm hồng",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là loại nấm gây bệnh mà thuốc Phy FusaCo có tác dụng chống chịu.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Loét vi khuẩn",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa, nhưng được đề cập là loại vi khuẩn gây bệnh mà thuốc Phy FusaCo có tác dụng chống chịu.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa.",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  },
+  {
+    "Tên cây": "Cây dừa",
+    "loại bệnh": "Đốm lá",
+    "nguyên nhân": "Không được nêu cụ thể trong bài viết cho cây dừa (ngoài các loại nấm gây cháy lá). Tuy nhiên, thuốc Phy FusaCo có tác dụng chống chịu các loại bệnh đốm lá.",
+    "triệu chứng": "Không được nêu cụ thể trong bài viết cho cây dừa (ngoại trừ các đốm vàng, nâu của bệnh cháy lá).",
+    "cách điều trị": "Sử dụng thuốc sinh học Phy FusaCo (tham khảo hướng dẫn chung của nhà sản xuất cho việc phun để phòng và trị bệnh)."
+  }
+]
+
+```Dựa vào nội dung bài viết, đây là tổng hợp các thông tin về bệnh của cây:
+
+```python
+[
+  {
+    "Tên cây": "Khoai mì (sắn)",
+    "Loại bệnh": "Thối củ (còn gọi là lở cổ rễ)",
+    "Nguyên nhân": {
+      "Trực tiếp": "Do nấm Phytopythium helicoides gây ra. Đây là loại nấm dạng sợi trong suốt, không vách ngăn, sinh sản bằng bào tử nang, ưa ẩm và phát triển mạnh trong điều kiện đất độ ẩm cao, ẩm ướt hoặc cây bị úng. Bệnh lây lan nhanh nhờ côn trùng, gió hoặc bị nhiễm từ cây của vụ mùa trước.",
+      "Gián tiếp (canh tác sai quy trình)": [
+        "Thói quen canh tác không phù hợp như thâm canh liên tục (chỉ trồng khoai mì liên tiếp nhiều vụ) mà không luân canh.",
+        "Lạm dụng quá nhiều phân bón, thuốc BVTV hóa học khiến đất bạc màu, chai lỳ, mất cân bằng pH.",
+        "Cung cấp dư thừa nước tưới làm độ ẩm đất tăng cao, tạo điều kiện cho nấm khuẩn sinh sôi.",
+        "Lựa chọn giống không kỹ: trồng giống cây bị bệnh, giống có sức đề kháng kém, không phù hợp điều kiện khí hậu địa phương."
+      ]
+    },
+    "Triệu chứng": [
+      "Xuất hiện trên vị trí cổ rễ (phần thân sát gốc, tiếp giáp với mặt đất). Ban đầu một góc nhỏ, sau đó lan rộng toàn bộ, khiến phần gốc teo thắt, nứt, chảy nhựa màu nâu đen, ướt và dần bị thối mục.",
+      "Lá sắn đột ngột bị héo, mất màu đặc trưng, chuyển từ xanh sang vàng lá.",
+      "Khi tình trạng nặng, bệnh lan xuống phần củ dưới lòng đất, khiến củ tiết ra chất lỏng có mùi hôi thối, xuất hiện sọc nâu đen và củ dần bị mục.",
+      "Bệnh có thể xâm hại và gây hư hỏng toàn bộ vụ mùa ở bất kỳ giai đoạn sinh trưởng của cây, đặc biệt với những ruộng ngập úng và đất kém thoát nước, ít dinh dưỡng."
+    ],
+    "Cách điều trị": {
+      "Khi phát hiện bệnh (xử lý ngay)": [
+        "Nhổ bỏ toàn bộ cây bị bệnh (đặc biệt cây có phần củ, rễ đã nhũn, mùi hôi hoặc chuyển màu nâu đen). Gom và tiêu hủy bằng cách chôn sâu hoặc ủ nóng.",
+        "Khử trùng, vệ sinh dụng cụ canh tác sau khi xử lý cây bệnh.",
+        "Với cây mới chớm nhiễm bệnh, phun phòng bệnh định kỳ.",
+        "Ngưng tưới nước, tạo độ ẩm trong vườn.",
+        "Tạo vườn thông thoáng: dọn vệ sinh, loại bỏ cỏ dại, thu gom tàn dư, cắt tỉa bớt lá, cành."
+      ],
+      "Biện pháp phòng trừ": [
+        "Lựa chọn giống sắn sạch bệnh, có khả năng phòng bệnh tốt (ví dụ giống HL-RS15). Đảm bảo nguồn gốc rõ ràng, hom giống khỏe mạnh.",
+        "Trước khi trồng, xử lý đất: cày xới tơi đất, gom tàn dư vụ cũ, rắc vôi khử khuẩn, dùng dung dịch Bio Soil + Padave Cha để cải tạo đất, tiêu diệt nấm khuẩn, tuyến trùng.",
+        "Bón lót phân hữu cơ vi sinh, phân chuồng ủ hoai mục khi mới trồng. Bón thúc định kỳ vào giai đoạn trước và sau khi hình thành củ.",
+        "Sau mỗi đợt thu hoạch, luân canh một loại cây trồng khác (lúa, đậu) hoặc để đất nghỉ ngơi một thời gian. Vệ sinh vườn thường xuyên.",
+        "Tưới nước hợp lý, điều chỉnh theo thời tiết. Đào rãnh, đắp mô cao để vườn dễ thoát nước."
+      ],
+      "Biện pháp điều trị bằng thuốc": {
+        "Thuốc hóa học": "Sử dụng khi tình trạng nặng và không thể kiểm soát bằng biện pháp thông thường. Lợi ích: điều trị nhanh, tiêu diệt nấm bệnh mau. Cảnh báo: có thể gây lờn thuốc, tồn đọng chất độc hại trong đất, củ, gây ô nhiễm môi trường, thoái hóa đất, ảnh hưởng sức khỏe con người.",
+        "Thuốc sinh học Be Green": {
+          "Thành phần": "Tổ hợp từ hơn 25 chủng Chaetomium spp (1.5×10^5 CFU/g), Trichoderma spp (1.5×10^4 CFU/g), Paecilomyces (1.5×10^4 CFU/g), vi sinh phân giải lân, kali, dinh dưỡng hữu cơ lên men, axit fulvic, amino axit.",
+          "Công dụng": "Tiêu diệt nhanh chóng các nấm gây bệnh vàng lá, lở cổ rễ như Fusarium solani, Phytophthora, Rhizoctonia solani. Phục hồi cây tổn thương, kích thích rễ mới, bảo vệ rễ khỏi nấm, khuẩn, tuyến trùng. Tăng cường sinh trưởng rễ, giúp cây bén nhanh, hấp thu dinh dưỡng tốt. Bổ sung vi sinh vật có lợi, cải tạo đất, cân bằng pH, tăng năng suất. An toàn tuyệt đối, không tồn dư hóa chất, thân thiện với người, vật nuôi và môi trường, phù hợp nông nghiệp hữu cơ.",
+          "Hướng dẫn cách dùng": {
+            "Trị bệnh": "Pha 50g Be Green + 40 – 80 lít nước sạch, phun trực tiếp vào vùng dưới tán cây, định kỳ 5 – 10 ngày/lần.",
+            "Phòng bệnh": "Pha 25g Be Green + 20 – 40 lít nước sạch, định kỳ 3 – 4 lần/vụ."
+          }
+        }
+      }
+    }
+  }
+]
