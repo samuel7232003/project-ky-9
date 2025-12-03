@@ -11,7 +11,8 @@ import {
   sendMessage, 
   setCurrentConversationId,
   clearMessages, 
-  clearError 
+  clearError,
+  updateConversationTitle,
 } from './KnowledgeLib.duck';
 
 const KnowledgeLib: React.FC = () => {
@@ -31,6 +32,8 @@ const KnowledgeLib: React.FC = () => {
   const [previewUrl, setPreviewUrl] = useState<string>('');
   const [fileError, setFileError] = useState<string>('');
   const [isCreatingConversation, setIsCreatingConversation] = useState<boolean>(false);
+  const [editingConversationId, setEditingConversationId] = useState<string | null>(null);
+  const [editingConversationTitle, setEditingConversationTitle] = useState<string>('');
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -150,6 +153,63 @@ const KnowledgeLib: React.FC = () => {
     if (conversationId !== currentConversationId) {
       dispatch(setCurrentConversationId(conversationId));
     }
+  };
+
+  const handleStartEditConversationTitle = (conversationId: string, currentTitle: string) => {
+    setEditingConversationId(conversationId);
+    setEditingConversationTitle(currentTitle);
+  };
+
+  const handleChangeConversationTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditingConversationTitle(e.target.value);
+  };
+
+  const handleSaveConversationTitle = async () => {
+    if (!editingConversationId) {
+      return;
+    }
+
+    const trimmedTitle = editingConversationTitle.trim();
+    if (!trimmedTitle) {
+      setEditingConversationId(null);
+      return;
+    }
+
+    const conversation = conversations.find(
+      (conv) => conv._id === editingConversationId
+    );
+
+    if (!conversation || conversation.title === trimmedTitle) {
+      setEditingConversationId(null);
+      return;
+    }
+
+    await dispatch(
+      updateConversationTitle({
+        id: editingConversationId,
+        title: trimmedTitle,
+      })
+    );
+
+    setEditingConversationId(null);
+  };
+
+  const handleEditTitleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSaveConversationTitle();
+      return;
+    }
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      setEditingConversationId(null);
+    }
+  };
+
+  const handleEditTitleBlur = () => {
+    // Khi click ra ngoài thì thoát chế độ edit mà không lưu (chỉ Enter mới lưu)
+    setEditingConversationId(null);
   };
 
   // Load conversations khi mount
@@ -311,7 +371,43 @@ const KnowledgeLib: React.FC = () => {
                   }
                 }}
               >
-                <p className={css.historyItemTitle}>{conversation.title}</p>
+                {editingConversationId === conversation._id ? (
+                  <input
+                    type="text"
+                    className={css.historyItemTitleInput}
+                    value={editingConversationTitle}
+                    onChange={handleChangeConversationTitle}
+                    onKeyDown={handleEditTitleKeyDown}
+                    onBlur={handleEditTitleBlur}
+                    autoFocus
+                    aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
+                  />
+                ) : (
+                  <p
+                    className={css.historyItemTitle}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleStartEditConversationTitle(
+                        conversation._id,
+                        conversation.title
+                      );
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleStartEditConversationTitle(
+                          conversation._id,
+                          conversation.title
+                        );
+                      }
+                    }}
+                  >
+                    {conversation.title}
+                  </p>
+                )}
                 <p className={css.historyItemTime}>
                   {new Date(conversation.lastMessageAt).toLocaleString('vi-VN')}
                 </p>

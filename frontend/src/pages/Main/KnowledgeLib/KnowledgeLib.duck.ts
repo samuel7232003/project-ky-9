@@ -75,6 +75,24 @@ export const createConversation = createAsyncThunk(
   }
 );
 
+// Async thunk cho update conversation title
+export const updateConversationTitle = createAsyncThunk(
+  'knowledgeLib/updateConversationTitle',
+  async (
+    { id, title }: { id: string; title: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const updatedConversation = await conversationService.updateConversation(id, {
+        title,
+      });
+      return updatedConversation;
+    } catch (error: any) {
+      return rejectWithValue(error.message || 'Không thể cập nhật tiêu đề cuộc trò chuyện');
+    }
+  }
+);
+
 // Async thunk cho load messages
 export const loadMessages = createAsyncThunk(
   'knowledgeLib/loadMessages',
@@ -235,6 +253,38 @@ const knowledgeLibSlice = createSlice({
       .addCase(createConversation.rejected, (state, action) => {
         state.error = action.payload as string;
       });
+
+    // Update conversation title
+    builder.addCase(
+      updateConversationTitle.fulfilled,
+      (state, action: PayloadAction<ConversationResponse>) => {
+        const updatedConversation = action.payload;
+        const index = state.conversations.findIndex(
+          (conv) => conv._id === updatedConversation._id
+        );
+
+        if (index !== -1) {
+          state.conversations[index] = {
+            ...state.conversations[index],
+            ...updatedConversation,
+          };
+
+          // Sắp xếp lại theo lastMessageAt để đảm bảo thứ tự đúng
+          state.conversations.sort((a, b) => {
+            const timeA = new Date(a.lastMessageAt).getTime();
+            const timeB = new Date(b.lastMessageAt).getTime();
+            return timeB - timeA; // Mới nhất lên đầu
+          });
+        }
+
+        // Nếu conversation được cập nhật đang được chọn, đảm bảo title được sync
+        if (state.currentConversationId === updatedConversation._id) {
+          // Không cần làm gì thêm vì title được lấy từ conversations
+        }
+
+        state.error = null;
+      }
+    );
 
     // Load messages
     builder
