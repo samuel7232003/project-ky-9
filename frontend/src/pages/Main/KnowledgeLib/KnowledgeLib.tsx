@@ -1,5 +1,4 @@
-import React, { useState, useEffect, use } from "react";
-import React, { useState, useEffect, useRef, use } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import css from "./KnowledgeLib.module.css";
 import information_circle from "../../../assets/images/information-circle-contained.png";
 import select_img from "../../../assets/images/select-img.png";
