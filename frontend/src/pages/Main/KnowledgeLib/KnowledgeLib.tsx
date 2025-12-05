@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import css from "./KnowledgeLib.module.css";
 import information_circle from "../../../assets/images/information-circle-contained.png";
 import select_img from "../../../assets/images/select-img.png";
@@ -34,6 +34,7 @@ const KnowledgeLib: React.FC = () => {
   const [isCreatingConversation, setIsCreatingConversation] = useState<boolean>(false);
   const [editingConversationId, setEditingConversationId] = useState<string | null>(null);
   const [editingConversationTitle, setEditingConversationTitle] = useState<string>('');
+  const chatAreaRef = useRef<HTMLDivElement>(null);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -122,10 +123,21 @@ const KnowledgeLib: React.FC = () => {
 
     // Nếu gửi thành công, reset form
     if (sendMessage.fulfilled.match(result)) {
+      const hadImage = !!selectedFile;
+      const currentConvId = conversationId;
       setContent('');
       setSelectedFile(null);
       setPreviewUrl('');
       setFileError('');
+      
+      // Nếu có ảnh, reload messages một lần sau 5 giây để nhận tin nhắn hệ thống từ ML server
+      if (hadImage && currentConvId) {
+        setTimeout(() => {
+          if (currentConvId) {
+            dispatch(loadMessages(currentConvId));
+          }
+        }, 5000);
+      }
     }
   };
 
@@ -227,6 +239,17 @@ const KnowledgeLib: React.FC = () => {
     }
   }, [dispatch, currentConversationId]);
 
+  // Auto scroll xuống cuối khi có tin nhắn mới
+  useEffect(() => {
+    if (chatAreaRef.current && messages.length > 0) {
+      // Scroll xuống cuối với smooth behavior
+      chatAreaRef.current.scrollTo({
+        top: chatAreaRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messages]);
+
   return (
     <div className={css.container}>
       <div className={css.chatbox}>
@@ -239,7 +262,7 @@ const KnowledgeLib: React.FC = () => {
             Trò chuyện mới
           </p>
         </div>
-        <div className={css.chatArea}>
+        <div className={css.chatArea} ref={chatAreaRef}>
           {loadingMessages && currentConversationId ? (
             <div className={css.emptyState}>
               <div className={css.loadingSpinnerLarge}></div>
@@ -261,10 +284,16 @@ const KnowledgeLib: React.FC = () => {
             </div>
           ) : (
             messages.map((msg) => (
-              <div key={msg._id} className={css.messageItem}>
+              <div 
+                key={msg._id} 
+                className={`${css.messageItem} ${msg.isSystem ? css.systemMessage : ''}`}
+              >
                 <div className={css.messageHeader}>
                   <span className={css.messageUser}>
-                    {msg.userId?.name || msg.userId?.username || 'Unknown'}
+                    {msg.isSystem 
+                      ? '🤖 Hệ thống' 
+                      : (msg.userId?.name || msg.userId?.username || 'Unknown')
+                    }
                   </span>
                   <span className={css.messageTime}>
                     {new Date(msg.createdAt).toLocaleString('vi-VN')}
@@ -278,9 +307,44 @@ const KnowledgeLib: React.FC = () => {
                     <img src={msg.image} alt="Uploaded" />
                   </div>
                 )}
-                <div className={css.messageStatus}>
-                  Status: <span className={css.statusBadge}>{msg.status}</span>
-                </div>
+                {msg.classification && (
+                  <div className={css.classificationResult}>
+                    <div className={css.classificationTitle}>🔍 Phân loại lá cây:</div>
+                    <div className={css.classificationItem}>
+                      <span className={css.classificationLabel}>Cây:</span>
+                      <span className={css.classificationValue}>
+                        {msg.classification.plant.name_vi || msg.classification.plant.name}
+                        {msg.classification.plant.name_en && msg.classification.plant.name_vi && (
+                          <span className={css.englishName}>
+                            {' '}({msg.classification.plant.name_en})
+                          </span>
+                        )}
+                        <span className={css.confidence}>
+                          {' '}({(msg.classification.plant.confidence * 100).toFixed(1)}%)
+                        </span>
+                      </span>
+                    </div>
+                    <div className={css.classificationItem}>
+                      <span className={css.classificationLabel}>Tình trạng:</span>
+                      <span className={css.classificationValue}>
+                        {msg.classification.disease.name_vi || msg.classification.disease.name}
+                        {msg.classification.disease.name_en && msg.classification.disease.name_vi && (
+                          <span className={css.englishName}>
+                            {' '}({msg.classification.disease.name_en})
+                          </span>
+                        )}
+                        <span className={css.confidence}>
+                          {' '}({(msg.classification.disease.confidence * 100).toFixed(1)}%)
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {!msg.isSystem && (
+                  <div className={css.messageStatus}>
+                    Status: <span className={css.statusBadge}>{msg.status}</span>
+                  </div>
+                )}
               </div>
             ))
           )}
