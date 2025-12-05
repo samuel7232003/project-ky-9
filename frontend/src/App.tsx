@@ -69,11 +69,11 @@ function App() {
 
 // Component wrapper để sử dụng useAuth
 function AppWrapper() {
-  const { loading, isAuthenticated } = useAuth();
+  const { loading } = useAuth();
 
-  // Chỉ hiển thị loading spinner khi đang kiểm tra authentication lần đầu
-  // và chưa có thông tin về authentication status
-  if (loading && isAuthenticated === false) {
+  // Hiển thị loading spinner khi đang kiểm tra authentication
+  // Điều này đảm bảo không redirect về home khi reload trang
+  if (loading) {
     return (
       <LanguageProvider>
         <LoadingSpinner />

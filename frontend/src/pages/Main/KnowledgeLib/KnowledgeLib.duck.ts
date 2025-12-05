@@ -115,8 +115,12 @@ export const loadMessages = createAsyncThunk(
         limit: 50, // Load 50 messages gần nhất
         page: 1,
       });
-      // Đảo ngược để hiển thị message mới nhất ở đầu
-      return response.messages.reverse();
+      // Sắp xếp theo createdAt tăng dần (cũ đến mới) để hiển thị đúng thứ tự
+      return response.messages.sort((a, b) => {
+        const timeA = new Date(a.createdAt).getTime();
+        const timeB = new Date(b.createdAt).getTime();
+        return timeA - timeB;
+      });
     } catch (error: any) {
       return rejectWithValue(error.message || 'Không thể tải danh sách tin nhắn');
     }
@@ -322,8 +326,12 @@ const knowledgeLibSlice = createSlice({
       })
       .addCase(sendMessage.fulfilled, (state, action: PayloadAction<MessageResponse>) => {
         state.loading = false;
-        // Thêm message mới vào đầu danh sách
-        state.messages = [action.payload, ...state.messages];
+        // Thêm message mới và sắp xếp lại theo createdAt tăng dần (cũ đến mới)
+        state.messages = [...state.messages, action.payload].sort((a, b) => {
+          const timeA = new Date(a.createdAt).getTime();
+          const timeB = new Date(b.createdAt).getTime();
+          return timeA - timeB;
+        });
         state.error = null;
       })
       .addCase(sendMessage.rejected, (state, action) => {

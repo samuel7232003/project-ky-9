@@ -13,7 +13,9 @@ const messageSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: function() {
+        return !this.isSystem;
+      },
       index: true,
     },
     conversationId: {
@@ -27,15 +29,36 @@ const messageSchema = new mongoose.Schema(
       enum: ["pending", "read", "archived"],
       default: "pending",
     },
+    // Flag để đánh dấu tin nhắn từ hệ thống
+    isSystem: {
+      type: Boolean,
+      default: false,
+      index: true,
+    },
+    // Leaf classification results (tự động phân loại khi có ảnh)
+    classification: {
+      plant: {
+        name: String, // Tên tiếng Anh (mặc định)
+        name_en: String, // Tên tiếng Anh
+        name_vi: String, // Tên tiếng Việt
+        confidence: Number,
+      },
+      disease: {
+        name: String, // Tên tiếng Anh (mặc định)
+        name_en: String, // Tên tiếng Anh
+        name_vi: String, // Tên tiếng Việt
+        confidence: Number,
+      },
+    },
   },
   { timestamps: true }
 );
 
-// Validation: Phải có content hoặc image
+// Validation: Phải có content hoặc image hoặc classification (cho system message)
 messageSchema.pre("validate", function (next) {
-  if (!this.content && !this.image) {
-    this.invalidate("content", "Message must have either content or image");
-    this.invalidate("image", "Message must have either content or image");
+  if (!this.content && !this.image && !this.classification) {
+    this.invalidate("content", "Message must have either content, image, or classification");
+    this.invalidate("image", "Message must have either content, image, or classification");
   }
   next();
 });

@@ -23,14 +23,32 @@ export interface MessageConversation {
   title: string;
 }
 
+// Interface cho classification results
+export interface ClassificationResult {
+  plant: {
+    name: string; // Tên tiếng Anh (mặc định)
+    name_en?: string; // Tên tiếng Anh
+    name_vi?: string; // Tên tiếng Việt
+    confidence: number;
+  };
+  disease: {
+    name: string; // Tên tiếng Anh (mặc định)
+    name_en?: string; // Tên tiếng Anh
+    name_vi?: string; // Tên tiếng Việt
+    confidence: number;
+  };
+}
+
 // Interface cho message response
 export interface MessageResponse {
   _id: string;
   content?: string;
   image?: string;
-  userId: MessageUser;
+  userId?: MessageUser; // Optional vì system messages không có userId
   conversationId: MessageConversation | string;
   status: 'pending' | 'read' | 'archived';
+  isSystem?: boolean; // Flag để đánh dấu tin nhắn từ hệ thống
+  classification?: ClassificationResult;
   createdAt: string;
   updatedAt: string;
 }
