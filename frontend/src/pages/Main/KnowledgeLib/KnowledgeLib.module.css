@@ -302,6 +302,12 @@
   max-width: 80%;
 }
 
+.messageItem.systemMessage {
+  background: #fef3c7;
+  border-left: 3px solid #f59e0b;
+  align-self: flex-start;
+}
+
 .messageHeader {
   display: flex;
   justify-content: space-between;
@@ -316,6 +322,10 @@
   color: #333;
 }
 
+.messageItem.systemMessage .messageUser {
+  color: #92400e;
+}
+
 .messageTime {
   font-size: 11px;
   color: #999;
@@ -324,6 +334,7 @@
 .messageContent {
   color: #333;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .messageImage {
@@ -355,6 +366,60 @@
   text-transform: uppercase;
   background-color: #dbeafe;
   color: #1e40af;
+}
+
+.classificationResult {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  border: 1px solid #bae6fd;
+}
+
+.classificationTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0369a1;
+  margin-bottom: 8px;
+}
+
+.classificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.classificationItem:last-child {
+  margin-bottom: 0;
+}
+
+.classificationLabel {
+  font-weight: 600;
+  color: #0c4a6e;
+  margin-right: 8px;
+}
+
+.classificationValue {
+  color: #075985;
+  font-weight: 500;
+  text-align: right;
+  flex: 1;
+}
+
+.confidence {
+  font-size: 11px;
+  color: #0284c7;
+  margin-left: 4px;
+  font-weight: 400;
+}
+
+.englishName {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .errorMessage {

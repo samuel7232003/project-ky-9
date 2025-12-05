@@ -13,7 +13,7 @@ interface AuthState {
 const initialState: AuthState = {
   user: null,
   isAuthenticated: false,
-  loading: false,
+  loading: true, // Set to true initially để chờ authentication check khi reload
   error: null,
 };
 
