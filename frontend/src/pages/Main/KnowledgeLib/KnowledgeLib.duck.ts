@@ -93,6 +93,18 @@ export const updateConversationTitle = createAsyncThunk(
   }
 );
 
+export const deleteConversation = createAsyncThunk(
+  'knowledgeLib/deleteConversation',
+  async (conversationId: string, { rejectWithValue }) => {
+    try {
+      await conversationService.deleteConversation(conversationId);
+      return conversationId;
+    } catch (error: any) {
+      return rejectWithValue(error.message || 'Không thể xóa cuộc trò chuyện');
+    }
+  }
+);
+
 // Async thunk cho load messages
 export const loadMessages = createAsyncThunk(
   'knowledgeLib/loadMessages',
@@ -318,6 +330,35 @@ const knowledgeLibSlice = createSlice({
         state.loading = false;
         state.error = action.payload as string;
       });
+
+    // Delete conversation
+    builder
+      .addCase(deleteConversation.pending, (state) => {
+          state.error = null;
+          state.loadingConversations = true;
+        })
+      .addCase(deleteConversation.fulfilled, (state, action: PayloadAction<string>) => {
+        state.loadingConversations = false;
+
+        // Loại bỏ conversation khỏi danh sách
+        const deletedConversationId = action.payload;
+        state.conversations = state.conversations.filter(
+          (conv) => conv._id !== deletedConversationId
+        );
+
+        // Nếu conversation bị xóa đang được chọn, clear currentConversationId và messages
+        if (state.currentConversationId === deletedConversationId) {
+          state.currentConversationId = state.conversations.length > 0 ? state.conversations[0]._id : null;
+          state.messages = [];
+        }
+
+        state.error = null;
+      })
+      .addCase(deleteConversation.rejected, (state, action) => {
+        state.loadingConversations = false;
+        state.error = action.payload as string;
+      });
+      
   },
 });
 
