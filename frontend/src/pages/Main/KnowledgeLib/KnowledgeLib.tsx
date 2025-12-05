@@ -1,33 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect, useRef, use } from 'react';
 import css from "./KnowledgeLib.module.css";
 import information_circle from "../../../assets/images/information-circle-contained.png";
 import select_img from "../../../assets/images/select-img.png";
 import send from "../../../assets/images/send-01.png";
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { 
-  loadConversations, 
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import {
+  loadConversations,
   createConversation,
-  loadMessages, 
-  sendMessage, 
+  loadMessages,
+  sendMessage,
   setCurrentConversationId,
-  clearMessages, 
+  clearMessages,
   clearError,
   updateConversationTitle,
-} from './KnowledgeLib.duck';
+  deleteConversation,
+} from "./KnowledgeLib.duck";
 
 const KnowledgeLib: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { 
-    messages, 
-    conversations, 
+  const {
+    messages,
+    conversations,
     currentConversationId,
-    loading, 
-    loadingMessages, 
+    loading,
+    loadingMessages,
     loadingConversations,
-    error 
+    error,
   } = useAppSelector((state) => state.knowledgeLib);
-  
-  const [content, setContent] = useState<string>('');
+
+  const [content, setContent] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>('');
   const [fileError, setFileError] = useState<string>('');
@@ -40,25 +42,25 @@ const KnowledgeLib: React.FC = () => {
     const file = e.target.files?.[0];
     if (file) {
       // Kiểm tra file type
-      if (!file.type.startsWith('image/')) {
-        setFileError('Vui lòng chọn file ảnh');
+      if (!file.type.startsWith("image/")) {
+        setFileError("Vui lòng chọn file ảnh");
         setSelectedFile(null);
-        setPreviewUrl('');
+        setPreviewUrl("");
         return;
       }
 
       // Kiểm tra file size (max 10MB)
       if (file.size > 10 * 1024 * 1024) {
-        setFileError('Kích thước file không được vượt quá 10MB');
+        setFileError("Kích thước file không được vượt quá 10MB");
         setSelectedFile(null);
-        setPreviewUrl('');
+        setPreviewUrl("");
         return;
       }
 
       setSelectedFile(file);
-      setFileError('');
+      setFileError("");
       dispatch(clearError());
-      
+
       // Tạo preview URL
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -70,8 +72,8 @@ const KnowledgeLib: React.FC = () => {
 
   const handleRemoveImage = () => {
     setSelectedFile(null);
-    setPreviewUrl('');
-    setFileError('');
+    setPreviewUrl("");
+    setFileError("");
   };
 
   const handleSend = async () => {
@@ -93,11 +95,13 @@ const KnowledgeLib: React.FC = () => {
       // Tránh tạo duplicate - set flag trước khi tạo
       setIsCreatingConversation(true);
       try {
-        const createResult = await dispatch(createConversation('Trò chuyện mới'));
+        const createResult = await dispatch(
+          createConversation("Trò chuyện mới")
+        );
         if (createConversation.fulfilled.match(createResult)) {
           conversationId = createResult.payload._id;
           // Đợi một chút để Redux state update
-          await new Promise(resolve => setTimeout(resolve, 100));
+          await new Promise((resolve) => setTimeout(resolve, 100));
         } else {
           setIsCreatingConversation(false);
           return; // Không tạo được conversation thì dừng
@@ -108,18 +112,20 @@ const KnowledgeLib: React.FC = () => {
     }
 
     // Gửi tin nhắn
-    const result = await dispatch(sendMessage({
-      conversationId: conversationId!,
-      content: content.trim(),
-      file: selectedFile || undefined,
-      uploadOptions: {
-        folder: 'messages',
-        transformation: {
-          quality: 'auto',
-          format: 'auto',
+    const result = await dispatch(
+      sendMessage({
+        conversationId: conversationId!,
+        content: content.trim(),
+        file: selectedFile || undefined,
+        uploadOptions: {
+          folder: "messages",
+          transformation: {
+            quality: "auto",
+            format: "auto",
+          },
         },
-      },
-    }));
+      })
+    );
 
     // Nếu gửi thành công, reset form
     if (sendMessage.fulfilled.match(result)) {
@@ -142,7 +148,7 @@ const KnowledgeLib: React.FC = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
     }
@@ -150,14 +156,14 @@ const KnowledgeLib: React.FC = () => {
 
   const handleNewChat = async () => {
     dispatch(clearMessages());
-    setContent('');
+    setContent("");
     setSelectedFile(null);
-    setPreviewUrl('');
-    setFileError('');
+    setPreviewUrl("");
+    setFileError("");
     dispatch(clearError());
-    
+
     // Tạo conversation mới
-    await dispatch(createConversation('Trò chuyện mới'));
+    await dispatch(createConversation("Trò chuyện mới"));
   };
 
   const handleConversationClick = (conversationId: string) => {
@@ -167,12 +173,17 @@ const KnowledgeLib: React.FC = () => {
     }
   };
 
-  const handleStartEditConversationTitle = (conversationId: string, currentTitle: string) => {
+  const handleStartEditConversationTitle = (
+    conversationId: string,
+    currentTitle: string
+  ) => {
     setEditingConversationId(conversationId);
     setEditingConversationTitle(currentTitle);
   };
 
-  const handleChangeConversationTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeConversationTitle = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setEditingConversationTitle(e.target.value);
   };
 
@@ -207,13 +218,13 @@ const KnowledgeLib: React.FC = () => {
   };
 
   const handleEditTitleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       handleSaveConversationTitle();
       return;
     }
 
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       e.preventDefault();
       setEditingConversationId(null);
     }
@@ -222,6 +233,15 @@ const KnowledgeLib: React.FC = () => {
   const handleEditTitleBlur = () => {
     // Khi click ra ngoài thì thoát chế độ edit mà không lưu (chỉ Enter mới lưu)
     setEditingConversationId(null);
+  };
+
+  const handleDeleteConversation = async (conversationId: string) => {
+    // Nếu đang xem conversation này thì clear messages
+    if (conversationId === currentConversationId) {
+      dispatch(clearMessages());
+    }
+
+    await dispatch(deleteConversation(conversationId));
   };
 
   // Load conversations khi mount
@@ -256,11 +276,24 @@ const KnowledgeLib: React.FC = () => {
         <div className={css.chatbotTitle}>
           <div className={css.title}>
             <p>Trò chuyện với hệ thống tri thức</p>
-            <figure><img src={information_circle} alt="" /></figure>
+            <figure>
+              <img src={information_circle} alt="" />
+            </figure>
           </div>
-          <p className={css.newChat} onClick={handleNewChat} style={{ cursor: 'pointer' }}>
-            Trò chuyện mới
-          </p>
+          <div className={css.chatMenu}>
+            <p className={css.chatTitle}>
+              {conversations.find((conv) => conv._id === currentConversationId)
+                ?.title || " "}
+            </p>
+            {currentConversationId && (
+              <button
+                className={css.deleteChatButton}
+                onClick={() => {handleDeleteConversation(currentConversationId);}}
+              >
+                Xóa cuộc trò chuyện
+              </button>
+            )}
+          </div>
         </div>
         <div className={css.chatArea} ref={chatAreaRef}>
           {loadingMessages && currentConversationId ? (
@@ -296,7 +329,7 @@ const KnowledgeLib: React.FC = () => {
                     }
                   </span>
                   <span className={css.messageTime}>
-                    {new Date(msg.createdAt).toLocaleString('vi-VN')}
+                    {new Date(msg.createdAt).toLocaleString("vi-VN")}
                   </span>
                 </div>
                 {msg.content && (
@@ -353,7 +386,7 @@ const KnowledgeLib: React.FC = () => {
           {(error || fileError) && (
             <div className={css.errorMessage}>{error || fileError}</div>
           )}
-          
+
           {previewUrl && (
             <div className={css.previewContainer}>
               <img src={previewUrl} alt="Preview" />
@@ -392,9 +425,14 @@ const KnowledgeLib: React.FC = () => {
                 placeholder="Nhập câu hỏi bất kì về cây trồng..."
                 disabled={loading}
               />
-              <figure 
+              <figure
                 onClick={handleSend}
-                style={{ cursor: loading || (!content.trim() && !selectedFile) ? 'not-allowed' : 'pointer' }}
+                style={{
+                  cursor:
+                    loading || (!content.trim() && !selectedFile)
+                      ? "not-allowed"
+                      : "pointer",
+                }}
               >
                 {loading ? (
                   <div className={css.loadingSpinner}></div>
@@ -407,77 +445,84 @@ const KnowledgeLib: React.FC = () => {
         </div>
       </div>
       <div className={css.history}>
-        <p className={css.historyTitle}>Lịch sử trò chuyện</p>
-        <div className={css.historyList}>
-          {loadingConversations ? (
-            <div className={css.loadingState}>
-              <div className={css.loadingSpinnerSmall}></div>
-              <p>Đang tải...</p>
-            </div>
-          ) : conversations.length === 0 ? (
-            <div className={css.emptyHistory}>
-              <p>Chưa có cuộc trò chuyện nào</p>
-            </div>
-          ) : (
-            conversations.map((conversation) => (
-              <div
-                key={conversation._id}
-                className={`${css.historyItem} ${
-                  currentConversationId === conversation._id ? css.active : ''
-                }`}
-                onClick={() => handleConversationClick(conversation._id)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleConversationClick(conversation._id);
-                  }
-                }}
-              >
-                {editingConversationId === conversation._id ? (
-                  <input
-                    type="text"
-                    className={css.historyItemTitleInput}
-                    value={editingConversationTitle}
-                    onChange={handleChangeConversationTitle}
-                    onKeyDown={handleEditTitleKeyDown}
-                    onBlur={handleEditTitleBlur}
-                    autoFocus
-                    aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
-                  />
-                ) : (
-                  <p
-                    className={css.historyItemTitle}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleStartEditConversationTitle(
-                        conversation._id,
-                        conversation.title
-                      );
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
+        <div style={{height: "85%"}}>
+          <p className={css.historyTitle}>Lịch sử trò chuyện</p>
+          <div className={css.historyList}>
+            {loadingConversations ? (
+              <div className={css.loadingState}>
+                <div className={css.loadingSpinnerSmall}></div>
+                <p>Đang tải...</p>
+              </div>
+            ) : conversations.length === 0 ? (
+              <div className={css.emptyHistory}>
+                <p>Chưa có cuộc trò chuyện nào</p>
+              </div>
+            ) : (
+              conversations.map((conversation) => (
+                <div
+                  key={conversation._id}
+                  className={`${css.historyItem} ${
+                    currentConversationId === conversation._id ? css.active : ""
+                  }`}
+                  onClick={() => handleConversationClick(conversation._id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleConversationClick(conversation._id);
+                    }
+                  }}
+                >
+                  {editingConversationId === conversation._id ? (
+                    <input
+                      type="text"
+                      className={css.historyItemTitleInput}
+                      value={editingConversationTitle}
+                      onChange={handleChangeConversationTitle}
+                      onKeyDown={handleEditTitleKeyDown}
+                      onBlur={handleEditTitleBlur}
+                      autoFocus
+                      aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
+                    />
+                  ) : (
+                    <p
+                      className={css.historyItemTitle}
+                      onClick={(e) => {
+                        e.stopPropagation();
                         handleStartEditConversationTitle(
                           conversation._id,
                           conversation.title
                         );
-                      }
-                    }}
-                  >
-                    {conversation.title}
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Chỉnh sửa tiêu đề cuộc trò chuyện"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          handleStartEditConversationTitle(
+                            conversation._id,
+                            conversation.title
+                          );
+                        }
+                      }}
+                    >
+                      {conversation.title}
+                    </p>
+                  )}
+                  <p className={css.historyItemTime}>
+                    {new Date(conversation.lastMessageAt).toLocaleString(
+                      "vi-VN"
+                    )}
                   </p>
-                )}
-                <p className={css.historyItemTime}>
-                  {new Date(conversation.lastMessageAt).toLocaleString('vi-VN')}
-                </p>
-              </div>
-            ))
-          )}
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+        <div className={css.historyFooter} onClick={handleNewChat}>
+          <p>Thêm cuộc trò chuyện mới</p>
         </div>
       </div>
     </div>
