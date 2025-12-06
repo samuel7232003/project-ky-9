@@ -9,3 +9,4 @@ scikit-learn
 matplotlib
 numpy
 seaborn
+langchain-neo4j
