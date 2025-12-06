@@ -136,27 +136,33 @@ def predict():
         
         print(f"[ML Server] Processing image URL: {image_url}")
         
-        # Get model and predict
+        # Bước 1: Xử lý ảnh qua model để lấy kết quả phân loại
         model = get_model()
         print(f"[ML Server] Model loaded, starting prediction...")
         result = model.predict(image_url)
         print(f"[ML Server] Prediction successful: Plant={result['plant']['name']}, Disease={result['disease']['name']}")
         
-        # Dịch kết quả sang tiếng Việt
+        # Bước 2: Dịch kết quả sang tiếng Việt
         translated_result = translate_classification_result(result)
         print(f"[ML Server] Translation successful: Plant={translated_result['plant']['name']}, Disease={translated_result['disease']['name']}")
         
-        # Query Knowledge Graph với tên cây và bệnh đã dịch
+        # Bước 3: Lấy kết quả từ model (ten_cay, benh_cay) và truyền qua hàm query_by_casebenh
+        # Hàm này tương ứng với hàm trong process_main.ipynb (dòng 36-43)
         kg_result = None
         try:
             plant_name_vi = translated_result['plant'].get('name_vi', translated_result['plant']['name'])
             disease_name_vi = translated_result['disease'].get('name_vi', translated_result['disease']['name'])
             
             print(f"[ML Server] Querying KG with: ten_cay={plant_name_vi}, benh_cay={disease_name_vi}")
+            # Gọi hàm query_by_casebenh từ kg_service.py (tương ứng với process_main.ipynb)
             kg_result = query_by_casebenh(plant_name_vi.lower(), disease_name_vi.lower())
             print(f"[ML Server] KG query successful, found {len(kg_result) if kg_result else 0} results")
+            if kg_result:
+                print(f"[ML Server] KG result sample: {kg_result[0] if kg_result else 'None'}")
         except Exception as kg_error:
             print(f"[ML Server] Warning: KG query failed: {kg_error}")
+            import traceback
+            print(traceback.format_exc())
             # Continue without KG results
             kg_result = None
         
@@ -165,12 +171,23 @@ def predict():
             **translated_result
         }
         
-        # Thêm KG results nếu có
-        if kg_result:
-            response_data['kg_info'] = {
-                'nguyen_nhan': [r.get('nguyen_nhan', '') for r in kg_result if r.get('nguyen_nhan')],
-                'dieu_tri': [r.get('dieu_tri', '') for r in kg_result if r.get('dieu_tri')]
-            }
+        # Thêm KG results nếu có (kiểm tra cả list rỗng)
+        if kg_result and len(kg_result) > 0:
+            # Lọc và loại bỏ các giá trị rỗng
+            nguyen_nhan_list = [r.get('nguyen_nhan', '').strip() for r in kg_result if r.get('nguyen_nhan') and r.get('nguyen_nhan').strip()]
+            dieu_tri_list = [r.get('dieu_tri', '').strip() for r in kg_result if r.get('dieu_tri') and r.get('dieu_tri').strip()]
+            
+            # Chỉ thêm kg_info nếu có ít nhất một trong hai không rỗng
+            if nguyen_nhan_list or dieu_tri_list:
+                response_data['kg_info'] = {
+                    'nguyen_nhan': nguyen_nhan_list,
+                    'dieu_tri': dieu_tri_list
+                }
+                print(f"[ML Server] Added kg_info: {len(nguyen_nhan_list)} nguyên nhân, {len(dieu_tri_list)} cách điều trị")
+            else:
+                print(f"[ML Server] KG result found but all values are empty, skipping kg_info")
+        else:
+            print(f"[ML Server] No KG result found, skipping kg_info")
         
         return jsonify(response_data)
         
@@ -232,24 +249,30 @@ def predict_file():
             tmp_path = tmp_file.name
         
         try:
-            # Get model and predict
+            # Bước 1: Xử lý ảnh qua model để lấy kết quả phân loại
             model = get_model()
             result = model.predict(tmp_path)
             
-            # Dịch kết quả sang tiếng Việt
+            # Bước 2: Dịch kết quả sang tiếng Việt
             translated_result = translate_classification_result(result)
             
-            # Query Knowledge Graph với tên cây và bệnh đã dịch
+            # Bước 3: Lấy kết quả từ model (ten_cay, benh_cay) và truyền qua hàm query_by_casebenh
+            # Hàm này tương ứng với hàm trong process_main.ipynb (dòng 36-43)
             kg_result = None
             try:
                 plant_name_vi = translated_result['plant'].get('name_vi', translated_result['plant']['name'])
                 disease_name_vi = translated_result['disease'].get('name_vi', translated_result['disease']['name'])
                 
                 print(f"[ML Server] Querying KG with: ten_cay={plant_name_vi}, benh_cay={disease_name_vi}")
+                # Gọi hàm query_by_casebenh từ kg_service.py (tương ứng với process_main.ipynb)
                 kg_result = query_by_casebenh(plant_name_vi.lower(), disease_name_vi.lower())
                 print(f"[ML Server] KG query successful, found {len(kg_result) if kg_result else 0} results")
+                if kg_result:
+                    print(f"[ML Server] KG result sample: {kg_result[0] if kg_result else 'None'}")
             except Exception as kg_error:
                 print(f"[ML Server] Warning: KG query failed: {kg_error}")
+                import traceback
+                print(traceback.format_exc())
                 # Continue without KG results
                 kg_result = None
             
@@ -258,12 +281,23 @@ def predict_file():
                 **translated_result
             }
             
-            # Thêm KG results nếu có
-            if kg_result:
-                response_data['kg_info'] = {
-                    'nguyen_nhan': [r.get('nguyen_nhan', '') for r in kg_result if r.get('nguyen_nhan')],
-                    'dieu_tri': [r.get('dieu_tri', '') for r in kg_result if r.get('dieu_tri')]
-                }
+            # Thêm KG results nếu có (kiểm tra cả list rỗng)
+            if kg_result and len(kg_result) > 0:
+                # Lọc và loại bỏ các giá trị rỗng
+                nguyen_nhan_list = [r.get('nguyen_nhan', '').strip() for r in kg_result if r.get('nguyen_nhan') and r.get('nguyen_nhan').strip()]
+                dieu_tri_list = [r.get('dieu_tri', '').strip() for r in kg_result if r.get('dieu_tri') and r.get('dieu_tri').strip()]
+                
+                # Chỉ thêm kg_info nếu có ít nhất một trong hai không rỗng
+                if nguyen_nhan_list or dieu_tri_list:
+                    response_data['kg_info'] = {
+                        'nguyen_nhan': nguyen_nhan_list,
+                        'dieu_tri': dieu_tri_list
+                    }
+                    print(f"[ML Server] Added kg_info: {len(nguyen_nhan_list)} nguyên nhân, {len(dieu_tri_list)} cách điều trị")
+                else:
+                    print(f"[ML Server] KG result found but all values are empty, skipping kg_info")
+            else:
+                print(f"[ML Server] No KG result found, skipping kg_info")
             
             return jsonify(response_data)
         finally:

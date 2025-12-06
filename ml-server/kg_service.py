@@ -342,6 +342,7 @@ def query_by_input_text(query_text):
 def query_by_casebenh(ten_cay, benh_cay):
     """
     Query Knowledge Graph by plant and disease name
+    Hàm này tương ứng với hàm trong process_main.ipynb (dòng 36-43)
     
     Args:
         ten_cay: Plant name (Vietnamese)
@@ -352,6 +353,7 @@ def query_by_casebenh(ten_cay, benh_cay):
     """
     graph = get_graph()
     case_benh = f"{ten_cay}-{benh_cay}"
+    # Cypher query giống với process_main.ipynb
     query_casebenh = f"""
     MATCH (cb:CaseBenh {{id: "{case_benh}"}})-[:DO_NGUYEN_NHAN]->(nn:NguyenNhan)
     MATCH (cb)-[:CACH_DIEU_TRI]->(dt:DieuTri)

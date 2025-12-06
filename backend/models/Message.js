@@ -13,7 +13,7 @@ const messageSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: function() {
+      required: function () {
         return !this.isSystem;
       },
       index: true,
@@ -49,6 +49,11 @@ const messageSchema = new mongoose.Schema(
         name_vi: String, // Tên tiếng Việt
         confidence: Number,
       },
+      // Knowledge Graph information (từ Neo4j)
+      kg_info: {
+        nguyen_nhan: [String], // Mảng các nguyên nhân
+        dieu_tri: [String], // Mảng các cách điều trị
+      },
     },
   },
   { timestamps: true }
@@ -57,8 +62,14 @@ const messageSchema = new mongoose.Schema(
 // Validation: Phải có content hoặc image hoặc classification (cho system message)
 messageSchema.pre("validate", function (next) {
   if (!this.content && !this.image && !this.classification) {
-    this.invalidate("content", "Message must have either content, image, or classification");
-    this.invalidate("image", "Message must have either content, image, or classification");
+    this.invalidate(
+      "content",
+      "Message must have either content, image, or classification"
+    );
+    this.invalidate(
+      "image",
+      "Message must have either content, image, or classification"
+    );
   }
   next();
 });

@@ -3,12 +3,16 @@ const cors = require("cors");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const http = require("http");
+const { Server } = require("socket.io");
 const router = require("./routes/index.js");
 const { connectToDatabase } = require("./config/db.js");
 const config = require("./config/index.js");
 const errorHandler = require("./middleware/errorHandler.js");
+const { setupSocketIO } = require("./config/socket.js");
 
 const app = express();
+const server = http.createServer(app);
 
 // CORS configuration
 app.use(
@@ -42,10 +46,19 @@ app.use(errorHandler);
 const start = async () => {
   try {
     await connectToDatabase();
-    app.listen(config.port, () => {
+    
+    // Setup Socket.IO
+    const io = setupSocketIO(server, config.corsOrigin);
+    
+    // Make io available globally for messageService
+    app.set("io", io);
+    global.io = io;
+    
+    server.listen(config.port, () => {
       console.log(`🚀 Server running on port ${config.port}`);
       console.log(`🌍 Environment: ${config.nodeEnv}`);
       console.log(`📡 Health check: http://localhost:${config.port}/health`);
+      console.log(`🔌 WebSocket server ready`);
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error);
