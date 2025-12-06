@@ -37,6 +37,11 @@ export interface ClassificationResult {
     name_vi?: string; // Tên tiếng Việt
     confidence: number;
   };
+  // Knowledge Graph information (từ Neo4j)
+  kg_info?: {
+    nguyen_nhan?: string[]; // Mảng các nguyên nhân
+    dieu_tri?: string[]; // Mảng các cách điều trị
+  };
 }
 
 // Interface cho message response

@@ -14,7 +14,9 @@ import {
   clearError,
   updateConversationTitle,
   deleteConversation,
+  addMessage,
 } from "./KnowledgeLib.duck";
+import { websocketService } from "../../../services/websocketService";
 
 const KnowledgeLib: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -128,21 +130,10 @@ const KnowledgeLib: React.FC = () => {
 
     // Nếu gửi thành công, reset form
     if (sendMessage.fulfilled.match(result)) {
-      const hadImage = !!selectedFile;
-      const currentConvId = conversationId;
       setContent('');
       setSelectedFile(null);
       setPreviewUrl('');
       setFileError('');
-      
-      // Nếu có ảnh, reload messages một lần sau 5 giây để nhận tin nhắn hệ thống từ ML server
-      if (hadImage && currentConvId) {
-        setTimeout(() => {
-          if (currentConvId) {
-            dispatch(loadMessages(currentConvId));
-          }
-        }, 5000);
-      }
     }
   };
 
@@ -248,6 +239,54 @@ const KnowledgeLib: React.FC = () => {
     dispatch(loadConversations({}));
   }, [dispatch]);
 
+  // Connect WebSocket khi mount
+  useEffect(() => {
+    websocketService.connect();
+
+    // Cleanup: disconnect khi unmount
+    return () => {
+      websocketService.disconnect();
+    };
+  }, []);
+
+  // Join conversation room khi currentConversationId thay đổi
+  useEffect(() => {
+    if (currentConversationId && websocketService.isConnected()) {
+      websocketService.joinConversation(currentConversationId);
+    }
+
+    // Cleanup: leave room khi conversationId thay đổi
+    return () => {
+      if (currentConversationId) {
+        websocketService.leaveConversation(currentConversationId);
+      }
+    };
+  }, [currentConversationId]);
+
+  // Listen for new messages từ WebSocket
+  useEffect(() => {
+    if (!websocketService.isConnected()) {
+      return;
+    }
+
+    const unsubscribe = websocketService.onNewMessage((message) => {
+      // Chỉ thêm message nếu:
+      // 1. Nó thuộc conversation hiện tại
+      // 2. Là system message (tin nhắn từ user đã được thêm qua sendMessage.fulfilled rồi)
+      const isCurrentConversation = message.conversationId &&
+        (typeof message.conversationId === 'string'
+          ? message.conversationId === currentConversationId
+          : message.conversationId._id === currentConversationId);
+      
+      if (isCurrentConversation && message.isSystem) {
+        dispatch(addMessage(message));
+      }
+    });
+
+    // Cleanup: unsubscribe khi unmount hoặc conversationId thay đổi
+    return unsubscribe;
+  }, [dispatch, currentConversationId]);
+
   // Load messages khi currentConversationId thay đổi
   useEffect(() => {
     if (currentConversationId) {
@@ -339,44 +378,101 @@ const KnowledgeLib: React.FC = () => {
                     <img src={msg.image} alt="Uploaded" />
                   </div>
                 )}
-                {msg.classification && (
-                  <div className={css.classificationResult}>
-                    <div className={css.classificationTitle}>🔍 Phân loại lá cây:</div>
-                    <div className={css.classificationItem}>
-                      <span className={css.classificationLabel}>Cây:</span>
-                      <span className={css.classificationValue}>
-                        {msg.classification.plant.name_vi || msg.classification.plant.name}
-                        {msg.classification.plant.name_en && msg.classification.plant.name_vi && (
-                          <span className={css.englishName}>
-                            {' '}({msg.classification.plant.name_en})
-                          </span>
-                        )}
-                        <span className={css.confidence}>
-                          {' '}({(msg.classification.plant.confidence * 100).toFixed(1)}%)
-                        </span>
-                      </span>
+                {/* Chỉ hiển thị classification ở tin nhắn từ server và nếu có content */}
+                {msg.isSystem && msg.content && msg.classification && (() => {
+                  // Debug: log để kiểm tra dữ liệu
+                  if (process.env.NODE_ENV === 'development') {
+                    console.log('[KnowledgeLib] Classification data:', {
+                      hasKgInfo: !!msg.classification.kg_info,
+                      kg_info: msg.classification.kg_info,
+                      hasPlant: !!msg.classification.plant,
+                      hasDisease: !!msg.classification.disease,
+                    });
+                  }
+                  
+                  const hasKgInfo = msg.classification.kg_info && (
+                    (msg.classification.kg_info.nguyen_nhan && msg.classification.kg_info.nguyen_nhan.length > 0) ||
+                    (msg.classification.kg_info.dieu_tri && msg.classification.kg_info.dieu_tri.length > 0)
+                  );
+                  const hasClassification = msg.classification.plant || msg.classification.disease;
+                  
+                  // Chỉ render nếu có ít nhất một trong hai: KG info hoặc classification
+                  if (!hasKgInfo && !hasClassification) {
+                    return null;
+                  }
+                  
+                  return (
+                    <div className={css.classificationResult}>
+                      {/* Hiển thị kết quả từ Knowledge Graph (luôn ở trên nếu có) */}
+                      {hasKgInfo && (
+                        <>
+                          {msg.classification.kg_info?.nguyen_nhan && msg.classification.kg_info.nguyen_nhan.length > 0 && (
+                            <div className={css.kgInfoSection}>
+                              <div className={css.kgInfoTitle}>🌱 Nguyên nhân:</div>
+                              <ul className={css.kgInfoList}>
+                                {msg.classification.kg_info.nguyen_nhan.map((nn: string, index: number) => (
+                                  <li key={index} className={css.kgInfoItem}>{nn}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {msg.classification.kg_info?.dieu_tri && msg.classification.kg_info.dieu_tri.length > 0 && (
+                            <div className={css.kgInfoSection}>
+                              <div className={css.kgInfoTitle}>💊 Cách điều trị:</div>
+                              <ul className={css.kgInfoList}>
+                                {msg.classification.kg_info.dieu_tri.map((dt: string, index: number) => (
+                                  <li key={index} className={css.kgInfoItem}>{dt}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </>
+                      )}
+                      {/* Hiển thị kết quả từ model hình ảnh (chỉ hiển thị nếu có classification) */}
+                      {hasClassification && (
+                        <>
+                          <div className={css.classificationTitle}>🔍 Kết quả phân loại lá cây (từ model):</div>
+                          {msg.classification.plant && (
+                            <div className={css.classificationItem}>
+                              <span className={css.classificationLabel}>Cây:</span>
+                              <span className={css.classificationValue}>
+                                {msg.classification.plant.name_vi || msg.classification.plant.name || 'N/A'}
+                                {msg.classification.plant.name_en && msg.classification.plant.name_vi && (
+                                  <span className={css.englishName}>
+                                    {' '}({msg.classification.plant.name_en})
+                                  </span>
+                                )}
+                                {msg.classification.plant.confidence && (
+                                  <span className={css.confidence}>
+                                    {' '}({(msg.classification.plant.confidence * 100).toFixed(1)}%)
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          )}
+                          {msg.classification.disease && (
+                            <div className={css.classificationItem}>
+                              <span className={css.classificationLabel}>Tình trạng:</span>
+                              <span className={css.classificationValue}>
+                                {msg.classification.disease.name_vi || msg.classification.disease.name || 'N/A'}
+                                {msg.classification.disease.name_en && msg.classification.disease.name_vi && (
+                                  <span className={css.englishName}>
+                                    {' '}({msg.classification.disease.name_en})
+                                  </span>
+                                )}
+                                {msg.classification.disease.confidence && (
+                                  <span className={css.confidence}>
+                                    {' '}({(msg.classification.disease.confidence * 100).toFixed(1)}%)
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          )}
+                        </>
+                      )}
                     </div>
-                    <div className={css.classificationItem}>
-                      <span className={css.classificationLabel}>Tình trạng:</span>
-                      <span className={css.classificationValue}>
-                        {msg.classification.disease.name_vi || msg.classification.disease.name}
-                        {msg.classification.disease.name_en && msg.classification.disease.name_vi && (
-                          <span className={css.englishName}>
-                            {' '}({msg.classification.disease.name_en})
-                          </span>
-                        )}
-                        <span className={css.confidence}>
-                          {' '}({(msg.classification.disease.confidence * 100).toFixed(1)}%)
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                )}
-                {!msg.isSystem && (
-                  <div className={css.messageStatus}>
-                    Status: <span className={css.statusBadge}>{msg.status}</span>
-                  </div>
-                )}
+                  );
+                })()}
               </div>
             ))
           )}

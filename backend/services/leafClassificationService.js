@@ -41,9 +41,22 @@ const predictLeaf = async (imageUrl) => {
     console.log(
       `[Leaf Classification] Success: Plant=${response.data.plant?.name}, Disease=${response.data.disease?.name}`
     );
+
+    // Log KG info if available
+    if (response.data.kg_info) {
+      console.log(
+        `[Leaf Classification] KG Info found: ${
+          response.data.kg_info.nguyen_nhan?.length || 0
+        } nguyên nhân, ${
+          response.data.kg_info.dieu_tri?.length || 0
+        } cách điều trị`
+      );
+    }
+
     return {
       plant: response.data.plant,
       disease: response.data.disease,
+      kg_info: response.data.kg_info || null, // Thêm kg_info vào response
     };
   } catch (error) {
     // Log detailed error information
@@ -70,6 +83,71 @@ const predictLeaf = async (imageUrl) => {
 };
 
 /**
+ * Query Knowledge Graph by text
+ * @param {string} queryText - Text query từ user
+ * @returns {Promise<Object>} Query result từ KG
+ */
+const queryKnowledgeGraph = async (queryText) => {
+  try {
+    // Validate query text
+    if (!queryText || typeof queryText !== "string" || !queryText.trim()) {
+      console.error("Invalid query text provided:", queryText);
+      throw new Error("Invalid query text");
+    }
+
+    // Log request details for debugging
+    console.log(
+      `[KG Query] Sending request to ML server: ${ML_SERVER_URL}/query/text`
+    );
+    console.log(`[KG Query] Query text: ${queryText}`);
+
+    const response = await axios.post(
+      `${ML_SERVER_URL}/query/text`,
+      {
+        query: queryText.trim(),
+      },
+      {
+        timeout: 30000, // 30 seconds timeout for KG query
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.data.success) {
+      throw new Error(response.data.error || "KG query failed");
+    }
+
+    console.log(`[KG Query] Success: type=${response.data.type}`);
+
+    return response.data;
+  } catch (error) {
+    // Log detailed error information
+    console.error("[KG Query] Error details:", {
+      message: error.message,
+      code: error.code,
+      response: error.response?.data,
+      queryText: queryText,
+      mlServerUrl: ML_SERVER_URL,
+    });
+
+    // Nếu ML server không available, return null thay vì throw error
+    if (error.code === "ECONNREFUSED" || error.code === "ETIMEDOUT") {
+      console.warn(
+        `[KG Query] ML server at ${ML_SERVER_URL} is not available, skipping KG query`
+      );
+      return null;
+    }
+
+    throw new Error(
+      error.response?.data?.error ||
+        error.message ||
+        "Failed to query knowledge graph"
+    );
+  }
+};
+
+/**
  * Check if ML server is healthy
  * @returns {Promise<boolean>} True if server is healthy
  */
@@ -87,5 +165,6 @@ const checkMLServerHealth = async () => {
 
 module.exports = {
   predictLeaf,
+  queryKnowledgeGraph,
   checkMLServerHealth,
 };

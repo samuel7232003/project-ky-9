@@ -5,6 +5,7 @@ export { userService } from './userService';
 export { cloudinaryService } from './cloudinaryService';
 export { messageService } from './messageService';
 export { conversationService } from './conversationService';
+export { websocketService } from './websocketService';
 
 // Export API instance và methods
 export { apiInstance, api } from './api';

@@ -201,6 +201,24 @@ const knowledgeLibSlice = createSlice({
       state.loadingMessages = true;
       state.error = null;
     },
+    addMessage: (state, action: PayloadAction<MessageResponse>) => {
+      // Kiểm tra xem message đã tồn tại chưa (tránh duplicate)
+      const existingIndex = state.messages.findIndex(
+        (msg) => msg._id === action.payload._id
+      );
+      
+      if (existingIndex === -1) {
+        // Thêm message mới và sắp xếp lại theo createdAt tăng dần (cũ đến mới)
+        state.messages = [...state.messages, action.payload].sort((a, b) => {
+          const timeA = new Date(a.createdAt).getTime();
+          const timeB = new Date(b.createdAt).getTime();
+          return timeA - timeB;
+        });
+      } else {
+        // Nếu đã tồn tại, cập nhật message đó
+        state.messages[existingIndex] = action.payload;
+      }
+    },
   },
   extraReducers: (builder) => {
     // Load conversations
@@ -370,5 +388,5 @@ const knowledgeLibSlice = createSlice({
   },
 });
 
-export const { setCurrentConversationId, clearMessages, clearError, resetState } = knowledgeLibSlice.actions;
+export const { setCurrentConversationId, clearMessages, clearError, resetState, addMessage } = knowledgeLibSlice.actions;
 export default knowledgeLibSlice.reducer;
