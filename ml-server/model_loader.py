@@ -184,7 +184,6 @@ def load_model(model_path=None):
     if _model is None:
         # Default paths để tìm model
         if model_path is None:
-            import os
             # Get directory where model_loader.py is located
             script_dir = os.path.dirname(os.path.abspath(__file__))
             # Chỉ tìm leaf_multitask_best.pth (model chính)
