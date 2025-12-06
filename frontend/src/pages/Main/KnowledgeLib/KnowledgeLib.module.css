@@ -335,6 +335,7 @@
   color: #333;
   text-align: left;
   overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .messageImage {

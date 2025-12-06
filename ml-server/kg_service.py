@@ -249,6 +249,7 @@ def format_result(results_raw, ten_cay):
 def query_by_input_text(query_text):
     """
     Query Knowledge Graph by input text
+    Tương ứng với hàm trong process_main.ipynb (Cell 30)
     
     Args:
         query_text: User's text query
@@ -256,58 +257,9 @@ def query_by_input_text(query_text):
     Returns:
         Either a direct answer (if not plant disease query) or formatted results
     """
-    try:
-        response = extract_entities_and_relationships(query_text)
-        
-        # Kiểm tra response và response.text
-        if not response:
-            print("[KG Service] Error: extract_entities_and_relationships returned None")
-            return "Xin lỗi, không thể xử lý câu hỏi. Vui lòng thử lại."
-        
-        # Kiểm tra response.text có tồn tại không
-        response_text = None
-        
-        # Thử nhiều cách để lấy text từ response
-        try:
-            if hasattr(response, 'text') and response.text:
-                response_text = response.text
-            elif isinstance(response, str):
-                response_text = response
-            elif hasattr(response, 'candidates') and response.candidates:
-                # Thử lấy từ candidates (cấu trúc Gemini API)
-                candidate = response.candidates[0]
-                if hasattr(candidate, 'content') and candidate.content:
-                    if hasattr(candidate.content, 'parts') and candidate.content.parts:
-                        part = candidate.content.parts[0]
-                        if hasattr(part, 'text'):
-                            response_text = part.text
-            elif hasattr(response, 'content'):
-                # Thử lấy từ content nếu có
-                if hasattr(response.content, 'text'):
-                    response_text = response.content.text
-                elif isinstance(response.content, str):
-                    response_text = response.content
-                elif hasattr(response.content, 'parts') and response.content.parts:
-                    if hasattr(response.content.parts[0], 'text'):
-                        response_text = response.content.parts[0].text
-        
-        except Exception as e:
-            print(f"[KG Service] Error extracting text from response: {e}")
-            print(f"[KG Service] Response type: {type(response)}")
-            print(f"[KG Service] Response attributes: {dir(response) if hasattr(response, '__dict__') else 'N/A'}")
-        
-        if not response_text:
-            print(f"[KG Service] Error: Cannot extract text from response. Response type: {type(response)}")
-            if hasattr(response, '__dict__'):
-                print(f"[KG Service] Response dict: {response.__dict__}")
-            return "Xin lỗi, không thể nhận được phản hồi từ hệ thống. Vui lòng thử lại."
-        
-        result_after_parse = parse_gemini_response(response_text)
-    except Exception as e:
-        print(f"[KG Service] Error in query_by_input_text: {e}")
-        import traceback
-        print(traceback.format_exc())
-        return f"Xin lỗi, có lỗi xảy ra khi xử lý câu hỏi: {str(e)}"
+    response = extract_entities_and_relationships(query_text)
+
+    result_after_parse = parse_gemini_response(response.text)
 
     results = []
 
@@ -321,15 +273,15 @@ def query_by_input_text(query_text):
                 if ten_cay.startswith("cây "):
                     ten_cay = ten_cay[4:]
 
-                query_text_formatted = ten_cay + " có các triệu chứng như sau: " + relation['entity2']
+                query_text = ten_cay + " có các triệu chứng như sau: " + relation['entity2']
 
-                print(query_text_formatted)
+                print(query_text)
 
                 results_sematic = semantic_search(
                                 node_label="CaseBenh",
                                 text_field="description",
                                 embedding_field="description_embedding",
-                                query_text=query_text_formatted,
+                                query_text=query_text,
                                 top_k=5
                             )
                 for r_se in results_sematic:
