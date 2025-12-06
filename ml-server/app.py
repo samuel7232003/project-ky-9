@@ -3,6 +3,7 @@ from flask_cors import CORS
 import os
 from model_loader import load_model, get_model
 from translation_service import translate_classification_result
+from kg_service import query_by_input_text, query_by_casebenh
 import traceback
 
 app = Flask(__name__)
@@ -145,10 +146,33 @@ def predict():
         translated_result = translate_classification_result(result)
         print(f"[ML Server] Translation successful: Plant={translated_result['plant']['name']}, Disease={translated_result['disease']['name']}")
         
-        return jsonify({
+        # Query Knowledge Graph với tên cây và bệnh đã dịch
+        kg_result = None
+        try:
+            plant_name_vi = translated_result['plant'].get('name_vi', translated_result['plant']['name'])
+            disease_name_vi = translated_result['disease'].get('name_vi', translated_result['disease']['name'])
+            
+            print(f"[ML Server] Querying KG with: ten_cay={plant_name_vi}, benh_cay={disease_name_vi}")
+            kg_result = query_by_casebenh(plant_name_vi.lower(), disease_name_vi.lower())
+            print(f"[ML Server] KG query successful, found {len(kg_result) if kg_result else 0} results")
+        except Exception as kg_error:
+            print(f"[ML Server] Warning: KG query failed: {kg_error}")
+            # Continue without KG results
+            kg_result = None
+        
+        response_data = {
             'success': True,
             **translated_result
-        })
+        }
+        
+        # Thêm KG results nếu có
+        if kg_result:
+            response_data['kg_info'] = {
+                'nguyen_nhan': [r.get('nguyen_nhan', '') for r in kg_result if r.get('nguyen_nhan')],
+                'dieu_tri': [r.get('dieu_tri', '') for r in kg_result if r.get('dieu_tri')]
+            }
+        
+        return jsonify(response_data)
         
     except Exception as e:
         print(f"[ML Server] Error in predict: {e}")
@@ -215,16 +239,106 @@ def predict_file():
             # Dịch kết quả sang tiếng Việt
             translated_result = translate_classification_result(result)
             
-            return jsonify({
+            # Query Knowledge Graph với tên cây và bệnh đã dịch
+            kg_result = None
+            try:
+                plant_name_vi = translated_result['plant'].get('name_vi', translated_result['plant']['name'])
+                disease_name_vi = translated_result['disease'].get('name_vi', translated_result['disease']['name'])
+                
+                print(f"[ML Server] Querying KG with: ten_cay={plant_name_vi}, benh_cay={disease_name_vi}")
+                kg_result = query_by_casebenh(plant_name_vi.lower(), disease_name_vi.lower())
+                print(f"[ML Server] KG query successful, found {len(kg_result) if kg_result else 0} results")
+            except Exception as kg_error:
+                print(f"[ML Server] Warning: KG query failed: {kg_error}")
+                # Continue without KG results
+                kg_result = None
+            
+            response_data = {
                 'success': True,
                 **translated_result
-            })
+            }
+            
+            # Thêm KG results nếu có
+            if kg_result:
+                response_data['kg_info'] = {
+                    'nguyen_nhan': [r.get('nguyen_nhan', '') for r in kg_result if r.get('nguyen_nhan')],
+                    'dieu_tri': [r.get('dieu_tri', '') for r in kg_result if r.get('dieu_tri')]
+                }
+            
+            return jsonify(response_data)
         finally:
             # Clean up temp file
             os.unlink(tmp_path)
             
     except Exception as e:
         print(f"Error in predict_file: {e}")
+        print(traceback.format_exc())
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/query/text', methods=['POST'])
+def query_text():
+    """
+    Query Knowledge Graph by text input
+    
+    Request body:
+    {
+        "query": "Cây cà chua có các triệu chứng như lá bị vàng và quả bị thối"
+    }
+    
+    Response:
+    {
+        "success": true,
+        "result": [...] // Kết quả từ KG hoặc câu trả lời trực tiếp
+    }
+    """
+    try:
+        print(f"[ML Server] Received POST request to /query/text")
+        
+        data = request.get_json()
+        print(f"[ML Server] Request body: {data}")
+        
+        if not data:
+            print("[ML Server] Error: No data provided in request")
+            return jsonify({
+                'success': False,
+                'error': 'No data provided'
+            }), 400
+        
+        query_text_input = data.get('query')
+        if not query_text_input:
+            print("[ML Server] Error: query is missing from request")
+            return jsonify({
+                'success': False,
+                'error': 'query is required'
+            }), 400
+        
+        print(f"[ML Server] Processing text query: {query_text_input}")
+        
+        # Query Knowledge Graph
+        result = query_by_input_text(query_text_input)
+        print(f"[ML Server] KG query successful")
+        
+        # Kiểm tra xem result là string (direct answer) hay list (search results)
+        if isinstance(result, str):
+            # Direct answer (not a plant disease query)
+            return jsonify({
+                'success': True,
+                'type': 'direct_answer',
+                'answer': result
+            })
+        else:
+            # Search results (list of disease cases)
+            return jsonify({
+                'success': True,
+                'type': 'search_results',
+                'results': result
+            })
+        
+    except Exception as e:
+        print(f"[ML Server] Error in query_text: {e}")
         print(traceback.format_exc())
         return jsonify({
             'success': False,
