@@ -110,13 +110,84 @@ check_required_vars() {
     print_success "All required environment variables are set"
 }
 
+# Download model from Google Drive
+download_model() {
+    local drive_file_id="$1"
+    local output_path="ml-server/leaf_multitask_best.pth"
+    
+    if [ -z "$drive_file_id" ]; then
+        print_error "Google Drive File ID is required"
+        return 1
+    fi
+    
+    print_info "Downloading model from Google Drive..."
+    print_info "File ID: $drive_file_id"
+    
+    # Check if gdown is installed
+    if ! command -v gdown &> /dev/null; then
+        print_info "Installing gdown..."
+        pip install gdown || {
+            print_error "Failed to install gdown. Please install manually: pip install gdown"
+            return 1
+        }
+    fi
+    
+    # Download model
+    if gdown "https://drive.google.com/uc?id=${drive_file_id}" -O "$output_path"; then
+        print_success "Model downloaded successfully!"
+        print_info "File location: $output_path"
+        print_info "File size: $(du -h "$output_path" | cut -f1)"
+        return 0
+    else
+        print_error "Failed to download model"
+        return 1
+    fi
+}
+
 # Check if model file exists
 check_model_file() {
     if [ ! -f ml-server/leaf_multitask_best.pth ]; then
         print_warning "Model file (ml-server/leaf_multitask_best.pth) not found."
-        print_warning "ML Server may not work correctly without the model file."
-        print_warning "Press Enter to continue anyway, or Ctrl+C to cancel..."
-        read
+        
+        # Check if DRIVE_FILE_ID is set in .env
+        if [ -f .env ]; then
+            source .env
+            if [ -n "$DRIVE_FILE_ID" ]; then
+                print_info "DRIVE_FILE_ID found in .env, attempting to download..."
+                if download_model "$DRIVE_FILE_ID"; then
+                    return 0
+                fi
+            fi
+        fi
+        
+        print_warning "Options:"
+        echo "  1. Download from Google Drive (provide File ID)"
+        echo "  2. Continue without model (ML Server will fail)"
+        echo "  3. Cancel and exit"
+        read -p "Choose option [1-3]: " choice
+        
+        case $choice in
+            1)
+                read -p "Enter Google Drive File ID: " file_id
+                if download_model "$file_id"; then
+                    print_success "Model downloaded, continuing deployment..."
+                else
+                    print_error "Failed to download model"
+                    exit 1
+                fi
+                ;;
+            2)
+                print_warning "Continuing without model file..."
+                ;;
+            3)
+                print_info "Exiting..."
+                exit 0
+                ;;
+            *)
+                print_error "Invalid option"
+                exit 1
+                ;;
+        esac
     else
         print_success "Model file found"
     fi

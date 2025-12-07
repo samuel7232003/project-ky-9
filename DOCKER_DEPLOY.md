@@ -34,11 +34,31 @@ nano .env  # hoặc vim .env
 
 ### 2. Kiểm tra Model File
 
-Đảm bảo file model tồn tại:
+**Option A: Model đã có sẵn**
 
 ```bash
 ls -lh ml-server/leaf_multitask_best.pth
 ```
+
+**Option B: Tải từ Google Drive (Khuyến nghị)**
+
+Thêm `DRIVE_FILE_ID` vào file `.env`:
+
+```env
+DRIVE_FILE_ID=your_google_drive_file_id_here
+```
+
+Hoặc tải thủ công:
+
+```bash
+# Sử dụng script Python
+python3 download_model.py
+
+# Hoặc script bash
+./ml-server/download_model.sh YOUR_FILE_ID
+```
+
+Xem hướng dẫn chi tiết: [DOWNLOAD_MODEL.md](./DOWNLOAD_MODEL.md)
 
 ### 3. Deploy
 

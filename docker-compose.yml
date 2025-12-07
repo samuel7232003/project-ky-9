@@ -68,6 +68,8 @@ services:
     build:
       context: ./ml-server
       dockerfile: Dockerfile
+      args:
+        DRIVE_FILE_ID: ${DRIVE_FILE_ID:-}
     container_name: nckh-ml-server
     restart: unless-stopped
     environment:
