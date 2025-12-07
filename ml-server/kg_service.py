@@ -1,10 +1,14 @@
 import os
 import re
+import textwrap
 from py2neo import Graph
 import google.generativeai as genai_emb
-from google import genai
+import google.generativeai as genai
 from ratelimit import limits, sleep_and_retry
 from dotenv import load_dotenv
+from langchain_core.prompts import PromptTemplate
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_neo4j import Neo4jGraph, GraphCypherQAChain
 
 # Load environment variables
 load_dotenv()
@@ -19,6 +23,7 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyDlb9z3HXkODdXU6NQOuQkUSgvMSQ
 
 # Initialize connections
 graph = None
+cypherChain = None
 genai_emb.configure(api_key=GEMINI_API_KEY)
 
 def get_graph():
@@ -27,6 +32,78 @@ def get_graph():
     if graph is None:
         graph = Graph(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
     return graph
+
+def get_cypher_chain():
+    """Get or create Cypher QA Chain"""
+    global cypherChain
+    if cypherChain is None:
+        # CYPHER_GENERATION_TEMPLATE giống như trong process_main.ipynb
+        CYPHER_GENERATION_TEMPLATE = """Task: Generate a Cypher statement to query a graph database.
+Instructions:
+- Analyze the question and extract relevant graph components dynamically. Use this to construct the Cypher query.
+- Use only the relationship types and properties from the provided schema. Do not include any other relationship types, properties, or assumptions not defined in the schema.
+- The schema is based on a graph structure with nodes and relationships as follows:
+{schema}
+- Return only the generated Cypher query in your response. Do not include explanations, comments, or additional text.
+- Ensure the Cypher query directly addresses the given question using the schema accurately.
+
+Examples:
+# Cây {{tencay}} có thể bị mắc bệnh gì?
+MATCH (c:CayTrong {{name: "{{tencay}}"}})-[:BI_MAC]->(b:Benh)
+RETURN b.name AS benh;
+
+# Những cây có thể mắc bệnh {{benh}}?
+MATCH (c:CayTrong)-[:BI_MAC]->(b:Benh {{name: "{{benh}}"}})
+RETURN c.name AS tencay;
+
+# Cây lúa bị đạo ôn là do nguyên nhân gì (bỏ chữ cây, kết hợp thành case_benh=lúa-đạo ôn)
+MATCH (cb:CaseBenh {{id: "{{case_benh}}"}})-[:DO_NGUYEN_NHAN]->(nn:NguyenNhan)
+MATCH (cb)-[:CACH_DIEU_TRI]->(dt:DieuTri)
+RETURN nn.desc AS nguyen_nhan, dt.desc AS dieu_tri;
+
+The question is:
+{question}
+"""
+        
+        CYPHER_GENERATION_PROMPT = PromptTemplate(
+            input_variables=["schema", "question"],
+            template=CYPHER_GENERATION_TEMPLATE
+        )
+        
+        # Create a langchain_neo4j.Neo4jGraph object
+        neo4j_graph_langchain = Neo4jGraph(
+            url=NEO4J_URI,
+            username=NEO4J_USER,
+            password=NEO4J_PASSWORD
+        )
+        
+        cypherChain = GraphCypherQAChain.from_llm(
+            ChatGoogleGenerativeAI(
+                model="gemini-2.5-flash",
+                temperature=0,
+                google_api_key=GEMINI_API_KEY
+            ),
+            graph=neo4j_graph_langchain,
+            verbose=True,
+            cypher_prompt=CYPHER_GENERATION_PROMPT,
+            allow_dangerous_requests=True
+        )
+    return cypherChain
+
+def prettyCypherChain(question: str) -> str:
+    """
+    Query Knowledge Graph using Cypher chain
+    Tương ứng với hàm trong process_main.ipynb (dòng 25-29)
+    
+    Args:
+        question: User's question in Vietnamese
+    
+    Returns:
+        Formatted response text
+    """
+    chain = get_cypher_chain()
+    response = chain.run(question)
+    return textwrap.fill(response, 60)
 
 @sleep_and_retry
 @limits(calls=1500, period=60)
@@ -103,7 +180,19 @@ def semantic_search(node_label, text_field, embedding_field, query_text, top_k=5
 
 def extract_entities_and_relationships(text):
     """Extract entities and relationships from text using Gemini"""
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    # Cấu hình API key
+    genai.configure(api_key=GEMINI_API_KEY)
+    
+    # Sử dụng GenerativeModel với safety settings để tránh lỗi
+    model = genai.GenerativeModel(
+        model_name="gemini-2.5-flash",
+        safety_settings=[
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+        ]
+    )
 
     prompt = (
         f"You are the query-analysis system for a plant disease diagnosis chatbot using RAG + a Knowledge Graph.\n\n"
@@ -147,16 +236,13 @@ def extract_entities_and_relationships(text):
         f"Text:\n\"{text}\"\n\n"
     )
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=[prompt],
-        config={
+    # Generate content với generation config
+    response = model.generate_content(
+        prompt,
+        generation_config={
             "temperature": 1,
             "top_p": 1,
             "max_output_tokens": 2048,
-            "frequency_penalty": 0,
-            "presence_penalty": 0,
-            "response_mime_type": "text/plain"
         }
     )
     return response
@@ -259,7 +345,29 @@ def query_by_input_text(query_text):
     """
     response = extract_entities_and_relationships(query_text)
 
-    result_after_parse = parse_gemini_response(response.text)
+    # Sử dụng response.text trực tiếp như trong notebook
+    # genai.Client trả về response object có thể truy cập .text an toàn hơn
+    try:
+        response_text = response.text
+    except (ValueError, AttributeError) as e:
+        # Xử lý lỗi nếu không thể lấy text
+        print(f"[KG Service] Error accessing response.text: {e}")
+        # Thử lấy từ candidates nếu có
+        if hasattr(response, 'candidates') and response.candidates and len(response.candidates) > 0:
+            candidate = response.candidates[0]
+            if hasattr(candidate, 'finish_reason'):
+                finish_reason = candidate.finish_reason
+                if finish_reason == 3:  # SAFETY
+                    return "Xin lỗi, tôi không thể xử lý câu hỏi này do bị chặn bởi bộ lọc an toàn. Vui lòng thử lại với câu hỏi khác."
+                elif finish_reason == 2:  # MAX_TOKENS
+                    return "Xin lỗi, câu hỏi quá dài hoặc phản hồi vượt quá giới hạn. Vui lòng thử lại với câu hỏi ngắn gọn hơn."
+        return "Xin lỗi, không thể xử lý phản hồi từ AI. Vui lòng thử lại."
+
+    # Kiểm tra response_text có rỗng không
+    if not response_text or not response_text.strip():
+        return "Xin lỗi, không nhận được phản hồi từ AI. Vui lòng thử lại."
+
+    result_after_parse = parse_gemini_response(response_text)
 
     results = []
 
@@ -287,7 +395,8 @@ def query_by_input_text(query_text):
                 for r_se in results_sematic:
                     results.append(r_se)
             else:
-                pass
+                # Sử dụng prettyCypherChain cho các relationship khác (như trong notebook)
+                return prettyCypherChain(query_text)
 
         return format_result(results, ten_cay)
 
