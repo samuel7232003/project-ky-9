@@ -3,13 +3,12 @@
 # Script để start ML Server với virtual environment đúng
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PROJECT_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
-VENV_PATH="$PROJECT_ROOT/venv_ml"
+VENV_PATH="$SCRIPT_DIR/venv_ml"
 
 # Kiểm tra venv có tồn tại không
 if [ ! -d "$VENV_PATH" ]; then
     echo "❌ Virtual environment không tìm thấy tại: $VENV_PATH"
-    echo "Hãy chạy: python3.11 -m venv venv_ml"
+    echo "Hãy chạy: cd $SCRIPT_DIR && python3.11 -m venv venv_ml"
     exit 1
 fi
 
