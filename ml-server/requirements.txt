@@ -14,4 +14,10 @@ google-generativeai>=0.3.0
 google>=0.0.1  # For genai.Client API
 ratelimit>=2.2.1
 python-dotenv>=1.0.0
+# LangChain dependencies for Cypher QA Chain
+langchain-core>=0.1.0
+langchain-google-genai>=1.0.0
+langchain-neo4j>=0.0.1
+openai>=1.0.0  # Required by langchain-neo4j (neo4j_graphrag dependency)
+neo4j>=5.0.0  # Neo4j Python driver (required by langchain-neo4j)
 
