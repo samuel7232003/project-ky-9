@@ -33,7 +33,7 @@ function Main() {
                 </figure>
                 <p className={css.buttonToolText}>Drone giám sát</p>
               </Link>
-              <Link to={getLocalizedPath("/")} className={css.buttonTool}>
+              {/* <Link to={getLocalizedPath("/")} className={css.buttonTool}>
                 <figure className={css.imgContainer}>
                   <img src={image4} alt="" />
                 </figure>
@@ -44,7 +44,7 @@ function Main() {
                   <img src={image5} alt="" />
                 </figure>
                 <p className={css.buttonToolText}>Thư viện tri thức</p>
-              </Link>
+              </Link> */}
             </div>
             <figure className={css.chevron} onClick={handleMenuClick}>
               <img src={chevron_left} alt="" />

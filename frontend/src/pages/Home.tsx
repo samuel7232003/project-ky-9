@@ -14,12 +14,10 @@ function Home() {
         <div className={css.containerLeft}>
           <div className={css.containerText}>
             <p className={css.containerTitle}>
-              Hệ thống tìm hiểu tri thức và theo dõi sức khỏe cây trồng
+              DRONE GIÁM SÁT VÀ NHẬN DIỆN CON NGƯỜI
             </p>
             <p className={css.containerDescription}>
-              Tích hợp trí tuệ nhân tạo, đồ thị tri thức và hệ thống điều khiển
-              drone để thực hiện giám sát, theo dõi, phát hiện bệnh trên cây
-              trồng.
+              Hệ thống điều khiển drone để thực hiện giám sát, theo dõi, phát hiện con người.
             </p>
           </div>
           <Link to={getLocalizedPath("/main")} style={{ position: "relative" }}>
