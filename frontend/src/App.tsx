@@ -1,28 +1,31 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import Header from './components/Header/Header';
 import Header1 from './components/Header/Header1';
 import LanguageProvider from './components/LanguageProvider';
 import LocalizedRoutes from './components/LocalizedRoutes';
 import LoadingSpinner from './components/LoadingSpinner';
-import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import AuthRoute from './components/AuthRoute';
-import ProtectedRoute from './components/ProtectedRoute';
 import { RouteConfig } from './utils/routeUtils';
 import { APP_CONFIG } from './configs';
+import { useTranslation } from './hooks/useTranslation';
+
+// Component để redirect đến trang drone
+function RedirectToDrone() {
+  const { getLocalizedPath } = useTranslation();
+  return <Navigate to={getLocalizedPath('/main/drone')} replace />;
+}
 
 // Component con để sử dụng useTranslation khi đã có Router context
 function AppContent() {
-  
   // Định nghĩa routes một lần duy nhất
   const appRoutes: RouteConfig[] = [
     {
       path: '/',
-      element: <Home />,
+      element: <RedirectToDrone />,
     },
     {
       path: '/login',
@@ -34,11 +37,7 @@ function AppContent() {
     },
     {
       path: '/main/*',
-      element: (
-        <ProtectedRoute>
-          <Main />
-        </ProtectedRoute>
-      ),
+      element: <Main />,
     }
   ];
 
